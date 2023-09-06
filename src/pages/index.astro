@@ -54,12 +54,11 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	<section>
+	<section class="h-card">
 		<h1 class="title mb-6">Hello World!</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on one the github icon link below which will take you to my repo.
+			Hei, I’m <a class="p-name u-uid u-url" href="https://niklas.fyi"><span class="p-given-name">Niklas</span>&nbsp;<span class="p-family-name">Siefke</span></a> (<span class="p-pronouns"><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span class="p-pronoun-oblique p-x-pronoun-oblique">him</span>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span>).
+			In 2022, my wife Eleni and I relocated with our dog Krümel to Trondheim, Norway, where I am currently working as a Software Engineer at <a class="p-org h-card" href="https://www.mazemap.com/">MazeMap</a>.
 		</p>
 		<SocialList />
 	</section>
