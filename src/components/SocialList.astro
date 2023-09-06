@@ -36,7 +36,7 @@ const socialLinks = [
 							class={`inline-block p-1 sm:hover:text-link ${isEmail ? "u-email" : ""}`}
 							href={link}
 							target="_blank"
-							rel={`noopener noreferrer me ${isEmail ? "authn" : ""}`}
+							rel="noopener noreferrer me"
 						>
 							<Icon class="h-6 w-6" name={name} aria-hidden="true" focusable="false" />
 							<span class="sr-only">{friendlyName}</span>
