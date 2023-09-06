@@ -19,7 +19,7 @@ const socialLinks = [
 	{
 		name: "mdi:email",
 		friendlyName: "email",
-		link: "mailto:hi@niklas.fyi?subject=[niklas.fyi] ",
+		link: "mailto:hi@niklas.fyi",
 	},
 ];
 ---
@@ -33,7 +33,7 @@ const socialLinks = [
 				return (
 					<li class="flex">
 						<a
-							class="inline-block p-1 sm:hover:text-link"
+							class={`inline-block p-1 sm:hover:text-link ${isEmail ? "u-email" : ""}`}
 							href={link}
 							target="_blank"
 							rel={`noopener noreferrer me ${isEmail ? "authn" : ""}`}
