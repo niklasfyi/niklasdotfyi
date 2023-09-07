@@ -8,3 +8,5 @@ coverImage:
   alt: "Astro build wallpaper"
 tags: ["test", "image"]
 ---
+
+Fooo baaaar
