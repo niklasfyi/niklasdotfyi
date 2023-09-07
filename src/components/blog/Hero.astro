@@ -32,10 +32,16 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	)
 }
 <h1 class="title mb-3 sm:mb-1 p-name">{data.title}</h1>
+<div class="hidden">
+	<p>
+		This posts' permalink: <a class="u-url" href={Astro.url}>{Astro.url}</a> and has the following description:
+	</p>
+	<blockquote class="p-summary">{data.description}</blockquote>
+</div>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">
 		<FormattedDate class="dt-published" date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{" "}
-		{remarkPluginFrontmatter.minutesRead}
+		{remarkPluginFrontmatter.minutesRead} / <a rel="author" class="p-author h-card" href={Astro.site}>Niklas Siefke</a>
 	</p>
 	{
 		data.updatedDate && (

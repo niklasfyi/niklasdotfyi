@@ -128,6 +128,9 @@ export default {
 				".p-name": {
 					color: "hsl(var(--theme-accent))",
 				},
+				".p-author": {
+					color: "hsl(var(--theme-accent))",
+				},
 				".p-org": {
 					color: "hsl(var(--theme-accent))",
 				},
