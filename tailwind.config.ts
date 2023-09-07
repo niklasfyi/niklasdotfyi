@@ -114,6 +114,7 @@ export default {
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/aspect-ratio"),
+		require("tailwind-fontawesome"),
 		plugin(function ({ addComponents }) {
 			addComponents({
 				".cactus-link": {
@@ -124,6 +125,9 @@ export default {
 						backgroundImage:
 							"linear-gradient(transparent,transparent 4px,hsl(var(--theme-link)) 4px,hsl(var(--theme-link)))",
 					},
+				},
+				".h-card .u-url": {
+					"@apply icon-before icon-address-book icon-space-sm": {},
 				},
 				".title": {
 					"@apply text-2xl font-semibold text-accent-2": {},
