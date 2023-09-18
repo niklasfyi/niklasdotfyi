@@ -1,10 +1,10 @@
 import type { APIContext, GetStaticPaths } from "astro";
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getEntryBySlug } from "astro:content";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
 import { Resvg } from "@resvg/resvg-js";
 import { siteConfig } from "@/site-config";
-import { getFormattedDate } from "@/utils";
+import { getAllPosts, getFormattedDate } from "@/utils";
 
 import RobotoMono from "@/assets/roboto-mono-regular.ttf";
 import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
@@ -79,6 +79,6 @@ export async function GET({ params: { slug } }: APIContext) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const posts = await getCollection("post");
+	const posts = await getAllPosts();
 	return posts.filter(({ data }) => !data.ogImage).map(({ slug }) => ({ params: { slug } }));
 };
