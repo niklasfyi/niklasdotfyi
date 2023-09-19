@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://astro-theme-cactus.netlify.app/sitemap-index.xml
+Disallow: 
+Host: https://brutal.elian.codes/
+Sitemap: https://brutal.elian.codes/sitemap-index.xml
