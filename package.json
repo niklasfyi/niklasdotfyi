@@ -1,14 +1,13 @@
 {
-  "name": "niklasdotfyi-new",
+  "name": "niklasdotfyi",
   "version": "1.2.0",
   "type": "module",
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@8.7.6",
   "author": {
-    "name": "Elian Van Cutsem",
-    "email": "hello@elian.codes",
-    "url": "https://www.elian.codes/"
+    "name": "Niklas Siefke",
+    "email": "hello@niklas.fyi",
+    "url": "https://www.niklas.fyi/"
   },
-  "homepage": "https://brutal.elian.codes",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
