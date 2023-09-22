@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-Host: https://www.niklas.fyi/
-Sitemap: https://www.niklas.fyi/sitemap-index.xml

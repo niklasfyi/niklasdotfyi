@@ -1,27 +1,25 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import UnoCSS from 'unocss/astro';
-// import vercel from '@astrojs/vercel/serverless';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import netlify from "@astrojs/netlify/functions";
+import robotsTxt from "astro-robots-txt";
+import UnoCSS from "@unocss/astro";
 
+import solidJs from "@astrojs/solid-js";
+
+// https://astro.build/config
 export default defineConfig({
-  // output: 'server',
-  // adapter: vercel({
-  //   webAnalytics: {
-  //     enabled: true,
-  //   },
-  // }),
-  // used to generate images
-  site:
-    process.env.VERCEL_ENV === 'production'
-      ? 'https://niklas.fyi/'
-      : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/`
-      : 'https://localhost:3000/',
-  trailingSlash: 'ignore',
-  integrations: [sitemap(), UnoCSS({ injectReset: true })],
-  vite: {
-    optimizeDeps: {
-      exclude: ['@resvg/resvg-js'],
-    },
-  },
+  site: "https://www.niklas.fyi/",
+  integrations: [
+    sitemap(),
+    robotsTxt({
+      sitemap: [
+        "https://www.niklas.fyi/sitemap-index.xml",
+        "https://www.niklas.fyi/sitemap-0.xml",
+      ],
+    }),
+    solidJs(),
+    UnoCSS({ injectReset: true }),
+  ],
+  output: "server",
+  adapter: netlify(),
 });
