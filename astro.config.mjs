@@ -4,8 +4,6 @@ import robotsTxt from "astro-robots-txt";
 import UnoCSS from "@unocss/astro";
 import solidJs from "@astrojs/solid-js";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.niklas.fyi/",
@@ -14,6 +12,4 @@ export default defineConfig({
   }), solidJs(), UnoCSS({
     injectReset: true
   })],
-  output: "server",
-  adapter: cloudflare()
 });
