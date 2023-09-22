@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.6.0",
     "@astrojs/sitemap": "^2.0.2",
     "@astrojs/solid-js": "^2.2.1",
     "astro": "^2.10.9",

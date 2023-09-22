@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify/functions";
 import robotsTxt from "astro-robots-txt";
 import UnoCSS from "@unocss/astro";
 
@@ -20,6 +19,4 @@ export default defineConfig({
     solidJs(),
     UnoCSS({ injectReset: true }),
   ],
-  output: "server",
-  adapter: netlify(),
 });
