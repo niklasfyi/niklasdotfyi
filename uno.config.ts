@@ -2,6 +2,10 @@
 import { defineConfig, presetUno, presetWebFonts } from "unocss";
 
 export default defineConfig({
+  rules: [
+    ['full-height', { height: '100%' }],
+    ['screen-height', { height: '100vh' }]
+  ],
   theme: {
     boxShadow: {
       custom: `2px 2px theme("colors.primary.500")`,
