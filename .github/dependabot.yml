@@ -14,7 +14,7 @@ updates:
     groups:
       unocss:
         patterns:
-        - "@unocss*"
+        - "*unocss*"
       astro:
         patterns:
-        - "astro*"
+        - "*astro*"
