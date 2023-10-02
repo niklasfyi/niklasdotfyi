@@ -23,6 +23,6 @@
     "@unocss/astro": "^0.56.2",
     "@unocss/preset-uno": "^0.56.2",
     "@unocss/reset": "^0.56.2",
-    "unocss": "^0.56.2"
+    "unocss": "^0.56.4"
   }
 }
