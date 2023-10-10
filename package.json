@@ -20,9 +20,9 @@
     "solid-js": "^1.7.11"
   },
   "devDependencies": {
-    "@unocss/astro": "^0.56.4",
-    "@unocss/preset-uno": "^0.56.4",
-    "@unocss/reset": "^0.56.4",
-    "unocss": "^0.56.4"
+    "@unocss/astro": "^0.56.5",
+    "@unocss/preset-uno": "^0.56.5",
+    "@unocss/reset": "^0.56.5",
+    "unocss": "^0.56.5"
   }
 }
