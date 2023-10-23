@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
 	// Include view-transitions: https://docs.astro.build/en/guides/view-transitions/
 	includeViewTransitions: false,
 	webmentions: {
-		link: "",
+		link: "https://webmention.io/www.niklas.fyi/webmention",
 	},
 };
 
