@@ -1,64 +1,97 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card/index.astro";
-import IntroCard from "../components/IntroCard.astro";
-import ContactsCard from "../components/ContactsCard.astro";
-import TimeZone from "../components/TimeZoneCard.astro";
-import Feed from "../components/Feed.astro";
-import Now from "../components/Now.astro";
+import PageLayout from "@/layouts/Base";
+import PostPreview from "@/components/blog/PostPreview";
+import SocialList from "@/components/SocialList";
+import { getAllPosts, sortMDByDate } from "@/utils";
+
+const MAX_POSTS = 10;
+const allPosts = await getAllPosts();
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+
+const cactusTech: Array<{ title: string; desc: string; href: string }> = [
+	{
+		title: "Astro",
+		desc: "Build fast websites, faster.",
+		href: "https://astro.build",
+	},
+	{
+		title: "Astro Assets",
+		desc: "Built-in optimized asset support.",
+		href: "https://docs.astro.build/en/guides/assets/",
+	},
+	{
+		title: "Tailwind CSS",
+		desc: "Rapidly build modern websites without ever leaving your HTML.",
+		href: "https://tailwindcss.com",
+	},
+	{
+		title: "Markdown",
+		desc: "Simple and easy-to-use markup language.",
+		href: "https://www.markdownguide.org/",
+	},
+	{
+		title: "MDX",
+		desc: "Markdown for the component era.",
+		href: "https://mdxjs.com/",
+	},
+	{
+		title: "Satori",
+		desc: "Generating png Open Graph images for blog posts.",
+		href: "https://github.com/vercel/satori",
+	},
+	{
+		title: "Pagefind",
+		desc: "A fully static search library.",
+		href: "https://pagefind.app/",
+	},
+	{
+		title: "Astro Icon",
+		desc: "An easy to use Icon component for Astro.",
+		href: "https://github.com/natemoo-re/astro-icon#readme",
+	},
+];
 ---
 
-<script>
-  import { stagger, spring, timeline, type TimelineDefinition } from "motion";
-  const cards = document.querySelectorAll(".card");
-
-  const sequence = [
-    [
-      ".loaderRef",
-      { opacity: 0, pointerEvents: "none" },
-      { easing: "ease-out" },
-    ],
-    [
-      cards,
-      { y: ["40%", "0%"], opacity: [0, 1] },
-      {
-        at: "-0.1",
-        duration: 0.4,
-        delay: stagger(0.3),
-        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
-      },
-    ],
-  ];
-
-  timeline(sequence as TimelineDefinition);
-</script>
-
-<Layout
-  title="Niklas Siefke - Software Engineer"
-  description="Software engineer - Hobby Photographer - Husband"
->
-  <main
-    class="h-feed text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:screen-height lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
-  >
-    <IntroCard />
-    <Feed />
-    <ContactsCard />
-    <TimeZone />
-    <Card
-    colSpan="md:col-span-1"
-    rowSpan="md:row-span-1"
-    title="Blog"
-    body="Currently WIP"
-    />
-    <Now />
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <p class="text-xs">
-        © 2023 · Crafted with ♥️ using <a
-          href="https://astro.build/"
-          target="_blank"
-          class="text-primary-500">Astro</a
-        > by Niklas.
-      </p>
-    </Card>
-  </main>
-</Layout>
+<PageLayout meta={{ title: "Home" }}>
+	<section>
+		<h1 class="title mb-6">Hello World!</h1>
+		<p class="mb-4">
+			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
+			blog. If you want to know more about how you can customise me, add more posts, and make it
+			your own, click on one the github icon link below which will take you to my repo.
+		</p>
+		<SocialList />
+	</section>
+	<section aria-label="Blog post list" class="mt-16">
+		<h2 class="title mb-4 text-xl">Posts</h2>
+		<ul class="space-y-4 sm:space-y-2">
+			{
+				allPostsByDate.map((p) => (
+					<li class="flex flex-col gap-x-2 sm:flex-row">
+						<PostPreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+	<section class="mt-16">
+		<h2 class="title mb-4 text-xl">Technologies</h2>
+		<ul class="space-y-4 sm:space-y-2">
+			{
+				cactusTech.map(({ href, title, desc }) => (
+					<li>
+						<a
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="cactus-link inline-block"
+						>
+							{title}
+						</a>: 
+						<p class="inline-block sm:mt-2">{desc}</p>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</PageLayout>
