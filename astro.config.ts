@@ -10,7 +10,7 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time";
 // https://astro.build/config
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
-	site: "https://niklas.fyi/",
+	site: "https://www.niklas.fyi/",
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		remarkRehype: { footnoteLabelProperties: { className: [""] } },

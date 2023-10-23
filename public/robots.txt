@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://niklas.fyi/sitemap-index.xml
+Sitemap: https://www.niklas.fyi/sitemap-index.xml
