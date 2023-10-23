@@ -3,6 +3,8 @@ import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
 import { getAllPosts, sortMDByDate } from "@/utils";
+import { Image } from "astro:assets";
+import myImage from "../assets/me.png";
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
@@ -54,12 +56,12 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Hello World!</h1>
-		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on one the github icon link below which will take you to my repo.
+		<div class="grid grid-cols-5 gap-3">
+		<Image src={myImage} alt="Memoji of myself" />
+		<p class="mb-4 col-span-4">
+			Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"><b class="font-bold"><span class="p-given-name">Niklas</span>&nbsp;<span class="p-family-name">Siefke</span></b></a> (<span class="p-pronouns"><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span class="p-pronoun-oblique p-x-pronoun-oblique">him</span>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span>), a <span class="p-job-title">Software Engineer</span> at <a class="p-org h-card" href="https://www.mazemap.com/">MazeMap</a>. Currently, I am living with my wife and our dog in <span class="p-locality">Trondheim</span>, <span class="p-country-name">Norway</span>.
 		</p>
+		</div>
 		<SocialList />
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
