@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.0.1",
+    "@astrojs/sitemap": "^3.0.2",
     "@astrojs/solid-js": "^3.0.2",
-    "astro": "^3.3.0",
+    "astro": "^3.3.2",
     "astro-icon": "^0.8.1",
     "astro-robots-txt": "^1.0.0",
     "autoprefixer": "^10.4.15",
