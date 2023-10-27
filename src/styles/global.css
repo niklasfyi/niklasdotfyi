@@ -24,11 +24,24 @@
 		--theme-quote: 102deg 100% 86%;
 	}
 
+	@font-face {
+		font-family: 'FontAwesome';
+		font-style: normal;
+		font-weight: 900;
+		font-display: block;
+		src: url("/fonts/fa-solid-900.woff2") format("woff2"), url("/fonts/fa-solid-900.ttf") format("truetype"); }
+
 	html {
 		@apply scroll-smooth;
 	}
 
 	html body {
 		@apply mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
+	}
+
+	.h-card .u-url::before {
+		content: "\f2b9";
+		font: normal normal normal 14px/1 FontAwesome;
+		margin-right: 3px;
 	}
 }
