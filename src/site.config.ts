@@ -15,6 +15,7 @@ export const siteConfig: SiteConfig = {
 	date: {
 		locale: "en-GB",
 		options: {
+			weekday: "short",
 			day: "numeric",
 			month: "short",
 			year: "numeric",
