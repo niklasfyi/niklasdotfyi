@@ -12,6 +12,7 @@ module.exports = {
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
 		"plugin:astro/recommended",
+		"prettier",
 		"plugin:astro/jsx-a11y-recommended",
 	],
 	rules: {
@@ -30,7 +31,6 @@ module.exports = {
 				extraFileExtensions: [".astro"],
 			},
 			rules: {
-				"prettier/prettier": "off",
 				"astro/jsx-a11y/no-redundant-roles": [
 					"error",
 					{

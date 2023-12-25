@@ -6,7 +6,7 @@
 	:root {
 		color-scheme: light;
 		/* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
-		--theme-bg: 0deg 0% 98%;
+		--theme-bg: 0deg 0% 9%;
 		--theme-link: 172deg 18% 41%;
 		--theme-text: 203deg 11% 15%;
 		--theme-accent: 351deg 66% 48%;
@@ -16,7 +16,7 @@
 
 	:root.dark {
 		color-scheme: dark;
-		--theme-bg: 216deg 18% 16%;
+		--theme-bg: 0deg 0% 9%;
 		--theme-link: 26deg 75% 53%;
 		--theme-text: 0deg 0% 93%;
 		--theme-accent: 26deg 75% 53%;
@@ -43,5 +43,36 @@
 		content: "\f2b9";
 		font: normal normal normal 14px/1 FontAwesome;
 		margin-right: 3px;
+	}
+
+	.post-list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	}
+	
+	.blog-post {
+	border: 1px solid #ccc;
+	padding: 10px;
+	}
+	
+	.post-title {
+	font-size: 20px;
+	color: #333;
+	}
+	
+	.post-title a {
+	text-decoration: none;
+	color: inherit;
+	}
+	
+	.post-date {
+	font-size: 14px;
+	color: #999;
+	}
+	
+	.post-description {
+	font-size: 16px;
+	color: #666;
 	}
 }
