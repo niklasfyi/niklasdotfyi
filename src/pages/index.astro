@@ -6,6 +6,7 @@ import { getAllPosts, sortMDByDate } from "@/utils";
 import { Image } from "astro:assets";
 import myImage from "../assets/me.png";
 
+
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
@@ -26,11 +27,8 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 		<ul class="space-y-4 sm:space-y-2">
 			{
 				allPostsByDate.map((p) => (
-					// <li class="flex flex-col gap-x-2 sm:flex-row">
-					// 	<PostPreview post={p} />
-					// </li>
-					<li class="h-entry flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
-						<PostPreview post={p} as="h2" withDesc />
+				<li class="h-entry flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full border border-gray-300/25 p-2 rounded-md">
+						<PostPreview post={p} withDesc />
 					</li>
 				))
 			}
