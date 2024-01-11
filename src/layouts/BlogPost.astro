@@ -18,12 +18,14 @@ const {
 const socialImage = ogImage ?? `/og-image/${slug}.png`;
 const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString();
 const { headings } = await post.render();
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout meta={{ title, description, articleDate, ogImage: socialImage }}>
 	<div class="gap-x-10 lg:flex lg:items-start">
 		{!!headings.length && <TOC headings={headings} />}
 		<article class="h-entry flex-grow break-words" data-pagefind-body>
+			<link class="u-url" rel="canonical" href={canonicalURL} />
 			<div id="blog-hero"><BlogHero content={post} /></div>
 			<div
 				class="e-content prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent prose-headings:before:content-['#'] prose-th:before:content-none"
