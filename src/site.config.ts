@@ -23,6 +23,7 @@ export const siteConfig: SiteConfig = {
 	},
 	webmentions: {
 		link: "https://webmention.io/www.niklas.fyi/webmention",
+		pingback: "https://webmention.io/www.niklas.fyi/xmlrpc",
 	},
 };
 
