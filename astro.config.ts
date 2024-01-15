@@ -14,7 +14,7 @@ import vercel from '@astrojs/vercel/static';
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
 	site: "https://www.niklas.fyi/",
-	output: 'server',
+	output: 'static',
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
