@@ -4,15 +4,15 @@ import { Icon } from "astro-icon/components";
 import type { WebmentionsChildren } from "@/types";
 
 interface Props {
-	mentions: WebmentionsChildren[];
+	webmentions: WebmentionsChildren[];
 }
 
-const { mentions } = Astro.props;
+const { webmentions } = Astro.props;
 
 const validComments = ["mention-of", "in-reply-to"];
 
-const comments = mentions.filter(
-	(mention) => validComments.includes(mention["wm-property"]) && mention.content?.text,
+const comments = webmentions.filter(
+	(webmention) => validComments.includes(webmention["wm-property"]) && webmention.content?.text,
 );
 
 /**
@@ -28,21 +28,21 @@ const comments = mentions.filter(
 				<strong>{comments.length}</strong> Mention{comments.length > 1 ? "s" : ""}
 			</p>
 			<ul class="mt-0 divide-y divide-textColor/20 ps-0" role="list">
-				{comments.map((mention) => (
+				{comments.map((webmention) => (
 					<li class="my-0 flex items-start gap-x-5 py-5">
-						{mention.author?.photo && mention.author.photo !== "" ? (
-							mention.author.url && mention.author.url !== "" ? (
+						{webmention.author?.photo && webmention.author.photo !== "" ? (
+							webmention.author.url && webmention.author.url !== "" ? (
 								<a
-									href={mention.author.url}
+									href={webmention.author.url}
 									class="not-prose shrink-0 overflow-hidden rounded-full outline-none ring-2 ring-textColor hover:ring-4 hover:ring-link focus-visible:ring-4 focus-visible:ring-link"
 									target="_blank"
 									rel="noopener noreferrer"
-									title={mention.author.name}
+									title={webmention.author.name}
 								>
 									<Image
 										class="my-0 h-12 w-12"
-										src={mention.author?.photo}
-										alt={mention.author?.name}
+										src={webmention.author?.photo}
+										alt={webmention.author?.name}
 										width={48}
 										height={48}
 									/>
@@ -50,8 +50,8 @@ const comments = mentions.filter(
 							) : (
 								<Image
 									class="my-0 h-12 w-12 rounded-full"
-									src={mention.author?.photo}
-									alt={mention.author?.name}
+									src={webmention.author?.photo}
+									alt={webmention.author?.name}
 									width={48}
 									height={48}
 								/>
@@ -59,9 +59,9 @@ const comments = mentions.filter(
 						) : null}
 						<div class="flex-auto">
 							<div class="flex items-center justify-between gap-x-2">
-								<p class="my-0 line-clamp-1 font-semibold text-accent-2">{mention.author?.name}</p>
+								<p class="my-0 line-clamp-1 font-semibold text-accent-2">{webmention.author?.name}</p>
 								<a
-									href={mention.url}
+									href={webmention.url}
 									class="not-prose hover:text-link"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -75,7 +75,7 @@ const comments = mentions.filter(
 									/>
 								</a>
 							</div>
-							<p class="mb-0 mt-1 break-words [word-break:break-word]">{mention.content?.text}</p>
+							<p class="mb-0 mt-1 break-words [word-break:break-word]">{webmention.content?.text}</p>
 						</div>
 					</li>
 				))}

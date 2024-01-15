@@ -1,0 +1,29 @@
+---
+import type { WebmentionsChildren } from "@/types";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	webmentions: WebmentionsChildren[];
+}
+
+const { webmentions } = Astro.props;
+
+const likes = webmentions.filter((mention) => mention["wm-property"] == "like-of");
+const replies = webmentions.filter((mention) => mention["wm-property"] == "in-reply-to");
+const reposts = webmentions.filter((mention) => mention["wm-property"] == "repost-of");
+const bookmarks = webmentions.filter((mention) => mention["wm-property"] == "bookmark-of");
+// const rsvps = webmentions.filter((mention) => mention["wm-property"] == "rsvp");
+const mentions = webmentions.filter((mention) => mention["wm-property"] == "mention-of");
+---
+
+{
+	(!!likes.length || !!replies.length || !!reposts.length || !!bookmarks.length || !!mentions.length ) && (
+			<div class="grid grid-cols-5 gap-4 mb-0 text-accent-2">
+				{!!likes.length && (<div class="flex align-middle">{likes.length} <Icon class="h-5 ml-1" name="mdi:heart" aria-hidden="true" /></div>)}
+				{!!reposts.length && (<div class="flex align-middle">{reposts.length} <Icon class="h-5 ml-1" name="mdi:repeat" aria-hidden="true" /></div>)}
+				{!!replies.length && (<div class="flex align-middle">{replies.length} <Icon class="h-5 ml-1" name="mdi:forum" aria-hidden="true" /></div>)}
+				{!!mentions.length && (<div class="flex align-middle">{mentions.length} <Icon class="h-5 ml-1" name="mdi:chat" aria-hidden="true" /></div>)}
+				{!!bookmarks.length && (<div class="flex align-middle">{bookmarks.length} <Icon class="h-5 ml-1" name="mdi:bookmark" aria-hidden="true" /></div>)}
+			</div>
+	)
+}
