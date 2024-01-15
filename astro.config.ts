@@ -7,11 +7,19 @@ import sitemap from "@astrojs/sitemap";
 import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
+import vercel from '@astrojs/vercel/static';
+
 
 // https://astro.build/config
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
 	site: "https://www.niklas.fyi/",
+	output: 'server',
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true,
+		  },
+	}),
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		rehypePlugins: [
