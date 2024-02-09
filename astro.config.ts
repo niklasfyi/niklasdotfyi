@@ -8,55 +8,57 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
 
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-	// ! Please remember to replace the following site property with your own domain
-	site: "https://www.niklas.fyi/",
-	markdown: {
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-		rehypePlugins: [
-			[rehypeExternalLinks, { target: "_blank", rel: ["nofollow, noopener, noreferrer"] }],
-		],
-		remarkRehype: { footnoteLabelProperties: { className: [""] } },
-		shikiConfig: {
-			theme: "dracula",
-			wrap: true,
-		},
-	},
-	integrations: [
-		mdx({}),
-		tailwind({
-			applyBaseStyles: false,
-		}),
-		sitemap(),
-		icon(),
-	],
-	image: {
-		domains: ["webmention.io"],
-	},
-	prefetch: true,
-	vite: {
-		plugins: [rawFonts([".ttf"])],
-		optimizeDeps: {
-			exclude: ["@resvg/resvg-js"],
-		},
-	},
+  // ! Please remember to replace the following site property with your own domain
+  site: "https://www.niklas.fyi/",
+  markdown: {
+    remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+    rehypePlugins: [[rehypeExternalLinks, {
+      target: "_blank",
+      rel: ["nofollow, noopener, noreferrer"]
+    }]],
+    remarkRehype: {
+      footnoteLabelProperties: {
+        className: [""]
+      }
+    },
+    shikiConfig: {
+      theme: "dracula",
+      wrap: true
+    }
+  },
+  integrations: [mdx({}), tailwind({
+    applyBaseStyles: false
+  }), sitemap(), icon()],
+  image: {
+    domains: ["webmention.io"]
+  },
+  prefetch: true,
+  vite: {
+    plugins: [rawFonts([".ttf"])],
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"]
+    }
+  },
+  output: "hybrid",
+  adapter: vercel()
 });
-
 function rawFonts(ext: Array<string>) {
-	return {
-		name: "vite-plugin-raw-fonts",
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore:next-line
-		transform(_, id) {
-			if (ext.some((e) => id.endsWith(e))) {
-				const buffer = fs.readFileSync(id);
-				return {
-					code: `export default ${JSON.stringify(buffer)}`,
-					map: null,
-				};
-			}
-		},
-	};
+  return {
+    name: "vite-plugin-raw-fonts",
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore:next-line
+    transform(_, id) {
+      if (ext.some(e => id.endsWith(e))) {
+        const buffer = fs.readFileSync(id);
+        return {
+          code: `export default ${JSON.stringify(buffer)}`,
+          map: null
+        };
+      }
+    }
+  };
 }
