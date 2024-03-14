@@ -17,13 +17,37 @@ const mentions = webmentions.filter((mention) => mention["wm-property"] == "ment
 ---
 
 {
-	(!!likes.length || !!replies.length || !!reposts.length || !!bookmarks.length || !!mentions.length ) && (
-			<div class="grid grid-cols-5 gap-4 mb-0 text-accent-2">
-				{!!likes.length && (<div class="flex align-middle">{likes.length} <Icon class="h-5 ml-1" name="mdi:heart" aria-hidden="true" /></div>)}
-				{!!reposts.length && (<div class="flex align-middle">{reposts.length} <Icon class="h-5 ml-1" name="mdi:repeat" aria-hidden="true" /></div>)}
-				{!!replies.length && (<div class="flex align-middle">{replies.length} <Icon class="h-5 ml-1" name="mdi:forum" aria-hidden="true" /></div>)}
-				{!!mentions.length && (<div class="flex align-middle">{mentions.length} <Icon class="h-5 ml-1" name="mdi:chat" aria-hidden="true" /></div>)}
-				{!!bookmarks.length && (<div class="flex align-middle">{bookmarks.length} <Icon class="h-5 ml-1" name="mdi:bookmark" aria-hidden="true" /></div>)}
-			</div>
+	(!!likes.length ||
+		!!replies.length ||
+		!!reposts.length ||
+		!!bookmarks.length ||
+		!!mentions.length) && (
+		<div class="mb-0 grid grid-cols-5 gap-4 text-accent-2">
+			{!!likes.length && (
+				<div class="flex align-middle">
+					{likes.length} <Icon class="ml-1 h-5" name="mdi:heart" aria-hidden="true" />
+				</div>
+			)}
+			{!!reposts.length && (
+				<div class="flex align-middle">
+					{reposts.length} <Icon class="ml-1 h-5" name="mdi:repeat" aria-hidden="true" />
+				</div>
+			)}
+			{!!replies.length && (
+				<div class="flex align-middle">
+					{replies.length} <Icon class="ml-1 h-5" name="mdi:forum" aria-hidden="true" />
+				</div>
+			)}
+			{!!mentions.length && (
+				<div class="flex align-middle">
+					{mentions.length} <Icon class="ml-1 h-5" name="mdi:chat" aria-hidden="true" />
+				</div>
+			)}
+			{!!bookmarks.length && (
+				<div class="flex align-middle">
+					{bookmarks.length} <Icon class="ml-1 h-5" name="mdi:bookmark" aria-hidden="true" />
+				</div>
+			)}
+		</div>
 	)
 }

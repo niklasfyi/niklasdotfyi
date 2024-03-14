@@ -37,14 +37,20 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 </h1>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">
-		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} class="dt-published" /> /{" "}
+		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} class="dt-published" />
+		/{" "}
 		{remarkPluginFrontmatter.minutesRead}
 	</p>
 	{
 		data.updatedDate && (
 			<span class="rounded-lg bg-quote/10 p-1 text-quote">
 				Last Updated:
-				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} class="dt-updated" />
+				<FormattedDate
+					class="ms-1"
+					date={data.updatedDate}
+					dateTimeOptions={dateTimeOptions}
+					class="dt-updated"
+				/>
 			</span>
 		)
 	}

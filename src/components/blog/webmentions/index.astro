@@ -15,20 +15,48 @@ if (!webMentions.length) return;
 		<>
 			<hr class="border-solid" />
 			<h2 class="mb-8 before:hidden">Webmentions</h2>
-			<p class="mt-8">
-				If you liked this, please share it.
-			</p>
+			<p class="mt-8">If you liked this, please share it.</p>
 			<div class="space-y-10">
 				<Reactions webmentions={webMentions} />
 				<Comments webmentions={webMentions} />
 			</div>
 			<p class="mt-8">
-				These are <a href="https://indieweb.org/Webmention" target="_blank" rel="noopener noreferrer">webmentions</a> via the <a href="https://indieweb.org" target="_blank" rel="noopener noreferrer">IndieWeb</a> and <a href="https://webmention.io" target="_blank" rel="noopener noreferrer">webmention.io</a>. Mention this post from your site:
+				These are{" "}
+				<a href="https://indieweb.org/Webmention" target="_blank" rel="noopener noreferrer">
+					webmentions
+				</a>{" "}
+				via the{" "}
+				<a href="https://indieweb.org" target="_blank" rel="noopener noreferrer">
+					IndieWeb
+				</a>{" "}
+				and{" "}
+				<a href="https://webmention.io" target="_blank" rel="noopener noreferrer">
+					webmention.io
+				</a>
+				. Mention this post from your site:
 			</p>
-			<form action="https://webmention.io/www.niklas.fyi/webmention" method="post" class="form-webmention">
-				<input id="form-webmention-source" class="bg-bgColor pl-1 text-textColor border border-zinc-400" placeholder="URL" type="url" name="source" id="source" required>
-				<input type="hidden" name="target" id="target" value={`https://www.niklas.fyi/${ url }`} >
-				<button data-close-modal type="submit" class="cursor-pointer bg-zinc-200 ml-2 p-1 font-semibold dark:bg-zinc-700">Send Webmention</button>
+			<form
+				action="https://webmention.io/www.niklas.fyi/webmention"
+				method="post"
+				class="form-webmention"
+			>
+				<input
+					id="form-webmention-source"
+					class="border border-zinc-400 bg-bgColor pl-1 text-textColor"
+					placeholder="URL"
+					type="url"
+					name="source"
+					id="source"
+					required
+				/>
+				<input type="hidden" name="target" id="target" value={`https://www.niklas.fyi/${url}`} />
+				<button
+					data-close-modal
+					type="submit"
+					class="ml-2 cursor-pointer bg-zinc-200 p-1 font-semibold dark:bg-zinc-700"
+				>
+					Send Webmention
+				</button>
 			</form>
 		</>
 	)

@@ -59,7 +59,9 @@ const comments = webmentions.filter(
 						) : null}
 						<div class="flex-auto">
 							<div class="flex items-center justify-between gap-x-2">
-								<p class="my-0 line-clamp-1 font-semibold text-accent-2">{webmention.author?.name}</p>
+								<p class="my-0 line-clamp-1 font-semibold text-accent-2">
+									{webmention.author?.name}
+								</p>
 								<a
 									href={webmention.url}
 									class="not-prose hover:text-link"
@@ -75,7 +77,9 @@ const comments = webmentions.filter(
 									/>
 								</a>
 							</div>
-							<p class="mb-0 mt-1 break-words [word-break:break-word]">{webmention.content?.text}</p>
+							<p class="mb-0 mt-1 break-words [word-break:break-word]">
+								{webmention.content?.text}
+							</p>
 						</div>
 					</li>
 				))}

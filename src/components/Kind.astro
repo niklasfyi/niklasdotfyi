@@ -1,10 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 const { kind } = Astro.props;
-
 ---
 
 <a href="#" class="flex opacity-25">
-<Icon class="h-4 w-4 mr-1" name="mdi:note" aria-hidden="true" focusable="false" />
-<span>{kind.charAt(0).toUpperCase() + kind.slice(1)}</span>
+	<Icon class="mr-1 h-4 w-4" name="mdi:note" aria-hidden="true" focusable="false" />
+	<span>{kind.charAt(0).toUpperCase() + kind.slice(1)}</span>
 </a>

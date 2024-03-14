@@ -1,10 +1,9 @@
 import rss from "@astrojs/rss";
 import { siteConfig } from "@/site-config";
 import { getAllPosts } from "@/utils";
-import sanitizeHtml from 'sanitize-html';
-import MarkdownIt from 'markdown-it';
+import sanitizeHtml from "sanitize-html";
+import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
-
 
 export const GET = async () => {
 	const posts = await getAllPosts();
@@ -19,7 +18,7 @@ export const GET = async () => {
 			pubDate: post.data.publishDate,
 			link: `posts/${post.slug}`,
 			content: sanitizeHtml(parser.render(post.body)),
-      		...post.data,
+			...post.data,
 		})),
 	});
 };

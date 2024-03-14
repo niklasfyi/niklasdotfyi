@@ -14,19 +14,36 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<div class="h-card grid grid-cols-5 gap-3">
-		<Image src={myImage} alt="Memoji of myself" class="u-photo"/>
-		<p class="mb-4 col-span-4">
-			Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"><b class="font-bold"><span class="p-given-name">Niklas</span>&nbsp;<span class="p-family-name">Siefke</span></b></a> (<span class="p-pronouns"><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span class="p-pronoun-oblique p-x-pronoun-oblique">him</span>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span>) | 👨‍💻 <span class="p-job-title">Software Engineer</span> at <a class="p-org h-card" href="https://www.mazemap.com/">MazeMap</a> 🌍 | <span class="p-locality">Trondheim</span>, <span class="p-country-name">Norway</span> 🇳🇴 | 🏡 Living a quite life <span class="h-card"><a class="p-name u-url" href="https://www.instagram.com/elenisiefke/">Eleni</a></span> & our dog, Krümel 🐶 | 📷 Dedicated Photographer 📸 | Smart Home Tinkerer 🔌 | 🏞️ Exploring the great outdoors, one hike at a time ⛰️ | Join me on this journey as I blend code, creativity, and nature. 🚀
-		</p>
+			<Image src={myImage} alt="Memoji of myself" class="u-photo" />
+			<p class="col-span-4 mb-4">
+				Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"
+					><b class="font-bold"
+						><span class="p-given-name">Niklas</span>&nbsp;<span class="p-family-name">Siefke</span
+						></b
+					></a
+				> (<span class="p-pronouns"
+					><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span
+						class="p-pronoun-oblique p-x-pronoun-oblique">him</span
+					>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span
+				>) | 👨‍💻 <span class="p-job-title">Software Engineer</span> at <a
+					class="p-org h-card"
+					href="https://www.mazemap.com/">MazeMap</a
+				> 🌍 | <span class="p-locality">Trondheim</span>, <span class="p-country-name">Norway</span>
+				🇳🇴 | 🏡 Living a quite life <span class="h-card"
+					><a class="p-name u-url" href="https://www.instagram.com/elenisiefke/">Eleni</a></span
+				> & our dog, Krümel 🐶 | 📷 Dedicated Photographer 📸 | Smart Home Tinkerer 🔌 | 🏞️ Exploring
+				the great outdoors, one hike at a time ⛰️ | Join me on this journey as I blend code, creativity,
+				and nature. 🚀
+			</p>
 		</div>
 		<SocialList />
 	</section>
-	<hr class="my-8 h-px bg-gray-200 border-0 dark:bg-accent">
-	<section aria-label="Blog post list" class="mt-16 post-list">
+	<hr class="my-8 h-px border-0 bg-gray-200 dark:bg-accent" />
+	<section aria-label="Blog post list" class="post-list mt-16">
 		<ul class="space-y-4 sm:space-y-2">
 			{
 				allPostsByDate.map((p) => (
-				<li class="h-entry flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full border border-gray-300/25 p-2 rounded-md">
+					<li class="h-entry flex flex-col flex-wrap gap-2 rounded-md border border-gray-300/25 p-2 sm:flex-row [&_q]:basis-full">
 						<PostPreview post={p} withDesc />
 					</li>
 				))
