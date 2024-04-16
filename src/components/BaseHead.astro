@@ -66,6 +66,11 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 {/* RSS auto-discovery */}
 <link rel="alternate" type="application/rss+xml" title={siteConfig.title} href="/rss.xml" />
 
+{/* IndieKit */}
+<link rel="micropub" href="https://kit.niklas.fyi/micropub">
+<link rel="authorization_endpoint" href="https://kit.niklas.fyi/auth">
+<link rel="token_endpoint" href="https://kit.niklas.fyi/auth/token">
+
 {/* Webmentions */}
 {
 	siteConfig.webmentions && (
