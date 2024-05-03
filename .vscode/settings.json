@@ -6,12 +6,17 @@
 			"source.fixAll.markdownlint": "explicit"
 		}
 	},
-	"prettier.documentSelectors": ["**/*.astro"],
+	"prettier.documentSelectors": [
+		"**/*.astro"
+	],
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
 		"astro", // Enable .astro
 		"typescript", // Enable .ts
 		"typescriptreact"
+	],
+	"cSpell.words": [
+		"micropub"
 	]
 }
