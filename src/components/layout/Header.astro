@@ -1,6 +1,5 @@
 ---
 import ThemeToggle from "../ThemeToggle.astro";
-import Search from "../Search.astro";
 import { menuLinks } from "@/site-config";
 
 const url = new URL(Astro.request.url);
@@ -34,7 +33,6 @@ const url = new URL(Astro.request.url);
 			}
 		</nav>
 	</div>
-	<Search />
 	<ThemeToggle />
 	<mobile-button>
 		<button
