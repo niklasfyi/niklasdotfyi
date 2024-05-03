@@ -184,7 +184,7 @@ export async function GET({ request }: { params: any, request: Request }) {
       return micropubConfig.q.includes(query) ? Response.json('{}', { status: 200 }) : new Response('Query type is not supported', { status: 400 });
     }
 
-    return Response.json(JSON.stringify(result), { status: 200 });
+    return Response.json(result, { status: 200 });
   } else {
     return new Response('No known query parameters', { status: 400 });
   }
