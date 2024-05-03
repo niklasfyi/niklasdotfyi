@@ -162,13 +162,12 @@ const micropubConfig = {
   ]
 };
 
-export async function GET({ params, request }: { params: any, request: Request }) {
+export async function GET({ request }: { params: any, request: Request }) {
   const url = new URL(request.url);
   const searchParams = new URLSearchParams(url.search);
 
   // Now you can get individual parameters like this:
   const query = searchParams.get('q');
-  console.log(query);
 
   if (query === null) {
     // If a simple GET is performed, then we just want to verify the authorization credentials
