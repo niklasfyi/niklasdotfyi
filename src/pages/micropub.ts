@@ -117,7 +117,23 @@ const micropubConfig = {
     {
       'type': 'checkin',
       'name': 'Checkin',
-      'h': 'entry'
+      'h': 'entry',
+      'properties': [
+        'name',
+        'url',
+        'latitude',
+        'longitude',
+        'street-address',
+        'locality',
+        'region',
+        'country-name',
+        'postal-code',
+        'tel',
+      ],
+      'required-properties': [
+        'name',
+        'url'
+      ]
     }
   ],
   'syndicate-to': [
