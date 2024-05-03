@@ -17,11 +17,10 @@ Astro Cactus is a simple opinionated starter built with the Astro framework. Use
 6. [Configure](#configure)
 7. [Adding Posts](#adding-posts)
    - [Frontmatter](#frontmatter)
-8. [Pagefind search](#pagefind-search)
-9. [Analytics](#analytics)
-10. [View Transitions](#view-transitions)
-11. [Deploy](#deploy)
-12. [Acknowledgment](#acknowledgment)
+8. [Analytics](#analytics)
+9. [View Transitions](#view-transitions)
+10. [Deploy](#deploy)
+11. [Acknowledgment](#acknowledgment)
 
 ## Key Features
 
@@ -38,7 +37,6 @@ Astro Cactus is a simple opinionated starter built with the Astro framework. Use
 - [Webmentions](https://webmention.io/)
 - Shiki code syntax styling
 - Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
-- [Pagefind](https://pagefind.app/) static search library integration
 - [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
 
 ## Demo 💻
@@ -66,7 +64,6 @@ Replace pnpm with your choice of npm / yarn
 | `pnpm install`   | Installs dependencies                                          |
 | `pnpm dev`       | Starts local dev server at `localhost:3000`                    |
 | `pnpm build`     | Build your production site to `./dist/`                        |
-| `pnpm postbuild` | Pagefind script to build the static search of your blog posts  |
 | `pnpm preview`   | Preview your build locally, before deploying                   |
 | `pnpm sync`      | Generate types based on your config in `src/content/config.ts` |
 
@@ -108,18 +105,6 @@ Adding a post is as simple as adding your .md(x) files to the `src/content/post`
 | ogImage                | This is an optional property. An OG Image will be generated automatically for every post where this property **isn't** provided. If you would like to create your own for a specific post, include this property and a link to your image, the theme will then skip automatically generating one.            |
 | draft                  | This is an optional property as it is set to false by default in the schema. By adding true, the post will be filtered out of the production build in a number of places, inc. getAllPosts() calls, og-images, rss feeds, and generated page[s]. You can view an example in `src/content/post/draft-post.md` |
 
-## Pagefind search
-
-This integration brings a static search feature for searching blog posts. In its current form, pagefind only works once the site has been built. This theme adds a postbuild script that should be run after Astro has built the site. You can preview locally by running both build && postbuild.
-
-Search results only includes blog posts. If you would like to include other/all your pages, remove/re-locate the attribute `data-pagefind-body` to the article tag found in `src/layouts/BlogPost.astro`.
-
-It also allows you to filter posts by tags added in the frontmatter of blog posts. If you would rather remove this, remove the data attribute `data-pagefind-filter="tag"` from the link in `src/components/blog/Hero.astro`.
-
-Note the current build will display a warning in the console, you can follow this issue [here](https://github.com/CloudCannon/pagefind/issues/290)
-
-If you would rather not include this integration, simply remove the component `src/components/Search.astro`, and uninstall both `@pagefind/default-ui` & `pagefind` from package.json. You will also need to remove the postbuild script from here as well.
-
 ## Analytics
 
 You may want to track the number of visitors you receive to your blog/website in order to understand trends and popular posts/pages you've created. There are a number of providers out there one could use, including web hosts such as [vercel](https://vercel.com/analytics), [netlify](https://www.netlify.com/products/analytics/), and [cloudflare](https://www.cloudflare.com/web-analytics/).
@@ -143,8 +128,8 @@ import { GoogleAnalytics } from "astro-google-analytics";
 ---
 
 <head>
-	<!-- Replace id with your own Google Analytics ID -->
-	<GoogleAnalytics id="G-XXXXXXXXXX" />
+ <!-- Replace id with your own Google Analytics ID -->
+ <GoogleAnalytics id="G-XXXXXXXXXX" />
 </head>
 ```
 
