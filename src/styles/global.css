@@ -2,80 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	:root {
-		color-scheme: light;
-		/* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
-		--theme-bg: 0deg 0% 98%;
-		--theme-link: 172deg 18% 41%;
-		--theme-text: 203deg 11% 15%;
-		--theme-accent: 351deg 66% 48%;
-		--theme-accent-2: 0deg 0% 7%;
-		--theme-quote: 351deg 66% 48%;
-	}
+html {
+  overflow-y: scroll;
+  color-scheme: light;
+}
 
-	:root.dark {
-		color-scheme: dark;
-		--theme-bg: 210deg 6% 12%;
-		--theme-link: 26deg 75% 53%;
-		--theme-text: 220deg 3% 79%;
-		--theme-accent: 26deg 75% 53%;
-		--theme-accent-2: 0deg 0% 93%;
-		--theme-quote: 102deg 100% 86%;
-	}
+html.dark {
+  color-scheme: dark;
+}
 
-	@font-face {
-		font-family: "FontAwesome";
-		font-style: normal;
-		font-weight: 900;
-		font-display: block;
-		src:
-			url("/fonts/fa-solid-900.woff2") format("woff2"),
-			url("/fonts/fa-solid-900.ttf") format("truetype");
-	}
+html,
+body {
+  @apply size-full;
+}
 
-	html {
-		@apply scroll-smooth;
-	}
+body {
+  @apply font-sans antialiased;
+  @apply flex flex-col;
+  @apply bg-stone-100 dark:bg-stone-900;
+  @apply text-black/50 dark:text-white/75;
+}
 
-	html body {
-		@apply mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
-	}
+header {
+  @apply fixed top-0 left-0 right-0 z-50 py-5;
+  @apply bg-stone-100/75 dark:bg-stone-900/25;
+  @apply backdrop-blur-sm saturate-200;
+}
 
-	.h-card .u-url::before {
-		content: "\f2b9";
-		font: normal normal normal 14px/1 FontAwesome;
-		margin-right: 3px;
-	}
+main {
+  @apply flex-1 py-32;
+}
 
-	.post-list {
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
+footer {
+  @apply py-5 text-sm;
+}
 
-	.blog-post {
-		border: 1px solid #ccc;
-		padding: 10px;
-	}
+article {
+  @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+  @apply prose-headings:font-semibold prose-p:font-serif;
+  @apply prose-headings:text-black prose-headings:dark:text-white;
+}
 
-	.post-title {
-		font-size: 20px;
-		color: #333;
-	}
+@layer utilities {
+  article a {
+    @apply font-sans text-current underline underline-offset-2;
+    @apply decoration-black/15 dark:decoration-white/30;
+    @apply transition-colors duration-300 ease-in-out;
+  }
+  article a:hover {
+    @apply text-black dark:text-white;
+    @apply decoration-black/25 dark:decoration-white/50;
+  }
+}
 
-	.post-title a {
-		text-decoration: none;
-		color: inherit;
-	}
+html #back-to-top {
+  @apply opacity-0 pointer-events-none;
+}
 
-	.post-date {
-		font-size: 14px;
-		color: #999;
-	}
-
-	.post-description {
-		font-size: 16px;
-		color: #666;
-	}
+html.scrolled #back-to-top {
+  @apply opacity-100 pointer-events-auto;
 }
