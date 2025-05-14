@@ -7,12 +7,12 @@ export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
 	});
 }
 
-/** groups posts by year (based on option siteConfig.sortPostsByUpdatedDate), using the year as the key
+/** groups posts by year (based on option siteConfig.sortPostsByUpdated), using the year as the key
  *  Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so.
  */
 export function groupPostsByYear(posts: CollectionEntry<"post">[]) {
 	return posts.reduce<Record<string, CollectionEntry<"post">[]>>((acc, post) => {
-		const year = post.data.publishDate.getFullYear();
+		const year = post.data.published.getFullYear();
 		if (!acc[year]) {
 			acc[year] = [];
 		}

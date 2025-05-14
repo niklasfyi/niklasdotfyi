@@ -1,8 +1,8 @@
 ---
 title: "Markdown Admonitions"
 description: "This post showcases using the markdown admonition feature in Astro Cactus"
-publishDate: "25 Aug 2024"
-updatedDate: "7 Jan 2025"
+published: "25 Aug 2024"
+updated: "7 Jan 2025"
 tags: ["markdown", "admonitions"]
 ---
 
