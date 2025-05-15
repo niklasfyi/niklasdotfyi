@@ -1,6 +1,8 @@
 import type { CollectionEntry } from "astro:content";
 import { siteConfig } from "@/site.config";
 
+type CollectionEntryType = CollectionEntry<"article" | "note" | "checkin" | "post">;
+
 export function getFormattedDate(
 	date: Date | undefined,
 	options?: Intl.DateTimeFormatOptions,
@@ -15,9 +17,21 @@ export function getFormattedDate(
 	}).format(date);
 }
 
+export function getFormattedDateFromCollectionEntry(entry: CollectionEntryType): string {
+	return getFormattedDate(getDate(entry));
+}
+
+function getDate(entry: CollectionEntryType) {
+	return entry.data.published;
+}
+
 export function collectionDateSort(
-	a: CollectionEntry<"post" | "note">,
-	b: CollectionEntry<"post" | "note">,
+	a: CollectionEntryType,
+	b: CollectionEntryType,
 ) {
-	return b.data.published.getTime() - a.data.published.getTime();
+
+	const dateA = getDate(a);
+	const dateB = getDate(b);
+
+	return dateB.getTime() - dateA.getTime();
 }

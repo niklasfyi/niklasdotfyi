@@ -8,13 +8,27 @@ import WebMentions from "@/components/blog/webmentions/index.astro";
 import BaseLayout from "./Base.astro";
 
 interface Props {
-	post: CollectionEntry<"post">;
+	post: CollectionEntry<"post" | "article" | "note" | "checkin">;
 }
 
 const { post } = Astro.props;
-const { ogImage, title, description, updated, published } = post.data;
-const socialImage = ogImage ?? `/og-image/${post.id}.png`;
+const { data, collection, id } = post;
+const { published } = data;
+
+const isArticle = collection === "article";
+const isCheckin = collection === "checkin";
+const isNote = collection === "note";
+
+const title = isCheckin ? data.checkin.name : data.title;
+const description = isArticle || isNote ? data.description : null;
+const tags = isArticle ? data.tags : null;
+const draft = isArticle ? data.draft : false;
+const coverImage = isArticle ? data.coverImage : null;
+const updated = isArticle ? data.updated : null;
+const ogImage = isArticle ? data.ogImage : null;
+const socialImage = ogImage ?? `/og-image/${id}.png`;
 const articleDate = updated?.toISOString() ?? published.toISOString();
+
 const { headings, remarkPluginFrontmatter } = await render(post);
 const readingTime: string = remarkPluginFrontmatter.readingTime;
 ---
@@ -22,13 +36,23 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 <BaseLayout
 	meta={{
 		articleDate,
-		description,
+		description: description ?? "",
 		ogImage: socialImage,
 		title,
 	}}
 >
 	<article class="grow break-words" data-pagefind-body>
-		<div id="blog-hero" class="mb-12"><Masthead content={post} readingTime={readingTime} /></div>
+		<div id="blog-hero" class="mb-12">
+			<Masthead
+				title={title}
+				readingTime={readingTime}
+				{...coverImage && { coverImage }}
+				draft={draft}
+				published={published}
+				{...updated && { updated }}
+				{...tags && { tags }}
+			/>
+		</div>
 		<div class="flex flex-col gap-10 lg:flex-row lg:items-start">
 			{!!headings.length && <TOC headings={headings} />}
 			<div

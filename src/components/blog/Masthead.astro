@@ -1,16 +1,29 @@
 ---
 import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
+import type { ImageMetadata } from "astro";
 
 interface Props {
-	content: CollectionEntry<"post">;
+	title: string;
 	readingTime: string;
+	coverImage?: {
+		src: ImageMetadata;
+		alt: string;
+	};
+	draft?: boolean;
+	published: Date;
+	updated?: Date;
+	tags?: string[];
 }
 
 const {
-	content: { data },
+	title,
 	readingTime,
+	coverImage = null,
+	draft = false,
+	published,
+	updated = null,
+	tags = null,
 } = Astro.props;
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
@@ -19,38 +32,38 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 ---
 
 {
-	data.coverImage && (
+	coverImage && (
 		<div class="mb-6 aspect-video">
 			<Image
-				alt={data.coverImage.alt}
+				alt={coverImage.alt}
 				class="object-cover"
 				fetchpriority="high"
 				loading="eager"
-				src={data.coverImage.src}
+				src={coverImage.src}
 			/>
 		</div>
 	)
 }
-{data.draft ? <span class="text-base text-red-500">(Draft)</span> : null}
+{draft ? <span class="text-base text-red-500">(Draft)</span> : null}
 <h1 class="title">
-	{data.title}
+	{title}
 </h1>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">
-		<FormattedDate date={data.published} dateTimeOptions={dateTimeOptions} /> /{" "}
+		<FormattedDate date={published} dateTimeOptions={dateTimeOptions} /> /{" "}
 		{readingTime}
 	</p>
 	{
-		data.updated && (
+		updated && (
 			<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
 				Updated:
-				<FormattedDate class="ms-1" date={data.updated} dateTimeOptions={dateTimeOptions} />
+				<FormattedDate class="ms-1" date={updated} dateTimeOptions={dateTimeOptions} />
 			</span>
 		)
 	}
 </div>
 {
-	!!data.tags?.length && (
+	!!tags?.length && (
 		<div class="mt-2">
 			<svg
 				aria-hidden="true"
@@ -69,12 +82,12 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 				<path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
 				<path d="M6 9h-.01" />
 			</svg>
-			{data.tags.map((tag, i) => (
+			{tags.map((tag, i) => (
 				<>
 					{/* prettier-ignore */}
 					<span class="contents">
 						<a class="cactus-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}><span class="sr-only">View more blogs with the tag&nbsp;</span>{tag}
-						</a>{i < data.tags.length - 1 && ", "}
+						</a>{i < tags.length - 1 && ", "}
 					</span>
 				</>
 			))}

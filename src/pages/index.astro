@@ -1,20 +1,20 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import SocialList from "@/components/SocialList.astro";
-import PostPreview from "@/components/blog/PostPreview.astro";
+// import PostPreview from "@/components/blog/PostPreview.astro";
 import ArticlePreview from "@/components/ArticlePreview.astro";
 import Note from "@/components/note/Note.astro";
-import { getAllPosts } from "@/data/post";
+// import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 import { getAllArticles } from "@/utils/article";
 
 // Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts
-	.sort(collectionDateSort)
-	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
+// const MAX_POSTS = 10;
+// const allPosts = await getAllPosts();
+// const allPostsByDate = allPosts
+// 	.sort(collectionDateSort)
+// 	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
 
 // Articles
 const MAX_ARTICLES = 5;
