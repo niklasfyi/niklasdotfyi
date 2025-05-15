@@ -8,6 +8,8 @@ import Note from "@/components/note/Note.astro";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 import { getAllArticles } from "@/utils/article";
+import { Image } from "astro:assets";
+import myImage from "@/assets/me.png";
 
 // Posts
 // const MAX_POSTS = 10;
@@ -31,12 +33,27 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Hello World!</h1>
-		<p class="mb-4">
-			Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog.
-			If you want to know more about how you can customise me, add more posts, and make it your own,
-			click on the GitHub icon link below and it will take you to my repo.
-		</p>
+		<div class="h-card grid grid-cols-5 gap-3">
+			<Image src={myImage} alt="Memoji of myself" class="u-photo" />
+			<p class="col-span-4 mb-4">
+				Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"
+					><span class="p-given-name">Niklas</span><span
+						class="p-family-name"
+						style="display: none;">Siefke</span
+					></a
+				> (<span class="p-pronouns"
+					><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span
+						class="p-pronoun-oblique p-x-pronoun-oblique">him</span
+					>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span
+				>), <span class="p-job-title">Software Engineer</span> at <a
+					class="p-org h-card"
+					href="https://www.mazemap.com/">MazeMap</a
+				>. Living a quite life in <span class="p-locality">Trondheim</span> (🇳🇴<span
+					class="p-country-name"
+					style="display: none;">Norway</span
+				>) | Dad - Dogperson - Dedicated Photographer - Smart Home Tinkerer
+			</p>
+		</div>
 		<SocialList />
 	</section>
 	<!-- <section class="mt-16">
