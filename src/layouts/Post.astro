@@ -41,7 +41,7 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 		title,
 	}}
 >
-	<article class="grow break-words" data-pagefind-body>
+	<article class="h-entry grow break-words" data-pagefind-body>
 		<div id="blog-hero" class="mb-12">
 			<Masthead
 				title={title}
@@ -58,7 +58,8 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 			<div
 				class="prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-gray-600 prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
 			>
-				<slot />
+				<slot class="e-content" />
+				<a href="/" class="p-author"></a>
 				<WebMentions />
 			</div>
 		</div>
