@@ -31,6 +31,8 @@ const articleDate = updated?.toISOString() ?? published.toISOString();
 
 const { headings, remarkPluginFrontmatter } = await render(post);
 const readingTime: string = remarkPluginFrontmatter.readingTime;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
@@ -60,6 +62,7 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 			>
 				<slot />
 				<a href="/" class="p-author h-card"></a>
+				<a href={canonicalURL} rel="canonical" class="u-url"></a>
 				<WebMentions />
 			</div>
 		</div>
