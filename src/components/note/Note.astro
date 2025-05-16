@@ -25,23 +25,14 @@ const { path } = getEntryParams(note);
 		{
 			isPreview ? (
 				<a class="cactus-link" href={`/${path}/`}>
-					{note.data.title}
+					{note.body?.slice(0, 50) ?? ""}
 				</a>
 			) : (
-				<>{note.data.title}</>
+				<>{note.body?.slice(0, 50) ?? ""}</>
 			)
 		}
 	</Tag>
-	<FormattedDate
-		dateTimeOptions={{
-			hour: "2-digit",
-			minute: "2-digit",
-			year: "2-digit",
-			month: "2-digit",
-			day: "2-digit",
-		}}
-		date={note.data.published}
-	/>
+	<FormattedDate date={note.data.date} />
 	<div
 		class="prose prose-sm prose-cactus mt-4 max-w-none [&>p:last-of-type]:mb-0"
 		class:list={{ "line-clamp-6": isPreview }}

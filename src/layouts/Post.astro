@@ -13,21 +13,29 @@ interface Props {
 
 const { post } = Astro.props;
 const { data, collection, id } = post;
-const { published } = data;
 
 const isArticle = collection === "article";
 const isCheckin = collection === "checkin";
 const isNote = collection === "note";
 
-const title = isCheckin ? data.checkin.name : data.title;
-const description = isArticle || isNote ? data.description : null;
+let title = "";
+if (isNote) {
+	title = post.body?.slice(0, 50) ?? "";
+} else if (isCheckin) {
+	title = data.checkin.name;
+} else {
+	title = data.title;
+}
+
+// const description = isArticle || isNote ? data.description : null;
 const tags = isArticle ? data.tags : null;
-const draft = isArticle ? data.draft : false;
+const draft = isArticle ? data["post-status"] === "draft" : false;
 const coverImage = isArticle ? data.coverImage : null;
+const date = isCheckin ? data.published : data.date;
 const updated = isArticle ? data.updated : null;
 const ogImage = isArticle ? data.ogImage : null;
 const socialImage = ogImage ?? `/og-image/${id}.png`;
-const articleDate = updated?.toISOString() ?? published.toISOString();
+const articleDate = updated?.toISOString() ?? date.toISOString();
 
 const { headings, remarkPluginFrontmatter } = await render(post);
 const readingTime: string = remarkPluginFrontmatter.readingTime;
@@ -38,7 +46,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <BaseLayout
 	meta={{
 		articleDate,
-		description: description ?? "",
+		// description: description ?? "",
+		description: "",
 		ogImage: socialImage,
 		title,
 	}}
@@ -50,7 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				readingTime={readingTime}
 				{...coverImage && { coverImage }}
 				draft={draft}
-				published={published}
+				published={date}
 				{...updated && { updated }}
 				{...tags && { tags }}
 			/>

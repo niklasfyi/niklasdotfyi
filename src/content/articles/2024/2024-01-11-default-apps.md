@@ -1,7 +1,6 @@
 ---
 title: My default apps starting 2024
-description: A list of my default apps in 2024
-published: 2024-01-11
+date: "2024-01-11T12:50:17.136Z"
 tags: ["tools"]
 ---
 

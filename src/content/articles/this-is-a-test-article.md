@@ -1,5 +1,4 @@
 ---
-type: h-entry
 title: This is a test article
 post-status: draft
 tags:

@@ -7,7 +7,11 @@ export function getEntryParams(entry: CollectionEntryType) {
   // This will be of type `Date`, since the `CollectionEntry` of type 'blog'
   // defines the `pubDate` field as type 'Date'.
   let pubDate: Date;
-  pubDate = entry.data.published;
+  if (entry.collection === 'checkin') {
+    pubDate = entry.data.published;
+  } else {
+    pubDate = entry.data.date;
+  }
 
   // Parse out the year, month and day from the `pubDate`.
   const pubYear = String(pubDate.getFullYear()).padStart(4, '0');
@@ -24,11 +28,12 @@ export function getEntryParams(entry: CollectionEntryType) {
     slug = entry.data.slug;
   } else {
     const match = entry.id.match(/([^\/]+)$/);
-    if (match && /^\d{4}-\d{2}-\d{2}(-.*)?$/.test(match[1])) {
+    let matchedSlug = match && match[1] ? match[1] : undefined;
+    if (matchedSlug && /^\d{4}-\d{2}-\d{2}(-.*)?$/.test(matchedSlug)) {
       // Remove ISO date prefix if present (e.g., "2024-06-10-title" -> "title")
-      match[1] = match[1].replace(/^\d{4}-\d{2}-\d{2}-?/, '');
+      matchedSlug = matchedSlug.replace(/^\d{4}-\d{2}-\d{2}-?/, '');
     }
-    slug = match && match[1] ? match[1] : entry.id.replace(/\.[^/.]+$/, "");
+    slug = matchedSlug ? matchedSlug : entry.id.replace(/\.[^/.]+$/, "");
   }
 
   // Build our desired date-based path from the relevant parts.

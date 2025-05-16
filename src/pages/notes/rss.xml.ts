@@ -10,8 +10,8 @@ export const GET = async () => {
 		description: siteConfig.description,
 		site: import.meta.env.SITE,
 		items: notes.map((note) => ({
-			title: note.data.title,
-			pubDate: note.data.published,
+			title: note.body?.slice(0, 50) ?? "",
+			pubDate: note.data.date,
 			link: `notes/${note.id}/`,
 		})),
 	});

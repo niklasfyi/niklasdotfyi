@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 /** filter out draft posts based on the environment */
 export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
 	return await getCollection("post", ({ data }) => {
-		return import.meta.env.PROD ? !data.draft : true;
+		return import.meta.env.PROD ? !(data["post-status"] === "draft") : true;
 	});
 }
 
@@ -12,7 +12,7 @@ export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
  */
 export function groupPostsByYear(posts: CollectionEntry<"post">[]) {
 	return posts.reduce<Record<string, CollectionEntry<"post">[]>>((acc, post) => {
-		const year = post.data.published.getFullYear();
+		const year = post.data.date.getFullYear();
 		if (!acc[year]) {
 			acc[year] = [];
 		}

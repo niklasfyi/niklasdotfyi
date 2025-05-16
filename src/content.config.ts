@@ -6,27 +6,27 @@ function removeDupsAndLowerCase(array: string[]) {
 }
 
 const baseSchema = z.object({
-	title: z.string().max(60),
+	date: z
+		.string()
+		.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
+		.transform((val) => new Date(val)),
+	client_id: z.string().optional(),
 });
 
 const post = defineCollection({
 	loader: glob({ base: "./src/content/post", pattern: "**/*.{md,mdx}" }),
 	schema: ({ image }) =>
 		baseSchema.extend({
-			description: z.string(),
+			title: z.string().max(60),
 			coverImage: z
 				.object({
 					alt: z.string(),
 					src: image(),
 				})
 				.optional(),
-			draft: z.boolean().default(false),
+			"post-status": z.string().default("published"),
 			ogImage: z.string().optional(),
 			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-			published: z
-				.string()
-				.or(z.date())
-				.transform((val) => new Date(val)),
 			updated: z
 				.string()
 				.optional()
@@ -38,20 +38,16 @@ const article = defineCollection({
 	loader: glob({ base: "./src/content/articles", pattern: "**/*.{md,mdx}" }),
 	schema: ({ image }) =>
 		baseSchema.extend({
-			description: z.string(),
+			title: z.string().max(60),
 			coverImage: z
 				.object({
 					alt: z.string(),
 					src: image(),
 				})
 				.optional(),
-			draft: z.boolean().default(false),
+			"post-status": z.string().default("published"),
 			ogImage: z.string().optional(),
 			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-			published: z
-				.string()
-				.or(z.date())
-				.transform((val) => new Date(val)),
 			updated: z
 				.string()
 				.optional()
@@ -63,10 +59,6 @@ const note = defineCollection({
 	loader: glob({ base: "./src/content/notes", pattern: "**/*.{md,mdx}" }),
 	schema: baseSchema.extend({
 		description: z.string().optional(),
-		published: z
-			.string()
-			.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
-			.transform((val) => new Date(val)),
 	}),
 });
 

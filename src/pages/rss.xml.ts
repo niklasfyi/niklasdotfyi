@@ -11,8 +11,8 @@ export const GET = async () => {
 		site: import.meta.env.SITE,
 		items: posts.map((post) => ({
 			title: post.data.title,
-			description: post.data.description,
-			pubDate: post.data.published,
+			// description: post.data.description,
+			pubDate: post.data.date,
 			link: `posts/${post.id}/`,
 		})),
 	});
