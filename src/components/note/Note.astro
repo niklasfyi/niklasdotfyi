@@ -25,10 +25,10 @@ const { path } = getEntryParams(note);
 		{
 			isPreview ? (
 				<a class="cactus-link" href={`/${path}/`}>
-					{note.body?.slice(0, 50) ?? ""}
+					{note.body ? (note.body.length > 20 ? `${note.body.slice(0, 20)}...` : note.body) : ""}
 				</a>
 			) : (
-				<>{note.body?.slice(0, 50) ?? ""}</>
+				<>{note.body ? (note.body.length > 20 ? `${note.body.slice(0, 20)}...` : note.body) : ""}</>
 			)
 		}
 	</Tag>

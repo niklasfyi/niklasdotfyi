@@ -21,7 +21,7 @@ const { note } = Astro.props;
 const meta = {
 	description:
 		note.data.description || `Read about my note posted on: ${note.data.date.toLocaleDateString()}`,
-	title: note.body?.slice(0, 50) ?? "",
+	title: note.body ? (note.body.length > 20 ? `${note.body.slice(0, 20)}...` : note.body) : "",
 };
 ---
 
