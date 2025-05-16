@@ -2,6 +2,7 @@
 import { type CollectionEntry, render } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 import type { HTMLTag, Polymorphic } from "astro/types";
+import { getEntryParams } from "@/utils/params";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	note: CollectionEntry<"note">;
@@ -10,6 +11,8 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 
 const { as: Tag = "div", note, isPreview = false } = Astro.props;
 const { Content } = await render(note);
+
+const { path } = getEntryParams(note);
 ---
 
 <article
@@ -21,7 +24,7 @@ const { Content } = await render(note);
 	<Tag class="title" class:list={{ "text-base": isPreview }}>
 		{
 			isPreview ? (
-				<a class="cactus-link" href={`/notes/${note.id}/`}>
+				<a class="cactus-link" href={`/${path}/`}>
 					{note.data.title}
 				</a>
 			) : (

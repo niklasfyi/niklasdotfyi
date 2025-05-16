@@ -23,7 +23,12 @@ export function getEntryParams(entry: CollectionEntryType) {
   if (entry.collection === 'checkin') {
     slug = entry.data.slug;
   } else {
-    slug = (entry.id.match(/\d{4}-\d{2}-\d{2}-(.+)/) || [])[1] || entry.id;
+    const match = entry.id.match(/([^\/]+)$/);
+    if (match && /^\d{4}-\d{2}-\d{2}(-.*)?$/.test(match[1])) {
+      // Remove ISO date prefix if present (e.g., "2024-06-10-title" -> "title")
+      match[1] = match[1].replace(/^\d{4}-\d{2}-\d{2}-?/, '');
+    }
+    slug = match && match[1] ? match[1] : entry.id.replace(/\.[^/.]+$/, "");
   }
 
   // Build our desired date-based path from the relevant parts.
