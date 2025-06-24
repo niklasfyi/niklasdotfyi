@@ -78,7 +78,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 				<h2 class="title text-accent mb-6 text-xl">
 				Recent
 				</h2>
-				<div class="space-y-3">
+				<div class="space-y-3" role="list">
 					{latestNotes.map((note) => (
 							<Note note={note} />
 							<hr class="w-10 h-0.5 bg-gray-300 border-0 mx-auto" />
