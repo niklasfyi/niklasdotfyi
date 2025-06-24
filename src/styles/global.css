@@ -46,7 +46,12 @@
 }
 
 @layer components {
-	.cactus-link {
+	.post-preview {
+		@apply inline-grid w-full max-w-full rounded-md bg-[rgb(240,240,240)] px-4 py-3 dark:bg-[rgb(33,35,38)];
+		/* @apply prose dark:prose-invert relative flex w-full max-w-full flex-col rounded-xl bg-sky-100 p-2 shadow transition hover:scale-[1.01] active:scale-95 dark:bg-sky-900; */
+	}
+
+	.custom-link {
 		@apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
 	}
 

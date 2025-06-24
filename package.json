@@ -1,6 +1,6 @@
 {
-	"name": "niklasdotfyi-new-cactus",
-	"version": "6.4.0",
+	"name": "niklasdotfyi",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
