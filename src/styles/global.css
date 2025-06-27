@@ -8,12 +8,19 @@
 
 /* you could refactor below to use light-dark(), depending on your target audience */
 @theme {
-	--color-global-bg: oklch(98.48% 0 0);
-	--color-global-text: oklch(26.99% 0.0096 235.05);
-	--color-link: oklch(55.44% 0.0431 185.69);
-	--color-accent: oklch(55.27% 0.195 19.06);
+	--color-global-bg: #ffffff;
+	--color-global-text: #222222;
+	--color-secondary-text: #666666;
+	--color-link: #e66b00;
+	--color-link-hover: #ff7a00;
+	--color-accent: #d45c00;
 	--color-accent-2: oklch(18.15% 0 0);
 	--color-quote: oklch(55.27% 0.195 19.06);
+	--color-divider: #dddddd;
+	--color-code-block-bg: #eeeeee;
+	--color-box-bg: #f4f4f4;
+	--color-shadow: rgba(0, 0, 0, 0.08);
+	--box-shadow: 0 2px 5px var(--color-shadow);
 }
 
 @layer base {
@@ -27,12 +34,19 @@
 
 		&[data-theme="dark"] {
 			color-scheme: dark;
-			--color-global-bg: oklch(23.64% 0.0045 248);
-			--color-global-text: oklch(83.54% 0 264);
-			--color-link: oklch(70.44% 0.1133 349);
-			--color-accent: oklch(70.91% 0.1415 163.7);
+			--color-global-bg: #0f0f0f;
+			--color-global-text: #e0e0e0;
+			--color-secondary-text: #a0a0a0;
+			--color-link: #ffb347;
+			--color-link-hover: #ffaa33;
+			--color-accent: #ff7a00;
 			--color-accent-2: oklch(94.66% 0 0);
 			--color-quote: oklch(94.8% 0.106 136.49);
+			--color-divider: #2a2a2a;
+			--color-code-block-bg: #1a1a1a;
+			--color-box-bg: #1e1e1e;
+			--color-shadow: rgba(0, 0, 0, 0.4);
+			--box-shadow: 0 2px 5px var(--color-shadow);
 		}
 	}
 
@@ -47,7 +61,7 @@
 
 @layer components {
 	.post-preview {
-		@apply inline-grid w-full max-w-full rounded-md bg-[rgb(240,240,240)] px-4 py-3 dark:bg-[rgb(33,35,38)];
+		@apply inline-grid w-full max-w-full rounded-xl bg-(--color-box-bg) p-4;
 		/* @apply prose dark:prose-invert relative flex w-full max-w-full flex-col rounded-xl bg-sky-100 p-2 shadow transition hover:scale-[1.01] active:scale-95 dark:bg-sky-900; */
 	}
 
