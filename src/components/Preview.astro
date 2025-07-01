@@ -3,7 +3,7 @@ import { type CollectionEntry, render } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 import type { HTMLTag, Polymorphic } from "astro/types";
 import { getEntryParams } from "@/utils/params";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	entry: CollectionEntry<"note"> | CollectionEntry<"article">;
@@ -16,32 +16,32 @@ const { path } = getEntryParams(entry);
 const isArticle = entry.collection === "article";
 ---
 
-<article class="post-preview shadow-(--box-shadow)">
-	{isArticle && (
-		<header class="mb-3">
-			{entry.data.draft && <span class="text-red-500">(Draft) </span>}
-			<h3 class="text-lg font-semibold">
-				<a class="custom-link" data-astro-prefetch href={`/${path}/`}>
-					{entry.data.title}
-				</a>
-			</h3>
-		</header>
-	)}
+<article class="post-preview rounded-lg border shadow-(--box-shadow)">
+	{
+		isArticle && (
+			<header class="mb-3">
+				{entry.data.draft && <span class="text-red-500">(Draft) </span>}
+				<h3 class="text-lg font-semibold">
+					<a class="custom-link" data-astro-prefetch href={`/${path}/`}>
+						{entry.data.title}
+					</a>
+				</h3>
+			</header>
+		)
+	}
 	<div class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0">
-		{entry.data.description ? (
-			<p>{entry.data.description}</p>
-		) : (
-			<Content />
-		)}
+		{entry.data.description ? <p>{entry.data.description}</p> : <Content />}
 	</div>
 	<footer class="text-right text-xs">
 		<span class="text-(--color-global-text)">
-			{isArticle ? (
-					<Icon name="ph:newspaper" class="inline w-4 h-4 mr-1" />
-			) : (
-					<Icon name="ph:note" class="inline w-4 h-4 mr-1" />
-			)}
-		</span> - 
+			{
+				isArticle ? (
+					<Icon name="ph:newspaper" class="mr-1 inline h-4 w-4" />
+				) : (
+					<Icon name="ph:note" class="mr-1 inline h-4 w-4" />
+				)
+			}
+		</span> -
 		<a class="custom-link text-(--color-secondary-text)" href={`/${path}/`}>
 			<FormattedDate date={entry.data.date} />
 		</a>

@@ -30,22 +30,33 @@ const socialLinks: {
 		name: "ph:butterfly",
 		isWebmention: true,
 	},
+	{
+		friendlyName: "LinkedIn",
+		link: "https://www.linkedin.com/in/niklas-%F0%9F%92%BB-siefke-70448455/",
+		name: "ph:linkedin-logo",
+		isWebmention: true,
+	},
+	{
+		friendlyName: "E-Mail",
+		link: "mailto:hello@niklas.fyi",
+		name: "ph:envelope",
+		isWebmention: true,
+	},
 ];
 ---
 
-<div class="flex flex-wrap items-end gap-x-2">
-	<p>Find me on</p>
+<div class="flex flex-wrap items-end gap-x-2 pt-4">
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
 			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
-				<li class="flex">
+				<li class="flex h-8 w-8 items-center justify-center rounded-lg border">
 					<a
 						class="hover:text-link inline-block"
 						href={link}
 						rel={`noreferrer ${isWebmention ? "me authn" : ""}`}
 						target="_blank"
 					>
-						<Icon aria-hidden="true" class="h-8 w-8" focusable="false" name={name} />
+						<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name={name} />
 						<span class="sr-only">{friendlyName}</span>
 					</a>
 				</li>
