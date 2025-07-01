@@ -12,6 +12,7 @@ const baseSchema = z.object({
 		.transform((val) => new Date(val)),
 	client_id: z.string().optional(),
 	tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+	description: z.string().optional(),
 });
 
 const post = defineCollection({

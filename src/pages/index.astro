@@ -1,41 +1,36 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import SocialList from "@/components/SocialList.astro";
 // import PostPreview from "@/components/blog/PostPreview.astro";
-import ArticlePreview from "@/components/ArticlePreview.astro";
-import Note from "@/components/note/Note.astro";
+// import ArticlePreview from "@/components/ArticlePreview.astro";
+import Preview from "@/components/Preview.astro";
+// import Note from "@/components/note/Note.astro";
 // import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 import { getAllArticles } from "@/utils/article";
 import { Image } from "astro:assets";
-import myImage from "@/assets/me.png";
+import myImage from "@/assets/logo.png";
 
-// Posts
-// const MAX_POSTS = 10;
-// const allPosts = await getAllPosts();
-// const allPostsByDate = allPosts
-// 	.sort(collectionDateSort)
-// 	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
+// Combined recent entries
+const MAX_RECENT = 100;
 
-// Articles
-const MAX_ARTICLES = 5;
-const allArticles = await getAllArticles();
-const allArticlesByDate = allArticles
-	.sort(collectionDateSort)
-	.slice(0, MAX_ARTICLES) as CollectionEntry<"article">[];
+// Get all articles and notes without limiting them first
+const allArticlesUnlimited = await getAllArticles();
+const allNotesUnlimited = await getCollection("note");
 
-// Notes
-const MAX_NOTES = 5;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
+const allEntriesCombined = [
+	...allArticlesUnlimited.map((entry) => ({ ...entry, type: "article" })),
+	...allNotesUnlimited.map((entry) => ({ ...entry, type: "note" })),
+];
+const recentEntriesCombined = allEntriesCombined.sort(collectionDateSort).slice(0, MAX_RECENT);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	<section>
-		<div class="h-card grid grid-cols-5 gap-3">
-			<Image src={myImage} alt="Memoji of myself" class="u-photo" />
-			<p class="p-note col-span-4 mb-4">
+	<section class="rounded-lg border p-4">
+		<div class="h-card">
+			<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+			<p class="p-note">
 				Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"
 					><span class="p-given-name">Niklas</span><span
 						class="p-family-name"
@@ -51,40 +46,25 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 				>. Living a quite life in <span class="p-locality">Trondheim</span> (🇳🇴<span
 					class="p-country-name"
 					style="display: none;">Norway</span
-				>) | Dad - Dogperson - Dedicated Photographer - Smart Home Tinkerer
+				>) | Dad - Husband - Photographer - Smart Home Tinkerer
 			</p>
 		</div>
 		<SocialList />
 	</section>
 	{
-		allArticlesByDate.length > 0 && (
+		recentEntriesCombined.length > 0 && (
 			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/articles/">Articles</a>
-				</h2>
-				<ul class="space-y-6" role="list">
-					{allArticlesByDate.map((article) => (
-						<li class="grid gap-2 sm:grid-cols-[auto_1fr]">
-							<ArticlePreview article={article} />
-						</li>
+				<h2 class="title text-accent mb-6 text-xl">Recent</h2>
+				<div class="space-y-3" role="list">
+					{recentEntriesCombined.map((entry, index) => (
+						<>
+							<Preview entry={entry} />
+							{index < recentEntriesCombined.length - 1 && (
+								<hr class="mx-auto h-0.5 w-10 border-0 bg-(--color-divider)" />
+							)}
+						</>
 					))}
-				</ul>
-			</section>
-		)
-	}
-	{
-		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
-				</h2>
-				<ul class="space-y-6" role="list">
-					{latestNotes.map((note) => (
-						<li>
-							<Note note={note} as="h3" isPreview />
-						</li>
-					))}
-				</ul>
+				</div>
 			</section>
 		)
 	}

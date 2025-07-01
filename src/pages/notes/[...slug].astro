@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import Note from "@/components/note/Note.astro";
+import Preview from "@/components/Preview.astro";
 import PageLayout from "@/layouts/Base.astro";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
@@ -26,5 +26,5 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-	<Note as="h1" note={note} />
+	<Preview entry={note} />
 </PageLayout>

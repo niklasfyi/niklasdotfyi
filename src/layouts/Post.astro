@@ -52,7 +52,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		title,
 	}}
 >
-	<article class="h-entry grow break-words" data-pagefind-body>
+	<article class="h-entry grow break-words">
 		<div id="blog-hero" class="mb-12">
 			<Masthead
 				title={title}
@@ -67,7 +67,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<div class="flex flex-col gap-10 lg:flex-row lg:items-start">
 			{!!headings.length && <TOC headings={headings} />}
 			<div
-				class="e-content prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-gray-600 prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
+				class="e-content prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-(--color-secondary-text) prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
 			>
 				<slot />
 				<a href="/" class="p-author h-card"></a>
