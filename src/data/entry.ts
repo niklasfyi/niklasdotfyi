@@ -85,3 +85,26 @@ export async function getAllUniqueTagsWithCount(): Promise<[string, number][]> {
 
 	return [...tagCounts].sort((a, b) => b[1] - a[1]);
 }
+
+export async function getAllEntries(): Promise<
+	CollectionEntry<(typeof collectionNames)[number]>[]
+> {
+	const collections = await getAllCollections();
+	const allEntries: CollectionEntry<(typeof collectionNames)[number]>[] = [];
+
+	for (const collectionName in collections) {
+		const collection = collections[collectionName];
+		if (collection) {
+			for (const entry of collection) {
+				const shouldInclude = import.meta.env.PROD
+					? !(collectionName === "article" && (entry.data as any)["post-status"] === "draft")
+					: true;
+				if (shouldInclude) {
+					allEntries.push(entry);
+				}
+			}
+		}
+	}
+
+	return allEntries;
+}

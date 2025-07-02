@@ -1,19 +1,22 @@
-import { getAllPosts } from "@/data/post";
+import { getAllEntries } from "@/data/entry";
 import { siteConfig } from "@/site.config";
 import rss from "@astrojs/rss";
 
 export const GET = async () => {
-	const posts = await getAllPosts();
+	const entries = await getAllEntries();
 
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.description,
 		site: import.meta.env.SITE,
-		items: posts.map((post) => ({
-			title: post.data.title,
-			// description: post.data.description,
-			pubDate: post.data.date,
-			link: `posts/${post.id}/`,
+		items: entries.map((entry) => ({
+			title:
+				"title" in entry.data && entry.data.title
+					? entry.data.title
+					: entry.body?.slice(0, 30) + "..." || "Untitled",
+			description: entry.data.description,
+			pubDate: entry.data.date,
+			link: `${entry.id}`,
 		})),
 	});
 };

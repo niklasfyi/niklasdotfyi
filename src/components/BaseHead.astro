@@ -32,6 +32,8 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 	)
 }
 
+<meta content={Astro.generator} name="generator" />
+
 {/* Canonical URL */}
 <link href={canonicalURL} rel="canonical" class="u-url" />
 
@@ -86,5 +88,3 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
 <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
 <link rel="micropub" href="https://micropub.niklas.fyi/micropub" />
-
-<meta content={Astro.generator} name="generator" />
