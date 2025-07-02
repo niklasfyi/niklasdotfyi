@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2025-06-24T11:51:28.944Z",
+  "lastFetched": "2025-07-02T11:05:23.103Z",
   "children": [
     {
       "type": "entry",
@@ -2777,6 +2777,857 @@
       },
       "swarm-coins": 1,
       "in-reply-to": "https://www.niklas.fyi/checkin/2024/07/06/hlypd",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/bf2e27036890d82fbd82de56872fe09db225d86ed032a3d3bb5c96d5c662ded9.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/b972ce83ba868f77329430f99055cbf0",
+      "published": "2025-06-30T09:21:17+02:00",
+      "wm-received": "2025-07-01T14:07:57Z",
+      "wm-id": 1921731,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/b972ce83ba868f77329430f99055cbf0",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751378870",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "That's 6 weeks in a row at MazeMap AS for you!"
+      },
+      "swarm-coins": 30,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751378870",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/bf2e27036890d82fbd82de56872fe09db225d86ed032a3d3bb5c96d5c662ded9.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/8c53948f205651df69aeb8b71b0a24a4",
+      "published": "2025-06-30T09:21:17+02:00",
+      "wm-received": "2025-07-01T14:07:57Z",
+      "wm-id": 1921732,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/8c53948f205651df69aeb8b71b0a24a4",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751378870",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "6 weeks in a row at Offices! Nice!"
+      },
+      "swarm-coins": 30,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751378870",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/32c452690035aafb2f077bb8432923cf",
+      "published": "2025-06-30T09:21:17+02:00",
+      "wm-received": "2025-07-01T14:07:57Z",
+      "wm-id": 1921733,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/32c452690035aafb2f077bb8432923cf",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751378870",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "You're the mayor!"
+      },
+      "swarm-coins": 9,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751378870",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/685d6bd07fad5866e1884a0e/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-06-26T17:48:32+02:00",
+      "wm-received": "2025-07-01T18:05:46Z",
+      "wm-id": 1921775,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/685d6bd07fad5866e1884a0e/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393139",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393139",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/684d906879af3d7844b5cdc4/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-06-14T17:08:24+02:00",
+      "wm-received": "2025-07-01T18:05:49Z",
+      "wm-id": 1921776,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/684d906879af3d7844b5cdc4/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393143",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393143",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/684d89c17694d032a8ef775f/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-06-14T16:40:01+02:00",
+      "wm-received": "2025-07-01T18:05:54Z",
+      "wm-id": 1921777,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/684d89c17694d032a8ef775f/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393148",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393148",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6846f856914920462ad9c4db/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-06-09T17:05:58+02:00",
+      "wm-received": "2025-07-01T18:05:59Z",
+      "wm-id": 1921778,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6846f856914920462ad9c4db/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393153",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393153",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6844222782b49a7a7c546445/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-06-07T13:27:35+02:00",
+      "wm-received": "2025-07-01T18:06:04Z",
+      "wm-id": 1921779,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6844222782b49a7a7c546445/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393158",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393158",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/684408fa6c9de612d9978931/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-06-07T11:40:10+02:00",
+      "wm-received": "2025-07-01T18:06:09Z",
+      "wm-id": 1921780,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/684408fa6c9de612d9978931/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393163",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393163",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/683b1e629d24161a3de0cc55/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-05-31T17:21:06+02:00",
+      "wm-received": "2025-07-01T18:06:14Z",
+      "wm-id": 1921781,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/683b1e629d24161a3de0cc55/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393168",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393168",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/683584749dd965753e994833/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-05-27T11:23:00+02:00",
+      "wm-received": "2025-07-01T18:06:19Z",
+      "wm-id": 1921782,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/683584749dd965753e994833/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393173",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393173",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68260db73c5b4c67365712f5/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-05-15T17:52:23+02:00",
+      "wm-received": "2025-07-01T18:06:24Z",
+      "wm-id": 1921783,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68260db73c5b4c67365712f5/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393178",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393178",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6825fa9f21d7f44586f14705/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-05-15T16:30:55+02:00",
+      "wm-received": "2025-07-01T18:06:29Z",
+      "wm-id": 1921784,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6825fa9f21d7f44586f14705/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393183",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393183",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6814da7fcccdce2c433080fa/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-05-02T16:45:19+02:00",
+      "wm-received": "2025-07-01T18:06:34Z",
+      "wm-id": 1921785,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6814da7fcccdce2c433080fa/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393188",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393188",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/680393e48e6aa207259165f7/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-04-19T14:15:32+02:00",
+      "wm-received": "2025-07-01T18:06:39Z",
+      "wm-id": 1921786,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/680393e48e6aa207259165f7/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393193",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393193",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68037bc614cefa56c33832eb/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-04-19T12:32:38+02:00",
+      "wm-received": "2025-07-01T18:06:44Z",
+      "wm-id": 1921787,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68037bc614cefa56c33832eb/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393198",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393198",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67fe71976842c642049f7488/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-04-15T16:47:51+02:00",
+      "wm-received": "2025-07-01T18:06:49Z",
+      "wm-id": 1921788,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67fe71976842c642049f7488/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393203",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393203",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67fe623ee3bd634cac493af7/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-04-15T15:42:22+02:00",
+      "wm-received": "2025-07-01T18:06:54Z",
+      "wm-id": 1921789,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67fe623ee3bd634cac493af7/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393208",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393208",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67fa44160244ae7d93e7fb1c/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-04-12T12:44:38+02:00",
+      "wm-received": "2025-07-01T18:06:59Z",
+      "wm-id": 1921790,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67fa44160244ae7d93e7fb1c/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393213",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393213",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67e7eacd6f536a1ed8142b22/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-03-29T13:42:53+01:00",
+      "wm-received": "2025-07-01T18:07:04Z",
+      "wm-id": 1921791,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67e7eacd6f536a1ed8142b22/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393218",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393218",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67dd6623017bc50c3f0b3dab/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-03-21T14:14:11+01:00",
+      "wm-received": "2025-07-01T18:07:09Z",
+      "wm-id": 1921792,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67dd6623017bc50c3f0b3dab/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393223",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393223",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67d1b24c370a0456a10ac346/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-03-12T17:11:56+01:00",
+      "wm-received": "2025-07-01T18:07:14Z",
+      "wm-id": 1921793,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67d1b24c370a0456a10ac346/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393228",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393228",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67cee04f212615672a64b9ea/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-03-10T13:51:27+01:00",
+      "wm-received": "2025-07-01T18:07:19Z",
+      "wm-id": 1921794,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67cee04f212615672a64b9ea/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393233",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393233",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67c11082dc4a990040241e00/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-02-28T02:25:22+01:00",
+      "wm-received": "2025-07-01T18:07:24Z",
+      "wm-id": 1921795,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67c11082dc4a990040241e00/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393238",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393238",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67c005eeba224732c531b983/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-02-27T07:27:58+01:00",
+      "wm-received": "2025-07-01T18:07:29Z",
+      "wm-id": 1921796,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67c005eeba224732c531b983/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393243",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393243",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67bf668e31dad55d30d10991/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-02-26T20:07:58+01:00",
+      "wm-received": "2025-07-01T18:07:34Z",
+      "wm-id": 1921797,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67bf668e31dad55d30d10991/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393248",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393248",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67b35f899eab682dc909f271/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-02-17T17:10:49+01:00",
+      "wm-received": "2025-07-01T18:07:39Z",
+      "wm-id": 1921798,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67b35f899eab682dc909f271/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393253",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393253",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67b0a76366ad53061ea94e3b/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-02-15T15:40:35+01:00",
+      "wm-received": "2025-07-01T18:07:44Z",
+      "wm-id": 1921799,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67b0a76366ad53061ea94e3b/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393258",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393258",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/67aa0d09acf6104ed11d86c9/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-02-10T15:28:25+01:00",
+      "wm-received": "2025-07-01T18:07:49Z",
+      "wm-id": 1921800,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/67aa0d09acf6104ed11d86c9/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393263",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393263",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6794fd679e31667dcca50baa/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-01-25T16:04:07+01:00",
+      "wm-received": "2025-07-01T18:07:54Z",
+      "wm-id": 1921801,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6794fd679e31667dcca50baa/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393268",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393268",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6794f3c325060a3fdc00fd05/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-01-25T15:22:59+01:00",
+      "wm-received": "2025-07-01T18:07:59Z",
+      "wm-id": 1921802,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6794f3c325060a3fdc00fd05/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393273",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393273",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6794d86a32d6d61f4683b6ce/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-01-25T13:26:18+01:00",
+      "wm-received": "2025-07-01T18:08:04Z",
+      "wm-id": 1921803,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6794d86a32d6d61f4683b6ce/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://www.niklas.fyi/2025/07/01/1751393278",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://www.niklas.fyi/2025/07/01/1751393278",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/685ea5fb6345e7246ac97646/6909265c0684c740c957703b16072e20",
+      "published": "2025-06-27T16:08:59+02:00",
+      "wm-received": "2025-07-01T20:20:24Z",
+      "wm-id": 1921826,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/685ea5fb6345e7246ac97646/6909265c0684c740c957703b16072e20",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/01/1751401217-97646",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "New Mayor! That crown looks better on you!"
+      },
+      "swarm-coins": 10,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/01/1751401217-97646",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/32c452690035aafb2f077bb8432923cf",
+      "published": "2025-06-30T09:21:17+02:00",
+      "wm-received": "2025-07-02T00:05:40Z",
+      "wm-id": 1921857,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/32c452690035aafb2f077bb8432923cf",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/02/1751414734-5ca7c",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "You're the mayor!"
+      },
+      "swarm-coins": 9,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/02/1751414734-5ca7c",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/bf2e27036890d82fbd82de56872fe09db225d86ed032a3d3bb5c96d5c662ded9.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/8c53948f205651df69aeb8b71b0a24a4",
+      "published": "2025-06-30T09:21:17+02:00",
+      "wm-received": "2025-07-02T00:05:40Z",
+      "wm-id": 1921858,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/8c53948f205651df69aeb8b71b0a24a4",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/02/1751414734-5ca7c",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "6 weeks in a row at Offices! Nice!"
+      },
+      "swarm-coins": 30,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/02/1751414734-5ca7c",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/bf2e27036890d82fbd82de56872fe09db225d86ed032a3d3bb5c96d5c662ded9.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/b972ce83ba868f77329430f99055cbf0",
+      "published": "2025-06-30T09:21:17+02:00",
+      "wm-received": "2025-07-02T00:05:40Z",
+      "wm-id": 1921859,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68623aeded37c54e6215ca7c/b972ce83ba868f77329430f99055cbf0",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/02/1751414734-5ca7c",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "That's 6 weeks in a row at MazeMap AS for you!"
+      },
+      "swarm-coins": 30,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/02/1751414734-5ca7c",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/685d4247aa8e6679f09e6105/9f983aea8e2b00ed8934ea7cef7e3461",
+      "published": "2025-06-26T14:51:19+02:00",
+      "wm-received": "2025-07-02T08:27:38Z",
+      "wm-id": 1921932,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/685d4247aa8e6679f09e6105/9f983aea8e2b00ed8934ea7cef7e3461",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/06/26/1750942279",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "Still got the crown! Just don't get Joffrey'd."
+      },
+      "swarm-coins": 3,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/06/26/1750942279",
       "wm-property": "in-reply-to",
       "wm-private": false
     }

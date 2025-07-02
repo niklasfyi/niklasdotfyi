@@ -1,9 +1,22 @@
 ---
-import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
+import { getAllUniqueTagsWithCount } from "@/data/entry";
 import PageLayout from "@/layouts/Base.astro";
 
-const allPosts = await getAllPosts();
-const allTags = getUniqueTagsWithCount(allPosts);
+const allTags = await getAllUniqueTagsWithCount();
+
+// Sort tags alphabetically, with "untagged" at the bottom
+const sortedTags = allTags.sort(([tagA], [tagB]) => {
+	if (tagA === "untagged") return 1;
+	if (tagB === "untagged") return -1;
+	return tagA.localeCompare(tagB);
+});
+
+// Get unique starting characters for navigation
+const startingChars = Array.from(
+	new Set(
+		sortedTags.filter(([tag]) => tag !== "untagged").map(([tag]) => tag.charAt(0).toUpperCase()),
+	),
+).sort();
 
 const meta = {
 	description: "A list of all the topics I've written about in my posts",
@@ -13,23 +26,63 @@ const meta = {
 
 <PageLayout meta={meta}>
 	<h1 class="title mb-6">Tags</h1>
+
+	<!-- Navigation bar for quick jumping -->
+	{
+		startingChars.length > 0 && (
+			<nav class="bg-surface-1 mb-8 rounded-lg">
+				<div class="flex flex-wrap items-center gap-2">
+					{startingChars.map((char) => (
+						<a
+							href={`#letter-${char}`}
+							class="bg-surface-0 hover:bg-surface-2 rounded border px-2 py-1 text-sm transition-colors"
+						>
+							{char}
+						</a>
+					))}
+				</div>
+			</nav>
+		)
+	}
+
 	<ul class="space-y-6">
 		{
-			allTags.map(([tag, val]) => (
-				<li class="flex items-center gap-x-2">
-					<a
-						class="custom-link inline-block"
-						data-astro-prefetch
-						href={`/tags/${tag}/`}
-						title={`View posts with the tag: ${tag}`}
-					>
-						&#35;{tag}
-					</a>
-					<span class="inline-block">
-						- {val} Post{val > 1 && "s"}
-					</span>
-				</li>
-			))
+			sortedTags.map(([tag, val]: [string, number], index: number) => {
+				const currentChar = tag !== "untagged" ? tag.charAt(0).toUpperCase() : "";
+				const prevTag = index > 0 ? sortedTags[index - 1][0] : "";
+				const prevChar = prevTag !== "untagged" ? prevTag.charAt(0).toUpperCase() : "";
+				const isNewSection = currentChar !== prevChar && tag !== "untagged";
+				const isUntagged = tag === "untagged";
+
+				return (
+					<>
+						{isNewSection && (
+							<li>
+								<h2
+									id={`letter-${currentChar}`}
+									class="border-surface-2 mb-4 border-t pt-4 text-2xl font-bold"
+								>
+									{currentChar}
+								</h2>
+							</li>
+						)}
+						{isUntagged && <li class="border-surface-2 mt-8 mb-6 border-t pt-6" />}
+						<li class={`flex items-center gap-x-2`}>
+							<a
+								class="custom-link inline-block"
+								data-astro-prefetch
+								href={`/tags/${tag}/`}
+								title={
+									tag === "untagged" ? "View posts without tags" : `View posts with the tag: ${tag}`
+								}
+							>
+								{`${tag}`}
+							</a>
+							<span class="inline-block">- ({val})</span>
+						</li>
+					</>
+				);
+			})
 		}
 	</ul>
 </PageLayout>
