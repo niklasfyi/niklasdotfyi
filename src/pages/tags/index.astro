@@ -49,7 +49,7 @@ const meta = {
 		{
 			sortedTags.map(([tag, val]: [string, number], index: number) => {
 				const currentChar = tag !== "untagged" ? tag.charAt(0).toUpperCase() : "";
-				const prevTag = index > 0 ? sortedTags[index - 1][0] : "";
+				const prevTag = index > 0 ? (sortedTags[index - 1]?.[0] ?? "") : "";
 				const prevChar = prevTag !== "untagged" ? prevTag.charAt(0).toUpperCase() : "";
 				const isNewSection = currentChar !== prevChar && tag !== "untagged";
 				const isUntagged = tag === "untagged";
