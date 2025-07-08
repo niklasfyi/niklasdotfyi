@@ -111,5 +111,29 @@ let webMentions: WebmentionsCache;
 export async function getWebmentionsForUrl(url: string) {
 	if (!webMentions) webMentions = await getAndCacheWebmentions();
 
-	return webMentions.children.filter((entry) => entry["wm-target"] === url);
+	const urlObject = new URL(url);
+	const path = urlObject.pathname;
+	// Regex to match the new slug structure /YYYY/MM/DD/slug/
+	const match = path.match(/^\/(\d{4})\/(\d{2})\/(\d{2})\/(.+?)\/?$/);
+
+	let oldUrl: string | null = null;
+	if (match) {
+		const [, year, month, day, slug] = match;
+		// construct the old slug structure /posts/YYYY-MM-DD-slug/
+		const oldSlug = `${year}-${month}-${day}-${slug}`;
+		const oldPath = `/posts/${oldSlug}/`;
+		oldUrl = `${urlObject.origin}${oldPath}`;
+	}
+
+	return webMentions.children.filter((entry) => {
+		const target = entry["wm-target"];
+		if (target === url) return true;
+		if (oldUrl && target === oldUrl) return true;
+		// Handle trailing slashes
+		if (target.endsWith("/") && target.slice(0, -1) === url) return true;
+		if (url.endsWith("/") && url.slice(0, -1) === target) return true;
+		if (oldUrl && target.endsWith("/") && target.slice(0, -1) === oldUrl) return true;
+		if (oldUrl && oldUrl.endsWith("/") && oldUrl.slice(0, -1) === target) return true;
+		return false;
+	});
 }
