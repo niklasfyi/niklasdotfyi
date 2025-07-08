@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2025-07-02T11:05:23.103Z",
+  "lastFetched": "2025-07-08T11:49:48.942Z",
   "children": [
     {
       "type": "entry",
@@ -3628,6 +3628,121 @@
       },
       "swarm-coins": 3,
       "in-reply-to": "https://www.niklas.fyi/checkins/2025/06/26/1750942279",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/685ea5fb6345e7246ac97646/6909265c0684c740c957703b16072e20",
+      "published": "2025-06-27T16:08:59+02:00",
+      "wm-received": "2025-07-02T12:05:49Z",
+      "wm-id": 1921960,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/685ea5fb6345e7246ac97646/6909265c0684c740c957703b16072e20",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/06/27/1751033339",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "New Mayor! That crown looks better on you!"
+      },
+      "swarm-coins": 10,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/06/27/1751033339",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/68677b3cd2bfb3144a2d7be1/86f59f5294580a5981c07adf2bae9cac",
+      "published": "2025-07-04T08:57:00+02:00",
+      "wm-received": "2025-07-04T06:57:25Z",
+      "wm-id": 1922323,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/68677b3cd2bfb3144a2d7be1/86f59f5294580a5981c07adf2bae9cac",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/04/1751612220",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "Still the Mayor! They might as well name the place after you!"
+      },
+      "swarm-coins": 3,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/04/1751612220",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/bf2e27036890d82fbd82de56872fe09db225d86ed032a3d3bb5c96d5c662ded9.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/686ccebaa4fb6b7bb6662501/3dae4c50bea853ea418ade757513dcca",
+      "published": "2025-07-08T09:54:34+02:00",
+      "wm-received": "2025-07-08T07:54:58Z",
+      "wm-id": 1923343,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/686ccebaa4fb6b7bb6662501/3dae4c50bea853ea418ade757513dcca",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "That's 7 weeks in a row at Offices. Keep it coming."
+      },
+      "swarm-coins": 30,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/bf2e27036890d82fbd82de56872fe09db225d86ed032a3d3bb5c96d5c662ded9.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/686ccebaa4fb6b7bb6662501/c1eae0d0d12f6ce06239f54cd98732aa",
+      "published": "2025-07-08T09:54:34+02:00",
+      "wm-received": "2025-07-08T07:54:58Z",
+      "wm-id": 1923344,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/686ccebaa4fb6b7bb6662501/c1eae0d0d12f6ce06239f54cd98732aa",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "7 weeks in a row at MazeMap AS! Nice!"
+      },
+      "swarm-coins": 30,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/686ccebaa4fb6b7bb6662501/32c452690035aafb2f077bb8432923cf",
+      "published": "2025-07-08T09:54:34+02:00",
+      "wm-received": "2025-07-08T07:54:58Z",
+      "wm-id": 1923345,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/686ccebaa4fb6b7bb6662501/32c452690035aafb2f077bb8432923cf",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "You're the mayor!"
+      },
+      "swarm-coins": 9,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
       "wm-property": "in-reply-to",
       "wm-private": false
     }

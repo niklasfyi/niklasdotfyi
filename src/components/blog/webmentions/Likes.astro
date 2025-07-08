@@ -20,7 +20,7 @@ const likesToShow = likes
 		<div>
 			<p class="text-accent-2 mb-0">
 				<strong>{likes.length}</strong>
-				{likes.length > 1 ? " People" : " Person"} liked this
+				{likes.length > 1 ? " likes" : " like"}
 			</p>
 			{!!likesToShow.length && (
 				<ul class="flex list-none flex-wrap overflow-hidden ps-2" role="list">
@@ -36,10 +36,10 @@ const likesToShow = likes
 								<span class="p-author h-card">
 									<Image
 										alt={like.author!.name}
-										class="u-photo my-0 inline-block h-12 w-12"
-										height={48}
+										class="u-photo my-0 inline-block h-8 w-8"
+										height={32}
 										src={like.author!.photo}
-										width={48}
+										width={32}
 									/>
 								</span>
 							</a>

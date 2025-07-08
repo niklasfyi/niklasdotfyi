@@ -72,7 +72,7 @@
 }
 
 @layer components {
-	.post-preview {
+	.content-box {
 		@apply inline-grid w-full max-w-full bg-(--color-box-bg) p-4;
 		/* @apply prose dark:prose-invert relative flex w-full max-w-full flex-col rounded-xl bg-sky-100 p-2 shadow transition hover:scale-[1.01] active:scale-95 dark:bg-sky-900; */
 	}
