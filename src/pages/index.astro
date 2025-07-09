@@ -16,10 +16,12 @@ const MAX_RECENT = 100;
 // Get all articles and notes without limiting them first
 const allArticlesUnlimited = await getAllArticles();
 const allNotesUnlimited = await getCollection("note");
+// const allCheckinsUnlimited = await getCollection("checkin");
 
 const allEntriesCombined = [
 	...allArticlesUnlimited.map((entry) => ({ ...entry, type: "article" })),
 	...allNotesUnlimited.map((entry) => ({ ...entry, type: "note" })),
+	// ...allCheckinsUnlimited.map((entry) => ({ ...entry, type: "checkin" })),
 ];
 const recentEntriesCombined = allEntriesCombined.sort(collectionDateSort).slice(0, MAX_RECENT);
 ---

@@ -6,7 +6,7 @@ import { getEntryParams } from "@/utils/params";
 import { Icon } from "astro-icon/components";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	entry: CollectionEntry<"note"> | CollectionEntry<"article">;
+	entry: CollectionEntry<"note"> | CollectionEntry<"article"> | CollectionEntry<"checkin">;
 };
 
 const { entry } = Astro.props;
@@ -14,21 +14,31 @@ const { Content } = await render(entry);
 
 const { path } = getEntryParams(entry);
 const isArticle = entry.collection === "article";
+const isCheckin = entry.collection === "checkin";
+
+// Set title based on entry type
+let title = "";
+if (isArticle) {
+	title = entry.data.title;
+} else if (isCheckin) {
+	title = `at ${entry.data.checkin[0]?.properties.name ?? "Unknown Location"}`;
+}
 ---
 
 <article class="content-box rounded-lg border shadow-(--box-shadow)">
 	{
-		isArticle && (
+		title && (
 			<header class="mb-3">
 				{entry.data.draft && <span class="text-red-500">(Draft) </span>}
 				<h3 class="text-lg font-semibold">
 					<a class="custom-link" data-astro-prefetch href={`/${path}/`}>
-						{entry.data.title}
+						{title}
 					</a>
 				</h3>
 			</header>
 		)
 	}
+	<!-- Add openstreetmap tile for location data in checkins -->
 	<div class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0">
 		{entry.data.description ? <p>{entry.data.description}</p> : <Content />}
 	</div>
@@ -37,6 +47,8 @@ const isArticle = entry.collection === "article";
 			{
 				isArticle ? (
 					<Icon name="ph:newspaper" class="mr-1 inline h-4 w-4" />
+				) : isCheckin ? (
+					<Icon name="ph:map-pin" class="mr-1 inline h-4 w-4" />
 				) : (
 					<Icon name="ph:note" class="mr-1 inline h-4 w-4" />
 				)

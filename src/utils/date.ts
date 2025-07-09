@@ -22,7 +22,7 @@ export function getFormattedDateFromCollectionEntry(entry: CollectionEntryType):
 }
 
 function getDate(entry: CollectionEntryType) {
-	return entry.collection === "checkin" ? entry.data.published : entry.data.date;
+	return entry.data.date;
 }
 
 export function collectionDateSort(

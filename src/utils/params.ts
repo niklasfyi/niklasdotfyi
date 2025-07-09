@@ -6,12 +6,7 @@ export function getEntryParams(entry: CollectionEntryType) {
   // Grab the `pubDate` from the blog entry's frontmatter.
   // This will be of type `Date`, since the `CollectionEntry` of type 'blog'
   // defines the `pubDate` field as type 'Date'.
-  let pubDate: Date;
-  if (entry.collection === 'checkin') {
-    pubDate = entry.data.published;
-  } else {
-    pubDate = entry.data.date;
-  }
+  const pubDate = entry.data.date;
 
   // Parse out the year, month and day from the `pubDate`.
   const pubYear = String(pubDate.getFullYear()).padStart(4, '0');
@@ -21,20 +16,14 @@ export function getEntryParams(entry: CollectionEntryType) {
   // Astro generates the `slug` from the filename of the content.
   // Our filenames begin with `YYYY-MM-DD-`, but we don't want this in our resulting URL.
   // So, we use a regex to remove this prefix, if it exists.
-
-  let slug: string;
-  // If the entry is a checkin, we use the slug from the data.
-  if (entry.collection === 'checkin') {
-    slug = entry.data.slug;
-  } else {
-    const match = entry.id.match(/([^\/]+)$/);
-    let matchedSlug = match && match[1] ? match[1] : undefined;
-    if (matchedSlug && /^\d{4}-\d{2}-\d{2}(-.*)?$/.test(matchedSlug)) {
-      // Remove ISO date prefix if present (e.g., "2024-06-10-title" -> "title")
-      matchedSlug = matchedSlug.replace(/^\d{4}-\d{2}-\d{2}-?/, '');
-    }
-    slug = matchedSlug ? matchedSlug : entry.id.replace(/\.[^/.]+$/, "");
+  const match = entry.id.match(/([^\/]+)$/);
+  let matchedSlug = match && match[1] ? match[1] : undefined;
+  if (matchedSlug && /^\d{4}-\d{2}-\d{2}(-.*)?$/.test(matchedSlug)) {
+    // Remove ISO date prefix if present (e.g., "2024-06-10-title" -> "title")
+    matchedSlug = matchedSlug.replace(/^\d{4}-\d{2}-\d{2}-?/, '');
   }
+  const slug = matchedSlug ? matchedSlug : entry.id.replace(/\.[^/.]+$/, "");
+
 
   // Build our desired date-based path from the relevant parts.
   const path = `${pubYear}/${pubMonth}/${pubDay}/${slug}`;

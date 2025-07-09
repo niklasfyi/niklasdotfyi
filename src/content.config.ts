@@ -63,45 +63,47 @@ const note = defineCollection({
 });
 
 const checkin = defineCollection({
-	type: "data", // Set type to "data" for JSON files
-	schema: z.object({
-		type: z.literal("entry"),
-		published: z
+	loader: glob({ base: "./src/content/checkins", pattern: "**/*.md" }),
+	schema: baseSchema.extend({
+		syndication: z.string().url().optional(),
+		checkin: z
+			.array(
+				z.object({
+					type: z.array(z.string()),
+					properties: z.object({
+						name: z.array(z.string()),
+						url: z.array(z.string().url()).optional(),
+						latitude: z.array(z.number()),
+						longitude: z.array(z.number()),
+						"street-address": z.array(z.string()).optional(),
+						locality: z.array(z.string()).optional(),
+						region: z.array(z.string()).optional(),
+						"country-name": z.array(z.string()).optional(),
+						"postal-code": z.array(z.string()).optional(),
+					}),
+					value: z.string().url(),
+				}),
+			),
+		location: z
+			.array(
+				z.object({
+					type: z.array(z.string()),
+					properties: z.object({
+						latitude: z.array(z.number()),
+						longitude: z.array(z.number()),
+						"street-address": z.array(z.string()).optional(),
+						locality: z.array(z.string()).optional(),
+						region: z.array(z.string()).optional(),
+						"country-name": z.array(z.string()).optional(),
+						"postal-code": z.array(z.string()).optional(),
+					}),
+				}),
+			)
+			.optional(),
+		updated: z
 			.string()
 			.datetime({ offset: true })
-			.transform((val) => new Date(val)),
-		syndication: z.array(z.string().url()),
-		checkin: z.object({
-			type: z.literal("card"),
-			name: z.string(),
-			url: z.union([z.array(z.string().url()), z.string().url()]).optional(),
-			tel: z.string().optional(),
-			latitude: z.number(),
-			longitude: z.number(),
-			"street-address": z.string().optional(),
-			locality: z.string().optional(),
-			region: z.string().optional(),
-			"country-name": z.string(),
-			"postal-code": z.string().optional(),
-		}),
-		location: z.object({
-			type: z.literal("adr"),
-			latitude: z.number(),
-			longitude: z.number(),
-			"street-address": z.string().optional(),
-			locality: z.string().optional(),
-			region: z.string().optional(),
-			"country-name": z.string(),
-			"postal-code": z.string().optional(),
-		}),
-		slug: z.string(),
-		url: z.string().url(),
-		"post-status": z.literal("published"),
-		content: z
-			.object({
-				html: z.string(),
-				text: z.string(),
-			})
+			.transform((val) => new Date(val))
 			.optional(),
 	}),
 });

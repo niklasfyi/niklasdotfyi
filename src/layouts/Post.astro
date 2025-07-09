@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, render } from "astro:content";
+import { Image } from "astro:assets";
 
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
@@ -23,7 +24,7 @@ let title = "";
 if (isNote) {
 	title = post.body ? (post.body.length > 20 ? `${post.body.slice(0, 20)}...` : post.body) : "";
 } else if (isCheckin) {
-	title = data.checkin.name;
+	title = `at ${data.checkin[0]?.properties.name ?? "Unknown Location"}`;
 } else {
 	title = data.title;
 }
@@ -32,7 +33,7 @@ if (isNote) {
 const tags = isArticle ? data.tags : null;
 const draft = isArticle ? data["post-status"] === "draft" : false;
 const coverImage = isArticle ? data.coverImage : null;
-const date = isCheckin ? data.published : data.date;
+const date = data.date;
 const updated = isArticle ? data.updated : null;
 const ogImage = isArticle ? data.ogImage : null;
 const socialImage = ogImage ?? `/og-image/${id}.png`;
