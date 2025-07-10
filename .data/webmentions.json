@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2025-07-08T11:49:48.942Z",
+  "lastFetched": "2025-07-10T09:32:36.917Z",
   "children": [
     {
       "type": "entry",
@@ -3743,6 +3743,29 @@
       },
       "swarm-coins": 9,
       "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/08/1751961274",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/96fe3389ef056db8717e827a9d0d136c945ab4383641feb80e6596e9ce4a5ad2.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/686f659cca30d0122581f11c/86f59f5294580a5981c07adf2bae9cac",
+      "published": "2025-07-10T09:02:52+02:00",
+      "wm-received": "2025-07-10T07:03:17Z",
+      "wm-id": 1923690,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/686f659cca30d0122581f11c/86f59f5294580a5981c07adf2bae9cac",
+      "wm-target": "https://www.niklas.fyi/checkins/2025/07/10/1752130972",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "Still the Mayor! They might as well name the place after you!"
+      },
+      "swarm-coins": 3,
+      "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/10/1752130972",
       "wm-property": "in-reply-to",
       "wm-private": false
     }

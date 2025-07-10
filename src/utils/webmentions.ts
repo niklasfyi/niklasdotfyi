@@ -108,6 +108,19 @@ async function getAndCacheWebmentions() {
 
 let webMentions: WebmentionsCache;
 
+function normalizeUrl(url: string): string {
+	try {
+		const urlObj = new URL(url);
+		// Remove any content type segment like /checkins/, /notes/, etc.
+		urlObj.pathname = urlObj.pathname.replace(/^\/[^/]+\/(\d{4}\/)/, "/$1");
+		// Remove trailing slash
+		return urlObj.href.replace(/\/$/, "");
+	} catch (e) {
+		// if it's not a valid URL, return it as is.
+		return url.replace(/\/$/, "");
+	}
+}
+
 export async function getWebmentionsForUrl(url: string) {
 	if (!webMentions) webMentions = await getAndCacheWebmentions();
 
@@ -125,15 +138,15 @@ export async function getWebmentionsForUrl(url: string) {
 		oldUrl = `${urlObject.origin}${oldPath}`;
 	}
 
+	console.log(`Fetching webmentions for URL: ${url}`);
+
+	const normalizedUrl = normalizeUrl(url);
+	const normalizedOldUrl = oldUrl ? normalizeUrl(oldUrl) : null;
+
 	return webMentions.children.filter((entry) => {
-		const target = entry["wm-target"];
-		if (target === url) return true;
-		if (oldUrl && target === oldUrl) return true;
-		// Handle trailing slashes
-		if (target.endsWith("/") && target.slice(0, -1) === url) return true;
-		if (url.endsWith("/") && url.slice(0, -1) === target) return true;
-		if (oldUrl && target.endsWith("/") && target.slice(0, -1) === oldUrl) return true;
-		if (oldUrl && oldUrl.endsWith("/") && oldUrl.slice(0, -1) === target) return true;
+		const normalizedTarget = normalizeUrl(entry["wm-target"]);
+		if (normalizedTarget === normalizedUrl) return true;
+		if (normalizedOldUrl && normalizedTarget === normalizedOldUrl) return true;
 		return false;
 	});
 }
