@@ -13,6 +13,11 @@ const baseSchema = z.object({
 	client_id: z.string().optional(),
 	tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
 	description: z.string().optional(),
+	ogImage: z.string().optional(),
+	updated: z
+	.string()
+	.optional()
+	.transform((str) => (str ? new Date(str) : undefined)),
 });
 
 const post = defineCollection({
@@ -27,11 +32,6 @@ const post = defineCollection({
 				})
 				.optional(),
 			"post-status": z.string().default("published"),
-			ogImage: z.string().optional(),
-			updated: z
-				.string()
-				.optional()
-				.transform((str) => (str ? new Date(str) : undefined)),
 		}),
 });
 
@@ -47,11 +47,6 @@ const article = defineCollection({
 				})
 				.optional(),
 			"post-status": z.string().default("published"),
-			ogImage: z.string().optional(),
-			updated: z
-				.string()
-				.optional()
-				.transform((str) => (str ? new Date(str) : undefined)),
 		}),
 });
 
@@ -99,11 +94,6 @@ const checkin = defineCollection({
 					}),
 				}),
 			)
-			.optional(),
-		updated: z
-			.string()
-			.datetime({ offset: true })
-			.transform((val) => new Date(val))
 			.optional(),
 	}),
 });
