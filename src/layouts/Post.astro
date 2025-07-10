@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, render } from "astro:content";
 import { Image } from "astro:assets";
+import { YouTube } from "astro-embed";
 
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
@@ -10,7 +11,7 @@ import BaseLayout from "./Base.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 
 interface Props {
-	post: CollectionEntry<"post" | "article" | "note" | "checkin">;
+	post: CollectionEntry<"post" | "article" | "note" | "checkin" | "bookmark">;
 }
 
 const { post } = Astro.props;
@@ -19,6 +20,7 @@ const { data, collection, id } = post;
 const isArticle = collection === "article";
 const isCheckin = collection === "checkin";
 const isNote = collection === "note";
+const isBookmark = collection === "bookmark";
 
 let title = "";
 if (isNote) {
@@ -29,8 +31,8 @@ if (isNote) {
 	title = data.title;
 }
 
-// const description = isArticle || isNote ? data.description : null;
-const tags = isArticle ? data.tags : null;
+const description = data.description;
+const tags = data.tags;
 const draft = isArticle ? data["post-status"] === "draft" : false;
 const coverImage = isArticle ? data.coverImage : null;
 const date = data.date;
@@ -48,8 +50,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <BaseLayout
 	meta={{
 		articleDate,
-		// description: description ?? "",
-		description: "",
+		description: description ?? "",
 		ogImage: socialImage,
 		title,
 	}}
@@ -71,7 +72,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				)
 			}
 			{draft ? <span class="text-base text-red-500">(Draft)</span> : null}
-			{isArticle && <h1 class="p-name title">{title}</h1>}
+			{(isArticle || isBookmark) && <h1 class="p-name title">{title}</h1>}
 			<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 				<p class="font-semibold">
 					<FormattedDate class="dt-published" date={date} /> /{" "}
@@ -92,6 +93,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			<div
 				class="e-content prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-(--color-secondary-text) prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
 			>
+				<!-- If bookmark, show link to original article and also if bookmark-of link is from youtube, render video -->
+				{
+					isBookmark && (
+						<p class="mb-4">
+							<a class="custom-link" href={post.data["bookmark-of"]}>
+								{post.data.title}
+							</a>
+						</p>
+					)
+				}
+				{
+					isBookmark && post.data["bookmark-of"]?.startsWith("https://www.youtube.com/watch") ? (
+						<YouTube id={post.data["bookmark-of"]} />
+					) : null
+				}
 				<slot />
 				{
 					!!tags?.length && (

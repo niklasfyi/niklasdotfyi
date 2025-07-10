@@ -1,7 +1,5 @@
-import type { CollectionEntry } from "astro:content";
 import { siteConfig } from "@/site.config";
-
-type CollectionEntryType = CollectionEntry<"article" | "note" | "checkin" | "post">;
+import type { CollectionEntryType } from "@/types";
 
 export function getFormattedDate(
 	date: Date | undefined,

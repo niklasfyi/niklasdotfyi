@@ -1,12 +1,14 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
+import { render } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 import type { HTMLTag, Polymorphic } from "astro/types";
 import { getEntryParams } from "@/utils/params";
 import { Icon } from "astro-icon/components";
+import type { CollectionEntryType } from "@/types";
+import { YouTube } from "astro-embed";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	entry: CollectionEntry<"note"> | CollectionEntry<"article"> | CollectionEntry<"checkin">;
+	entry: CollectionEntryType;
 };
 
 const { entry } = Astro.props;
@@ -15,10 +17,11 @@ const { Content } = await render(entry);
 const { path } = getEntryParams(entry);
 const isArticle = entry.collection === "article";
 const isCheckin = entry.collection === "checkin";
+const isBookmark = entry.collection === "bookmark";
 
 // Set title based on entry type
 let title = "";
-if (isArticle) {
+if (isArticle || isBookmark) {
 	title = entry.data.title;
 } else if (isCheckin) {
 	title = `at ${entry.data.checkin[0]?.properties.name ?? "Unknown Location"}`;
@@ -31,7 +34,11 @@ if (isArticle) {
 			<header class="mb-3">
 				{entry.data.draft && <span class="text-red-500">(Draft) </span>}
 				<h3 class="text-lg font-semibold">
-					<a class="custom-link" data-astro-prefetch href={`/${path}/`}>
+					<a
+						class="custom-link"
+						data-astro-prefetch
+						href={isBookmark ? entry.data["bookmark-of"] : `/${path}/`}
+					>
 						{title}
 					</a>
 				</h3>
@@ -40,7 +47,18 @@ if (isArticle) {
 	}
 	<!-- Add openstreetmap tile for location data in checkins -->
 	<div class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0">
-		{entry.data.description ? <p>{entry.data.description}</p> : <Content />}
+		{
+			entry.data.description ? (
+				<p>{entry.data.description}</p>
+			) : isBookmark && entry.data["bookmark-of"].includes("youtube.com") ? (
+				<>
+					<YouTube id={entry.data["bookmark-of"]} />
+					<Content />
+				</>
+			) : (
+				<Content />
+			)
+		}
 	</div>
 	<footer class="text-right text-xs">
 		<span class="text-(--color-global-text)">
@@ -49,6 +67,8 @@ if (isArticle) {
 					<Icon name="ph:newspaper" class="mr-1 inline h-4 w-4" />
 				) : isCheckin ? (
 					<Icon name="ph:map-pin" class="mr-1 inline h-4 w-4" />
+				) : isBookmark ? (
+					<Icon name="ph:bookmark" class="mr-1 inline h-4 w-4" />
 				) : (
 					<Icon name="ph:note" class="mr-1 inline h-4 w-4" />
 				)

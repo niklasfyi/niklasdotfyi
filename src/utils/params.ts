@@ -1,6 +1,4 @@
-import type { CollectionEntry } from 'astro:content';
-
-type CollectionEntryType = CollectionEntry<"article" | "note" | "checkin">;
+import type { CollectionEntryType } from "@/types";
 
 export function getEntryParams(entry: CollectionEntryType) {
   // Grab the `pubDate` from the blog entry's frontmatter.

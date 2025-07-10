@@ -1,24 +1,21 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-// import Article from "@/layouts/Article.astro";
-// import Checkin from "@/layouts/Checkin.astro";
-// import Note from "@/layouts/Note.astro";
 import PostLayout from "@/layouts/Post.astro";
 import { getEntryParams } from "@/utils/params";
 import { getAllArticles } from "@/utils/article";
-
-// type CollectionEntryType = CollectionEntry<"article" | "note" | "checkin">;
 
 export async function getStaticPaths() {
 	const allArticles = await getAllArticles();
 	const allNotes = await getCollection("note");
 	const allCheckins = await getCollection("checkin");
+	const allBookmarks = await getCollection("bookmark");
 
 	// Combine all posts
 	const allPosts = [
 		...allArticles.map((post) => ({ post, type: "article" })),
 		...allNotes.map((post) => ({ post, type: "note" })),
 		...allCheckins.map((post) => ({ post, type: "checkin" })),
+		...allBookmarks.map((post) => ({ post, type: "bookmark" })),
 	];
 
 	return allPosts.map(({ post, type }) => ({
@@ -40,6 +37,10 @@ const { Content } = await render(post);
 		<PostLayout post={post as CollectionEntry<"checkin">} />
 	) : type === "note" ? (
 		<PostLayout post={post as CollectionEntry<"note">}>
+			<Content />
+		</PostLayout>
+	) : type === "bookmark" ? (
+		<PostLayout post={post as CollectionEntry<"bookmark">}>
 			<Content />
 		</PostLayout>
 	) : null

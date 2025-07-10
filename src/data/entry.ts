@@ -1,11 +1,10 @@
-import { type CollectionEntry, getCollection } from "astro:content";
-
-const collectionNames = ["article", "note"] as const; // Add your collection names here
+import { getCollection } from "astro:content";
+import { collectionNames, type CollectionEntryType } from "@/types";
 
 export async function getAllCollections(): Promise<{
-	[key: string]: CollectionEntry<(typeof collectionNames)[number]>[];
+	[key: string]: CollectionEntryType[];
 }> {
-	const collections: { [key: string]: CollectionEntry<(typeof collectionNames)[number]>[] } = {};
+	const collections: { [key: string]: CollectionEntryType[] } = {};
 
 	for (const collectionName of collectionNames) {
 		try {
@@ -23,7 +22,7 @@ export async function getAllCollections(): Promise<{
  *  Note: This function doesn't filter draft entries, pass it the result of getAllCollections above to do so.
  *  */
 export function* getAllTags(collections: {
-	[key: string]: CollectionEntry<(typeof collectionNames)[number]>[];
+	[key: string]: CollectionEntryType[];
 }) {
 	for (const c in collections) {
 		const collection = collections[c];
@@ -41,7 +40,7 @@ export function* getAllTags(collections: {
  *  Note: This function doesn't filter draft entries, pass it the result of getAllCollections above to do so.
  *  */
 export function getAllUniqueTags(collections: {
-	[key: string]: CollectionEntry<(typeof collectionNames)[number]>[];
+	[key: string]: CollectionEntryType[];
 }) {
 	return [...new Set(getAllTags(collections))];
 }
@@ -51,9 +50,9 @@ export function getAllUniqueTags(collections: {
  *  */
 /** returns all entries that don't have any tags */
 export function getUntaggedEntries(collections: {
-	[key: string]: CollectionEntry<(typeof collectionNames)[number]>[];
+	[key: string]: CollectionEntryType[];
 }) {
-	const untaggedEntries: CollectionEntry<(typeof collectionNames)[number]>[] = [];
+	const untaggedEntries: CollectionEntryType[] = [];
 
 	for (const c in collections) {
 		const collection = collections[c];
@@ -87,10 +86,10 @@ export async function getAllUniqueTagsWithCount(): Promise<[string, number][]> {
 }
 
 export async function getAllEntries(): Promise<
-	CollectionEntry<(typeof collectionNames)[number]>[]
+	CollectionEntryType[]
 > {
 	const collections = await getAllCollections();
-	const allEntries: CollectionEntry<(typeof collectionNames)[number]>[] = [];
+	const allEntries: CollectionEntryType[] = [];
 
 	for (const collectionName in collections) {
 		const collection = collections[collectionName];

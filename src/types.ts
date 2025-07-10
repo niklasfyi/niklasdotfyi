@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 export interface SiteConfig {
 	author: string;
 	date: {
@@ -81,3 +83,7 @@ export interface Summary {
 }
 
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";
+
+export const collectionNames = ["article", "note", "checkin", "bookmark", "post"] as const;
+
+export type CollectionEntryType = CollectionEntry<(typeof collectionNames)[number]>;

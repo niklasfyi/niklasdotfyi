@@ -108,4 +108,12 @@ const checkin = defineCollection({
 	}),
 });
 
-export const collections = { article, post, note, checkin };
+const bookmark = defineCollection({
+	loader: glob({ base: "./src/content/bookmarks", pattern: "**/*.md" }),
+	schema: baseSchema.extend({
+		"bookmark-of": z.string().url(),
+		title: z.string(),
+	}),
+});
+
+export const collections = { article, post, note, checkin, bookmark };
