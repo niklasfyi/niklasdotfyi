@@ -28,10 +28,10 @@ const ogOptions: SatoriOptions = {
 	width: 1200,
 };
 
-const markup = (title: string, pubDate: string, origin: string) =>
+const markup = (title: string, pubDate: string) =>
 	html`<div tw="bg-[#1d1f21] text-[#c9cacc] w-full h-full flex flex-col justify-center items-center px-6">
 		<img
-			src="${origin}/logo.png"
+			src="https://www.niklas.fyi/logo.png"
 			width="500"
 			height="500"
 			tw="w-36 h-36 rounded-full"
@@ -53,9 +53,7 @@ export async function GET(context: APIContext) {
 	const { pubDate, title } = context.props as Props;
 
 	const postDate = getFormattedDate(pubDate);
-	console.log(`Generating OG image for: ${title} (${postDate})`);
-	console.log(markup(title, postDate, context.url.origin))
-	const svg = await satori(markup(title, postDate, context.url.origin), ogOptions);
+	const svg = await satori(markup(title, postDate), ogOptions);
 	const png = new Resvg(svg).render().asPng();
 	return new Response(png, {
 		headers: {
