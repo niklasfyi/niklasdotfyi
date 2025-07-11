@@ -142,9 +142,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 						</div>
 					)
 				}
-				<div class="h-card hidden">
+				<div class="hidden">
 					<!-- This is for the h-card microformat -->
-					<a href="/" class="p-author"></a>
+					<a href="/" class="p-author h-card"></a>
 					<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
 					<a href={canonicalURL} rel="canonical" class="u-url"></a>
 					<span class="p-summary">{description}</span>
