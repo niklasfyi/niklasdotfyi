@@ -29,45 +29,47 @@ const recentEntriesCombined = allEntriesCombined.sort(collectionDateSort).slice(
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	<section class="rounded-lg border p-4">
-		<div class="h-card">
-			<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
-			<p class="p-note">
-				Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"
-					><span class="p-given-name">Niklas</span><span
-						class="p-family-name"
-						style="display: none;">&nbsp;Siefke</span
-					></a
-				> (<span class="p-pronouns"
-					><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span
-						class="p-pronoun-oblique p-x-pronoun-oblique">him</span
-					>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span
-				>), <span class="p-job-title">Software Engineer</span> at <a
-					class="p-org h-card"
-					href="https://www.mazemap.com/">MazeMap</a
-				>. Living a quite life in <span class="p-locality">Trondheim</span> (🇳🇴<span
-					class="p-country-name"
-					style="display: none;">Norway</span
-				>) | Dad - Husband - Photographer - Smart Home Tinkerer
-			</p>
-		</div>
-		<SocialList />
+	<section class="h-feed">
+		<section class="rounded-lg border p-4">
+			<div class="h-card">
+				<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+				<p class="p-note">
+					Hi, I'm <a class="p-name u-uid u-url" rel="me" href="https://www.niklas.fyi"
+						><span class="p-given-name">Niklas</span><span
+							class="p-family-name"
+							style="display: none;">&nbsp;Siefke</span
+						></a
+					> (<span class="p-pronouns"
+						><span class="p-x-pronoun-nominative p-pronoun-nominative p-pronoun">he</span>/<span
+							class="p-pronoun-oblique p-x-pronoun-oblique">him</span
+						>/<span class="p-pronoun-possessive p-x-pronoun-possessive">his</span></span
+					>), <span class="p-job-title">Software Engineer</span> at <a
+						class="p-org h-card"
+						href="https://www.mazemap.com/">MazeMap</a
+					>. Living a quite life in <span class="p-locality">Trondheim</span> (🇳🇴<span
+						class="p-country-name"
+						style="display: none;">Norway</span
+					>) | Dad - Husband - Photographer - Smart Home Tinkerer
+				</p>
+			</div>
+			<SocialList />
+		</section>
+		{
+			recentEntriesCombined.length > 0 && (
+				<section class="mt-16">
+					<h2 class="title text-accent mb-6 text-xl">Recent</h2>
+					<div class="space-y-3" role="list">
+						{recentEntriesCombined.map((entry, index) => (
+							<>
+								<Preview entry={entry} />
+								{index < recentEntriesCombined.length - 1 && (
+									<hr class="mx-auto h-0.5 w-10 border-0 bg-(--color-divider)" />
+								)}
+							</>
+						))}
+					</div>
+				</section>
+			)
+		}
 	</section>
-	{
-		recentEntriesCombined.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">Recent</h2>
-				<div class="space-y-3" role="list">
-					{recentEntriesCombined.map((entry, index) => (
-						<>
-							<Preview entry={entry} />
-							{index < recentEntriesCombined.length - 1 && (
-								<hr class="mx-auto h-0.5 w-10 border-0 bg-(--color-divider)" />
-							)}
-						</>
-					))}
-				</div>
-			</section>
-		)
-	}
 </PageLayout>
