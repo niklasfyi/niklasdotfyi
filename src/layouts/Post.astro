@@ -2,6 +2,7 @@
 import { type CollectionEntry, render } from "astro:content";
 import { Image } from "astro:assets";
 import { YouTube } from "astro-embed";
+import myImage from "@/assets/logo.png";
 
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
@@ -141,8 +142,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 						</div>
 					)
 				}
-				<a href="/" class="p-author h-card"></a>
-				<a href={canonicalURL} rel="canonical" class="u-url"></a>
+				<div class="h-card hidden">
+					<!-- This is for the h-card microformat -->
+					<a href="/" class="p-author"></a>
+					<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+					<a href={canonicalURL} rel="canonical" class="u-url"></a>
+					<span class="p-summary">{description}</span>
+				</div>
 				<WebMentions />
 			</div>
 		</div>
