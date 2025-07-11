@@ -6,6 +6,9 @@ import { getEntryParams } from "@/utils/params";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntryType } from "@/types";
 import { YouTube } from "astro-embed";
+import { siteConfig } from "@/site.config";
+import { Image } from "astro:assets";
+import myImage from "@/assets/logo.png";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	entry: CollectionEntryType;
@@ -74,8 +77,15 @@ if (isArticle || isBookmark) {
 				)
 			}
 		</span> -
-		<a class="custom-link text-(--color-secondary-text)" href={`/${path}/`}>
+		<a class="u-uid u-url custom-link text-(--color-secondary-text)" href={`/${path}/`}>
 			<FormattedDate date={entry.data.date} />
 		</a>
+		<div class="hidden">
+			<!-- This is for the h-card microformat -->
+			<span class="p-author h-card">
+				<a href="/" class="p-name u-url">{siteConfig.author}</a>
+				<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+			</span>
+		</div>
 	</footer>
 </article>

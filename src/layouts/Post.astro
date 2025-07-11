@@ -10,6 +10,7 @@ import WebMentions from "@/components/blog/webmentions/index.astro";
 import BaseLayout from "./Base.astro";
 
 import FormattedDate from "@/components/FormattedDate.astro";
+import { siteConfig } from "@/site.config";
 
 interface Props {
 	post: CollectionEntry<"post" | "article" | "note" | "checkin" | "bookmark">;
@@ -144,9 +145,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				}
 				<div class="hidden">
 					<!-- This is for the h-card microformat -->
-					<a href="/" class="p-author h-card"></a>
-					<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
-					<a href={canonicalURL} rel="canonical" class="u-url"></a>
+					<span class="p-author h-card">
+						<a href="/" class="p-name u-url">{siteConfig.author}</a>
+						<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+					</span>
+					<a href={canonicalURL} rel="canonical" class="u-url u-uid"></a>
 					<span class="p-summary">{description}</span>
 				</div>
 				<WebMentions />
