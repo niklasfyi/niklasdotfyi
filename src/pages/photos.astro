@@ -1,0 +1,85 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import { getAllPhotos } from "@/data/photos";
+import { getFormattedDate } from "@/utils/date";
+import { LightGallery } from "astro-lightgallery";
+
+
+const meta = {
+	description: "A collection of my favorite photos",
+	title: "Photos",
+};
+
+// Load all photos dynamically
+const photos = await getAllPhotos();
+
+type PhotoValue = (typeof photos)[number]["data"]["photo"][number]["value"];
+
+const allPhotos: { value: PhotoValue; alt: string; collectionEntry: (typeof photos)[number] }[] =
+	[];
+
+photos.forEach((photo) => {
+	photo.data.photo.forEach((image) => {
+		allPhotos.push({
+			value: image.value,
+			alt: image.alt,
+			collectionEntry: photo,
+		});
+	});
+});
+---
+
+<PageLayout meta={meta}>
+
+  <LightGallery
+    layout={{
+      imgs: [
+        { src: "/img01.jpg", },
+        { src: "/img02.jpg", },
+        ...
+      ]
+    }}
+    options={{
+      thumbnail: true,
+    }}
+  />
+
+	<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+		{
+			allPhotos.map((photo) => (
+				<div class="group cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:shadow-lg dark:bg-gray-800">
+					<div class="aspect-square overflow-hidden">
+						<Image
+							src={photo.value}
+							alt={photo.alt}
+							class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+							loading="lazy"
+						/>
+					</div>
+					{(photo.collectionEntry.data.title || photo.collectionEntry.data.date) && (
+						<div class="p-4">
+							{photo.collectionEntry.data.title && (
+								<h3 class="mb-1 text-sm font-semibold">{photo.collectionEntry.data.title}</h3>
+							)}
+							{photo.collectionEntry.data.date && (
+								<p class="text-xs text-gray-500 dark:text-gray-400">
+									{getFormattedDate(photo.collectionEntry.data.date)}
+								</p>
+							)}
+							{photo.collectionEntry.data.tags && photo.collectionEntry.data.tags.length > 0 && (
+								<div class="mt-2 flex flex-wrap gap-1">
+									{photo.collectionEntry.data.tags.map((tag) => (
+										<span class="rounded bg-gray-200 px-2 py-1 text-xs dark:bg-gray-600">
+											{tag}
+										</span>
+									))}
+								</div>
+							)}
+						</div>
+					)}
+				</div>
+			))
+		}
+	</div>
+</PageLayout>
