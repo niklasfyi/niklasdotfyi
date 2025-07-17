@@ -31,7 +31,7 @@ const ogOptions: SatoriOptions = {
 const markup = (title: string, pubDate: string) =>
 	html`<div tw="bg-[#1d1f21] text-[#c9cacc] w-full h-full flex flex-col justify-center items-center px-6">
 		<img
-			src="https://www.niklas.fyi/logo.png"
+			src=${siteConfig.url}/logo.png
 			width="500"
 			height="500"
 			tw="w-36 h-36 rounded-full"
