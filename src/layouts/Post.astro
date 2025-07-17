@@ -1,8 +1,9 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
+import { render } from "astro:content";
 import { Image } from "astro:assets";
 import { YouTube } from "astro-embed";
 import myImage from "@/assets/logo.png";
+import type { CollectionEntryType } from "@/types";
 
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
@@ -13,7 +14,7 @@ import FormattedDate from "@/components/FormattedDate.astro";
 import { siteConfig } from "@/site.config";
 
 interface Props {
-	post: CollectionEntry<"post" | "article" | "note" | "checkin" | "bookmark">;
+	post: CollectionEntryType;
 }
 
 const { post } = Astro.props;

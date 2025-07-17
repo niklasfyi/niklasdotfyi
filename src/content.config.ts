@@ -15,24 +15,9 @@ const baseSchema = z.object({
 	description: z.string().optional(),
 	ogImage: z.string().optional(),
 	updated: z
-	.string()
-	.optional()
-	.transform((str) => (str ? new Date(str) : undefined)),
-});
-
-const post = defineCollection({
-	loader: glob({ base: "./src/content/post", pattern: "**/*.{md,mdx}" }),
-	schema: ({ image }) =>
-		baseSchema.extend({
-			title: z.string().max(60),
-			coverImage: z
-				.object({
-					alt: z.string(),
-					src: image(),
-				})
-				.optional(),
-			"post-status": z.string().default("published"),
-		}),
+		.string()
+		.optional()
+		.transform((str) => (str ? new Date(str) : undefined)),
 });
 
 const article = defineCollection({
@@ -61,24 +46,23 @@ const checkin = defineCollection({
 	loader: glob({ base: "./src/content/checkins", pattern: "**/*.md" }),
 	schema: baseSchema.extend({
 		syndication: z.string().url().optional(),
-		checkin: z
-			.array(
-				z.object({
-					type: z.array(z.string()),
-					properties: z.object({
-						name: z.array(z.string()),
-						url: z.array(z.string().url()).optional(),
-						latitude: z.array(z.number()),
-						longitude: z.array(z.number()),
-						"street-address": z.array(z.string()).optional(),
-						locality: z.array(z.string()).optional(),
-						region: z.array(z.string()).optional(),
-						"country-name": z.array(z.string()).optional(),
-						"postal-code": z.array(z.string()).optional(),
-					}),
-					value: z.string().url(),
+		checkin: z.array(
+			z.object({
+				type: z.array(z.string()),
+				properties: z.object({
+					name: z.array(z.string()),
+					url: z.array(z.string().url()).optional(),
+					latitude: z.array(z.number()),
+					longitude: z.array(z.number()),
+					"street-address": z.array(z.string()).optional(),
+					locality: z.array(z.string()).optional(),
+					region: z.array(z.string()).optional(),
+					"country-name": z.array(z.string()).optional(),
+					"postal-code": z.array(z.string()).optional(),
 				}),
-			),
+				value: z.string().url(),
+			}),
+		),
 		location: z
 			.array(
 				z.object({
@@ -106,4 +90,4 @@ const bookmark = defineCollection({
 	}),
 });
 
-export const collections = { article, post, note, checkin, bookmark };
+export const collections = { article, note, checkin, bookmark };
