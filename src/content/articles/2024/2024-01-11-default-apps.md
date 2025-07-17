@@ -2,6 +2,7 @@
 title: My default apps starting 2024
 date: "2024-01-11T12:50:17.136Z"
 tags: ["tools"]
+description: "A list of my default apps for 2024"
 ---
 
 I saw all those "My default apps 2023"-Posts in my RSS and decided to join in - even though it is not 2023 anymore.

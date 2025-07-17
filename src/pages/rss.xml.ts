@@ -39,7 +39,13 @@ export const GET = async () => {
 							allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
 						})
 					: undefined,
+				categories: entry.data.tags,
+				author: siteConfig.authorEmail,
 			})),
 		),
+		xmlns: {
+			atom: "http://www.w3.org/2005/Atom",
+		},
+		customData: `<atom:link href="${import.meta.env.SITE}rss.xml" rel="self" type="application/rss+xml" />`,
 	});
 };

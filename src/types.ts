@@ -2,6 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 export interface SiteConfig {
 	author: string;
+	authorEmail: string;
 	date: {
 		locale: string | string[] | undefined;
 		options: Intl.DateTimeFormatOptions;

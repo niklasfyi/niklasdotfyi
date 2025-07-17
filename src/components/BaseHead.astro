@@ -37,6 +37,18 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 {/* Canonical URL */}
 <link href={canonicalURL} rel="canonical" class="u-url" />
 
+{/* RSS Feed */}
+{
+	import.meta.env.PROD && (
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={siteTitle}
+			href={new URL("rss.xml", Astro.site)}
+		/>
+	)
+}
+
 {/* Primary Meta Tags */}
 <meta content={siteTitle} name="title" />
 <meta content={description} name="description" />
