@@ -46,6 +46,13 @@ const checkin = defineCollection({
 	loader: glob({ base: "./src/content/checkins", pattern: "**/*.md" }),
 	schema: baseSchema.extend({
 		syndication: z.string().url().optional(),
+		photo: z
+			.array(
+				z.object({
+					value: z.string().url(),
+				}),
+			)
+			.optional(),
 		checkin: z.array(
 			z.object({
 				type: z.array(z.string()),

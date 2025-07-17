@@ -29,7 +29,7 @@ let title = "";
 if (isNote) {
 	title = post.body ? (post.body.length > 20 ? `${post.body.slice(0, 20)}...` : post.body) : "";
 } else if (isCheckin) {
-	title = `at ${data.checkin[0]?.properties.name ?? "Unknown Location"}`;
+	title = `At ${data.checkin[0]?.properties.name ?? "Unknown Location"}`;
 } else {
 	title = data.title;
 }
@@ -43,6 +43,7 @@ const updated = isArticle ? data.updated : null;
 const ogImage = isArticle ? data.ogImage : null;
 const socialImage = ogImage ?? `/og-image/${id}.png`;
 const articleDate = updated?.toISOString() ?? date.toISOString();
+const checkinPhotoUrl = isCheckin && data.photo ? data.photo[0]?.value : null;
 
 const { headings, remarkPluginFrontmatter } = await render(post);
 const readingTime: string = remarkPluginFrontmatter.readingTime;
@@ -75,7 +76,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				)
 			}
 			{draft ? <span class="text-base text-red-500">(Draft)</span> : null}
-			{(isArticle || isBookmark) && <h1 class="p-name title">{title}</h1>}
+			{title && <h1 class="p-name title">{title}</h1>}
 			<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 				<p class="font-semibold">
 					<FormattedDate class="dt-published" date={date} /> /{" "}
@@ -111,6 +112,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 						<YouTube id={post.data["bookmark-of"]} />
 					) : null
 				}
+				<!-- If isCheckin and checkinPhotoUrl is not empty render it-->
+				{isCheckin && checkinPhotoUrl ? <img src={checkinPhotoUrl} alt="Checkin Photo" /> : null}
 				<slot />
 				{
 					!!tags?.length && (

@@ -34,7 +34,9 @@ const { Content } = await render(post);
 			<Content />
 		</PostLayout>
 	) : type === "checkin" ? (
-		<PostLayout post={post as CollectionEntry<"checkin">} />
+		<PostLayout post={post as CollectionEntry<"checkin">}>
+			<Content />
+		</PostLayout>
 	) : type === "note" ? (
 		<PostLayout post={post as CollectionEntry<"note">}>
 			<Content />
