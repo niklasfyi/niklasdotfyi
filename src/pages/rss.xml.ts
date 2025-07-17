@@ -31,7 +31,11 @@ export const GET = async () => {
 		items: await Promise.all(
 			entries.map(async (entry) => ({
 				title: getTitle(entry),
-				description: entry.data.description,
+				description: entry.body
+					? sanitizeHtml(parser.render(entry.body), {
+							allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+						})
+					: undefined,
 				pubDate: entry.data.date,
 				link: `${entry.id}`,
 				content: entry.body
@@ -40,7 +44,7 @@ export const GET = async () => {
 						})
 					: undefined,
 				categories: entry.data.tags,
-				author: siteConfig.authorEmail,
+				author: `${siteConfig.authorEmail} (${siteConfig.author})`,
 			})),
 		),
 		xmlns: {
