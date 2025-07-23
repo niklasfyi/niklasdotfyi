@@ -44,37 +44,26 @@ const note = defineCollection({
 
 const checkin = defineCollection({
 	loader: glob({ base: "./src/content/checkins", pattern: "**/*.md" }),
-	schema: baseSchema.extend({
-		syndication: z.string().url().optional(),
-		photo: z
-			.array(
-				z.object({
-					value: z.string().url(),
-				}),
-			)
-			.optional(),
-		checkin: z.array(
-			z.object({
-				type: z.array(z.string()),
-				properties: z.object({
-					name: z.array(z.string()),
-					url: z.array(z.string().url()).optional(),
-					latitude: z.array(z.number()),
-					longitude: z.array(z.number()),
-					"street-address": z.array(z.string()).optional(),
-					locality: z.array(z.string()).optional(),
-					region: z.array(z.string()).optional(),
-					"country-name": z.array(z.string()).optional(),
-					"postal-code": z.array(z.string()).optional(),
-				}),
-				value: z.string().url(),
+	schema: ({ image }) =>
+		baseSchema.extend({
+			syndication: z.string().url().optional(),
+			photo: z
+				.array(
+					z.object({
+						value: z.string().url(),
+					}),
+				)
+				.optional(),
+			location_picture: z.object({
+				dark: image(),
+				light: image(),
 			}),
-		),
-		location: z
-			.array(
+			checkin: z.array(
 				z.object({
 					type: z.array(z.string()),
 					properties: z.object({
+						name: z.array(z.string()),
+						url: z.array(z.string().url()).optional(),
 						latitude: z.array(z.number()),
 						longitude: z.array(z.number()),
 						"street-address": z.array(z.string()).optional(),
@@ -83,10 +72,26 @@ const checkin = defineCollection({
 						"country-name": z.array(z.string()).optional(),
 						"postal-code": z.array(z.string()).optional(),
 					}),
+					value: z.string().url(),
 				}),
-			)
-			.optional(),
-	}),
+			),
+			location: z
+				.array(
+					z.object({
+						type: z.array(z.string()),
+						properties: z.object({
+							latitude: z.array(z.number()),
+							longitude: z.array(z.number()),
+							"street-address": z.array(z.string()).optional(),
+							locality: z.array(z.string()).optional(),
+							region: z.array(z.string()).optional(),
+							"country-name": z.array(z.string()).optional(),
+							"postal-code": z.array(z.string()).optional(),
+						}),
+					}),
+				)
+				.optional(),
+		}),
 });
 
 const bookmark = defineCollection({

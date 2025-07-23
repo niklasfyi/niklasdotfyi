@@ -38,6 +38,7 @@ const description = data.description;
 const tags = data.tags;
 const draft = isArticle ? data["post-status"] === "draft" : false;
 const coverImage = isArticle ? data.coverImage : null;
+const locationPicture = isCheckin ? data.location_picture : null;
 const date = data.date;
 const updated = isArticle ? data.updated : null;
 const ogImage = isArticle ? data.ogImage : null;
@@ -62,7 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 	<article class="h-entry content-box grow rounded-lg border break-words shadow-(--box-shadow)">
 		<div id="blog-hero" class="mb-12">
 			{
-				coverImage && (
+				(coverImage && (
 					<div class="mb-6 aspect-video">
 						<Image
 							alt={coverImage.alt}
@@ -73,7 +74,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 							src={coverImage.src}
 						/>
 					</div>
-				)
+				)) ||
+					(locationPicture && (
+						<div class="mb-6 aspect-video">
+							<Image
+								alt="Location of the checkin as a mapbox picture"
+								layout="constrained"
+								width={748}
+								height={420}
+								priority
+								src={locationPicture.light}
+								class="block dark:hidden"
+							/>
+							<Image
+								alt="Location of the checkin as a mapbox picture"
+								layout="constrained"
+								width={748}
+								height={420}
+								priority
+								src={locationPicture.dark}
+								class="hidden dark:block"
+							/>
+						</div>
+					))
 			}
 			{draft ? <span class="text-base text-red-500">(Draft)</span> : null}
 			{title && <h1 class="p-name title">{title}</h1>}
