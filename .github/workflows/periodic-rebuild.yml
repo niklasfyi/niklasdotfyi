@@ -1,10 +1,12 @@
 name: Periodic Astro Rebuild
-
 on:
   schedule:
     # Runs every day at 3am UTC; adjust as needed
     - cron: "0 3 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   rebuild:
@@ -12,6 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -28,19 +32,26 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-        # use astro check for issues
       - name: Run Astro check
         run: pnpm astro check
 
       - name: Build Astro project
         run: pnpm build
 
-      - name: Commit and push changes
+      - name: Check for changes and commit
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add all changes except those ignored by .gitignore
           git add .
-          git diff --cached --quiet || (git commit -m "chore: periodic rebuild [skip ci]" && git push)
+
+          # Check if there are any changes to commit
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: periodic rebuild [skip ci]"
+            git push
+          fi
         env:
-          # Use the built-in GITHUB_TOKEN for authentication
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
