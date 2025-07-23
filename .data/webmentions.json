@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2025-07-17T11:34:23.042Z",
+  "lastFetched": "2025-07-23T12:45:09.968Z",
   "children": [
     {
       "type": "entry",
@@ -3972,6 +3972,29 @@
       },
       "swarm-coins": 30,
       "in-reply-to": "https://www.niklas.fyi/checkins/2025/07/15/1752562978",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/6877e9a96cabc06ad14f3c79/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-07-16T20:04:25+02:00",
+      "wm-received": "2025-07-17T13:29:11Z",
+      "wm-id": 1925040,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/6877e9a96cabc06ad14f3c79/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://niklas.fyi/checkins/2025/07/16/1752689065",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://niklas.fyi/checkins/2025/07/16/1752689065",
       "wm-property": "in-reply-to",
       "wm-private": false
     }

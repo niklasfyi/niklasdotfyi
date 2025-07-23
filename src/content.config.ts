@@ -54,10 +54,12 @@ const checkin = defineCollection({
 					}),
 				)
 				.optional(),
-			location_picture: z.object({
-				dark: image(),
-				light: image(),
-			}),
+			location_picture: z
+				.object({
+					dark: image(),
+					light: image(),
+				})
+				.optional(),
 			checkin: z.array(
 				z.object({
 					type: z.array(z.string()),
