@@ -1,0 +1,114 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import PageLayout from "@/layouts/Base.astro";
+
+export async function getStaticPaths() {
+	const allBooks = await getCollection("read");
+	const years = Array.from(
+		new Set(allBooks.map((entry) => new Date(entry.data.date).getFullYear())),
+	);
+	return years.map((year) => ({
+		params: { year: year.toString() },
+	}));
+}
+
+// Get year param from route
+const { year } = Astro.params;
+const yearNum = parseInt(year);
+
+// Fetch all books (single query for performance)
+const allBooks = await getCollection("read");
+
+// Helper: extract year from entry (assumes entry.data.date is ISO string or Date)
+function getYear(entry) {
+	return new Date(entry.data.date).getFullYear();
+}
+
+// Collect all years with at least one book, sorted descending
+const yearsSet = new Set(allBooks.map(getYear));
+const years = Array.from(yearsSet).sort((a, b) => b - a);
+
+// Only show years that actually have books
+const booksByYear = Object.fromEntries(
+	years.map((y) => [y, allBooks.filter((entry) => getYear(entry) === y)]),
+);
+
+// Filter lists by year and progress
+const readingList =
+	booksByYear[yearNum]?.filter((entry) => entry.data.progress === "started") ?? [];
+const readList = booksByYear[yearNum]?.filter((entry) => entry.data.progress === "finished") ?? [];
+const wantList = booksByYear[yearNum]?.filter((entry) => entry.data.progress === "want") ?? [];
+
+const meta = {
+	description: `Books for ${yearNum}`,
+	title: `Reads in ${yearNum}`,
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-6">Reads in {yearNum}</h1>
+
+	{
+		years.length > 1 && (
+			<nav class="mb-8 flex gap-4" aria-label="Year navigation">
+				{years.map(
+					(y) =>
+						booksByYear[y]?.length > 0 && (
+							<a
+								href={`/read/${y}/`}
+								class={`rounded px-3 py-1 ${y === yearNum ? "text-sm font-medium text-(--color-accent)" : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-(--color-link-hover) hover:text-(--color-global-text)"}`}
+							>
+								{y}
+							</a>
+						),
+				)}
+			</nav>
+		)
+	}
+
+	{
+		readingList.length > 0 && (
+			<>
+				<h2 class="mb-4 text-xl">Reading</h2>
+				<ul class="space-y-6">
+					{readingList.map((entry) => (
+						<li>
+							<Image src={entry.data.featured} alt="" loading="lazy" />
+						</li>
+					))}
+				</ul>
+			</>
+		)
+	}
+
+	{
+		readList.length > 0 && (
+			<>
+				<h2 class="mb-4 text-xl">Read</h2>
+				<ul class="space-y-6">
+					{readList.map((entry) => (
+						<li>
+							<Image src={entry.data.featured} alt="" height={280} width={180} loading="lazy" />
+						</li>
+					))}
+				</ul>
+			</>
+		)
+	}
+
+	{
+		wantList.length > 0 && (
+			<>
+				<h2 class="mb-4 text-xl">Want to Read</h2>
+				<ul class="space-y-6">
+					{wantList.map((entry) => (
+						<li>
+							<Image src={entry.data.featured} alt="" loading="lazy" />
+						</li>
+					))}
+				</ul>
+			</>
+		)
+	}
+</PageLayout>

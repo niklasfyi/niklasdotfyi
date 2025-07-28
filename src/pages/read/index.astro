@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import PageLayout from "@/layouts/Base.astro";
+
+// Fetch all books (single query for performance)
+const allBooks = await getCollection("read");
+
+// Helper: extract year from entry (assumes entry.data.date is ISO string or Date)
+function getYear(entry) {
+	return new Date(entry.data.date).getFullYear();
+}
+
+// Collect all years with at least one book, sorted descending (latest first)
+const yearsSet = new Set(allBooks.map(getYear));
+const years = Array.from(yearsSet).sort((a, b) => b - a);
+
+return Astro.redirect("/read/" + years[0]); // Redirect to latest year
+---

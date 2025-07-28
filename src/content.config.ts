@@ -6,18 +6,22 @@ function removeDupsAndLowerCase(array: string[]) {
 }
 
 const baseSchema = z.object({
-	date: z
-		.string()
-		.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
-		.transform((val) => new Date(val)),
+	date: z.union([
+		z.string()
+			.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
+			.transform((val) => new Date(val)),
+		z.string().date().transform((val) => new Date(val)),
+	]),
 	client_id: z.string().optional(),
 	tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
 	description: z.string().optional(),
 	ogImage: z.string().optional(),
-	updated: z
-		.string()
-		.optional()
-		.transform((str) => (str ? new Date(str) : undefined)),
+	updated: z.union([
+		z.string()
+			.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
+			.transform((val) => new Date(val)),
+		z.string().date().transform((val) => new Date(val)),
+	]).optional(),
 });
 
 const article = defineCollection({
@@ -34,6 +38,28 @@ const article = defineCollection({
 			"post-status": z.string().default("published"),
 		}),
 });
+
+const read = defineCollection({
+	loader: glob({ base: "./src/content/read", pattern: "**/*.md" }),
+	schema: baseSchema.extend({
+		summary: z.string(),
+		featured: z.string().url().optional(),
+		"read-of": z.object({
+			type: z.array(z.string()),
+			properties: z.object({
+				name: z.array(z.string()),
+				photo: z.array(z.string().url()).optional(),
+				author: z.array(z.string()),
+				uid: z.array(z.string()),
+				url: z.array(z.string().url()),
+			}),
+		}),
+		progress: z.enum(["want", "started", "finished", "stopped"
+		]).default("finished"),
+		rating: z.string().optional(),
+	}),
+});
+
 
 const note = defineCollection({
 	loader: glob({ base: "./src/content/notes", pattern: "**/*.{md,mdx}" }),
@@ -104,4 +130,4 @@ const bookmark = defineCollection({
 	}),
 });
 
-export const collections = { article, note, checkin, bookmark };
+export const collections = { article, note, checkin, bookmark, read };
