@@ -71,7 +71,10 @@ export async function getStaticPaths() {
 			params: { slug: entry.id },
 			props: {
 				pubDate: entry.data.updated ?? entry.data.date,
-				title: "title" in entry.data ? entry.data.title : "Dad - Husband - Photographer - Smart Home Tinkerer",
+				title:
+					"title" in entry.data
+						? entry.data.title
+						: "Dad - Husband - Photographer - Smart Home Tinkerer",
 			},
 		}));
 }

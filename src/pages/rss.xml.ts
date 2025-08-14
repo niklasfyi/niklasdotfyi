@@ -14,11 +14,11 @@ function getTitle(entry: CollectionEntryType): string {
 			return `Bookmarked ${entry.data.title}`;
 		}
 		return entry.data.title;
-	} else if ("checkin" in entry.data && entry.data.checkin.length > 0) {
-		return `At ${entry.data.checkin?.[0]?.properties?.name?.[0]}`;
-	} else {
-		return entry.body?.slice(0, 30) + "..." || "Untitled";
 	}
+	if ("checkin" in entry.data && entry.data.checkin.length > 0) {
+		return `At ${entry.data.checkin?.[0]?.properties?.name?.[0]}`;
+	}
+	return `${entry.body?.slice(0, 30)}...` || "Untitled";
 }
 
 export const GET = async () => {
