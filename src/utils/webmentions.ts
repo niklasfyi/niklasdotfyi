@@ -115,7 +115,7 @@ function normalizeUrl(url: string): string {
 		urlObj.pathname = urlObj.pathname.replace(/^\/[^/]+\/(\d{4}\/)/, "/$1");
 		// Remove trailing slash
 		return urlObj.href.replace(/\/$/, "");
-	} catch (e) {
+	} catch {
 		// if it's not a valid URL, return it as is.
 		return url.replace(/\/$/, "");
 	}

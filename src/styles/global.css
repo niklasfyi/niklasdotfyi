@@ -56,6 +56,7 @@
 	}
 
 	@view-transition {
+		/* biome-ignore lint: reason */
 		navigation: auto;
 	}
 	/* Astro image responsive styles, modified from -> https://docs.astro.build/en/guides/images/#responsive-image-styles */

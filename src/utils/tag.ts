@@ -1,4 +1,4 @@
-import { type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 /** returns all tags created from articles (inc duplicate tags)
  *  Note: This function doesn't filter draft articles, pass it the result of getAllArticles above to do so.

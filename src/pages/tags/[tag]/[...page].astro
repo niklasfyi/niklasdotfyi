@@ -31,13 +31,11 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 
 	// Add untagged entries
 	const untaggedEntries = sortedEntries.filter(
-		(entry) => !entry.data.tags || entry.data.tags.length === 0,
+		(entry) => !entry.data.tags || entry.data.tags.length === 0
 	);
 
 	const tagPages = uniqueTags.flatMap((tag) => {
-		const filterEntries = sortedEntries.filter(
-			(entry) => entry.data.tags && entry.data.tags.includes(tag),
-		);
+		const filterEntries = sortedEntries.filter((entry) => entry.data.tags?.includes(tag));
 		return paginate(filterEntries, {
 			pageSize: 10,
 			params: { tag },

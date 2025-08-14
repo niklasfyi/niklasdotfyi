@@ -9,7 +9,7 @@ export async function getAllCollections(): Promise<{
 	for (const collectionName of collectionNames) {
 		try {
 			collections[collectionName] = await getCollection(collectionName);
-		} catch (error) {
+		} catch {
 			console.warn(`Collection '${collectionName}' not found or could not be loaded`);
 			collections[collectionName] = [];
 		}
@@ -21,9 +21,7 @@ export async function getAllCollections(): Promise<{
 /** returns all tags created from entries (inc duplicate tags)
  *  Note: This function doesn't filter draft entries, pass it the result of getAllCollections above to do so.
  *  */
-export function* getAllTags(collections: {
-	[key: string]: CollectionEntryType[];
-}) {
+export function* getAllTags(collections: { [key: string]: CollectionEntryType[] }) {
 	for (const c in collections) {
 		const collection = collections[c];
 		if (collection) {
@@ -39,9 +37,7 @@ export function* getAllTags(collections: {
 /** returns all unique tags created from entries
  *  Note: This function doesn't filter draft entries, pass it the result of getAllCollections above to do so.
  *  */
-export function getAllUniqueTags(collections: {
-	[key: string]: CollectionEntryType[];
-}) {
+export function getAllUniqueTags(collections: { [key: string]: CollectionEntryType[] }) {
 	return [...new Set(getAllTags(collections))];
 }
 
@@ -49,9 +45,7 @@ export function getAllUniqueTags(collections: {
  *  Note: This function doesn't filter draft entries, pass it the result of getAllCollections above to do so.
  *  */
 /** returns all entries that don't have any tags */
-export function getUntaggedEntries(collections: {
-	[key: string]: CollectionEntryType[];
-}) {
+export function getUntaggedEntries(collections: { [key: string]: CollectionEntryType[] }) {
 	const untaggedEntries: CollectionEntryType[] = [];
 
 	for (const c in collections) {
@@ -85,9 +79,7 @@ export async function getAllUniqueTagsWithCount(): Promise<[string, number][]> {
 	return [...tagCounts].sort((a, b) => b[1] - a[1]);
 }
 
-export async function getAllEntries(): Promise<
-	CollectionEntryType[]
-> {
+export async function getAllEntries(): Promise<CollectionEntryType[]> {
 	const collections = await getAllCollections();
 	const allEntries: CollectionEntryType[] = [];
 

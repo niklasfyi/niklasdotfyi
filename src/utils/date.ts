@@ -23,11 +23,7 @@ function getDate(entry: CollectionEntryType) {
 	return entry.data.date;
 }
 
-export function collectionDateSort(
-	a: CollectionEntryType,
-	b: CollectionEntryType,
-) {
-
+export function collectionDateSort(a: CollectionEntryType, b: CollectionEntryType) {
 	const dateA = getDate(a);
 	const dateB = getDate(b);
 
