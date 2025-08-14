@@ -10,12 +10,46 @@ export async function getStaticPaths() {
 	const allCheckins = await getCollection("checkin");
 	const allBookmarks = await getCollection("bookmark");
 
+	// Add new collections conditionally (try-catch to avoid build errors)
+	let allPhotos: CollectionEntry<"photo">[] = [];
+	let allReplies: CollectionEntry<"reply">[] = [];
+	let allLikes: CollectionEntry<"like">[] = [];
+	let allRsvps: CollectionEntry<"rsvp">[] = [];
+
+	try {
+		allPhotos = await getCollection("photo");
+	} catch (e) {
+		console.warn("Could not load photo collection:", e);
+	}
+
+	try {
+		allReplies = await getCollection("reply");
+	} catch (e) {
+		console.warn("Could not load reply collection:", e);
+	}
+
+	try {
+		allLikes = await getCollection("like");
+	} catch (e) {
+		console.warn("Could not load like collection:", e);
+	}
+
+	try {
+		allRsvps = await getCollection("rsvp");
+	} catch (e) {
+		console.warn("Could not load rsvp collection:", e);
+	}
+
 	// Combine all posts
 	const allPosts = [
 		...allArticles.map((post) => ({ post, type: "article" })),
 		...allNotes.map((post) => ({ post, type: "note" })),
 		...allCheckins.map((post) => ({ post, type: "checkin" })),
 		...allBookmarks.map((post) => ({ post, type: "bookmark" })),
+		...allPhotos.map((post) => ({ post, type: "photo" })),
+		...allReplies.map((post) => ({ post, type: "reply" })),
+		...allLikes.map((post) => ({ post, type: "like" })),
+		...allRsvps.map((post) => ({ post, type: "rsvp" })),
 	];
 
 	return allPosts.map(({ post, type }) => ({
@@ -43,6 +77,22 @@ const { Content } = await render(post);
 		</PostLayout>
 	) : type === "bookmark" ? (
 		<PostLayout post={post as CollectionEntry<"bookmark">}>
+			<Content />
+		</PostLayout>
+	) : type === "photo" ? (
+		<PostLayout post={post as CollectionEntry<"photo">}>
+			<Content />
+		</PostLayout>
+	) : type === "reply" ? (
+		<PostLayout post={post as CollectionEntry<"reply">}>
+			<Content />
+		</PostLayout>
+	) : type === "like" ? (
+		<PostLayout post={post as CollectionEntry<"like">}>
+			<Content />
+		</PostLayout>
+	) : type === "rsvp" ? (
+		<PostLayout post={post as CollectionEntry<"rsvp">}>
 			<Content />
 		</PostLayout>
 	) : null
