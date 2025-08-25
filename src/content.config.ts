@@ -18,6 +18,15 @@ const baseSchema = z.object({
 		.string()
 		.optional()
 		.transform((str) => (str ? new Date(str) : undefined)),
+	// IndieWeb spec fields (all optional for backward compatibility)
+	id: z.string().optional(), // stable UUID or derived from slug
+	slug: z.string().optional(), // no leading slash; final URL computed
+	in_main_feed: z.boolean().default(true),
+	visibility: z.enum(["public", "unlisted", "private"]).default("public"),
+	syndication_targets: z.array(z.string()).default([]),
+	draft: z.boolean().default(false),
+	// Raw micropub data passthrough
+	mf2_raw: z.record(z.any()).optional(),
 });
 
 const article = defineCollection({
@@ -104,4 +113,55 @@ const bookmark = defineCollection({
 	}),
 });
 
-export const collections = { article, note, checkin, bookmark };
+// Additional IndieWeb content types
+const photo = defineCollection({
+	loader: glob({ base: "./src/content/photos", pattern: "**/*.{md,mdx}" }),
+	schema: baseSchema.extend({
+		title: z.string().optional(),
+		photo: z
+			.array(
+				z.object({
+					value: z.string(), // Allow relative paths for backward compatibility
+					alt: z.string(),
+				}),
+			)
+			.optional(),
+		photos: z
+			.array(
+				z.object({
+					url: z.string(),
+					alt: z.string(),
+					width: z.number().optional(),
+					height: z.number().optional(),
+				}),
+			)
+			.default([]),
+	}),
+});
+
+const reply = defineCollection({
+	loader: glob({ base: "./src/content/replies", pattern: "**/*.{md,mdx}" }),
+	schema: baseSchema.extend({
+		"in-reply-to": z.string().url(),
+		title: z.string().optional(),
+	}),
+});
+
+const like = defineCollection({
+	loader: glob({ base: "./src/content/likes", pattern: "**/*.{md,mdx}" }),
+	schema: baseSchema.extend({
+		"like-of": z.string().url(),
+		title: z.string().optional(),
+	}),
+});
+
+const rsvp = defineCollection({
+	loader: glob({ base: "./src/content/rsvps", pattern: "**/*.{md,mdx}" }),
+	schema: baseSchema.extend({
+		rsvp: z.enum(["yes", "no", "maybe", "interested"]),
+		"in-reply-to": z.string().url(),
+		title: z.string().optional(),
+	}),
+});
+
+export const collections = { article, note, checkin, bookmark, photo, reply, like, rsvp };
