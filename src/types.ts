@@ -85,6 +85,6 @@ export interface Summary {
 
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";
 
-export const collectionNames = ["article", "note", "checkin", "bookmark"] as const;
+export const collectionNames = ["article", "note", "checkin", "bookmark", "photo", "reply", "like", "rsvp"] as const;
 
 export type CollectionEntryType = CollectionEntry<(typeof collectionNames)[number]>;
