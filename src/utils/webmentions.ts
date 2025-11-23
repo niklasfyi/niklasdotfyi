@@ -111,7 +111,7 @@ let webMentions: WebmentionsCache;
 function normalizeUrl(url: string): string {
 	try {
 		const urlObj = new URL(url);
-		// Remove any content type segment like /checkins/, /notes/, etc.
+		// Remove any content type segment like /checkin/, /note/, etc.
 		urlObj.pathname = urlObj.pathname.replace(/^\/[^/]+\/(\d{4}\/)/, "/$1");
 		// Remove trailing slash
 		return urlObj.href.replace(/\/$/, "");

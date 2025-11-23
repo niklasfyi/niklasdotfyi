@@ -21,7 +21,7 @@ const baseSchema = z.object({
 });
 
 const article = defineCollection({
-	loader: glob({ base: "./src/content/articles", pattern: "**/*.{md,mdx}" }),
+	loader: glob({ base: "./src/content/article", pattern: "**/*.{md,mdx}" }),
 	schema: ({ image }) =>
 		baseSchema.extend({
 			title: z.string().max(60),
@@ -36,14 +36,14 @@ const article = defineCollection({
 });
 
 const note = defineCollection({
-	loader: glob({ base: "./src/content/notes", pattern: "**/*.{md,mdx}" }),
+	loader: glob({ base: "./src/content/note", pattern: "**/*.{md,mdx}" }),
 	schema: baseSchema.extend({
 		description: z.string().optional(),
 	}),
 });
 
 const checkin = defineCollection({
-	loader: glob({ base: "./src/content/checkins", pattern: "**/*.md" }),
+	loader: glob({ base: "./src/content/checkin", pattern: "**/*.md" }),
 	schema: ({ image }) =>
 		baseSchema.extend({
 			syndication: z.string().url().optional(),
@@ -97,7 +97,7 @@ const checkin = defineCollection({
 });
 
 const bookmark = defineCollection({
-	loader: glob({ base: "./src/content/bookmarks", pattern: "**/*.md" }),
+	loader: glob({ base: "./src/content/bookmark", pattern: "**/*.md" }),
 	schema: baseSchema.extend({
 		"bookmark-of": z.string().url(),
 		title: z.string(),

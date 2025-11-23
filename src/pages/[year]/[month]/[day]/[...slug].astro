@@ -5,23 +5,23 @@ import { getEntryParams } from "@/utils/params";
 import { getAllArticles } from "@/utils/article";
 
 export async function getStaticPaths() {
-	const allArticles = await getAllArticles();
-	const allNotes = await getCollection("note");
-	const allCheckins = await getCollection("checkin");
-	const allBookmarks = await getCollection("bookmark");
+  const allArticles = await getAllArticles();
+  const allNotes = await getCollection("note");
+  const allCheckin = await getCollection("checkin");
+  const allBookmarks = await getCollection("bookmark");
 
-	// Combine all posts
-	const allPosts = [
-		...allArticles.map((post) => ({ post, type: "article" })),
-		...allNotes.map((post) => ({ post, type: "note" })),
-		...allCheckins.map((post) => ({ post, type: "checkin" })),
-		...allBookmarks.map((post) => ({ post, type: "bookmark" })),
-	];
+  // Combine all posts
+  const allPosts = [
+    ...allArticles.map((post) => ({ post, type: "article" })),
+    ...allNotes.map((post) => ({ post, type: "note" })),
+    ...allCheckin.map((post) => ({ post, type: "checkin" })),
+    ...allBookmarks.map((post) => ({ post, type: "bookmark" })),
+  ];
 
-	return allPosts.map(({ post, type }) => ({
-		params: getEntryParams(post),
-		props: { post, type },
-	}));
+  return allPosts.map(({ post, type }) => ({
+    params: getEntryParams(post),
+    props: { post, type },
+  }));
 }
 
 const { post, type } = Astro.props;
@@ -29,21 +29,21 @@ const { Content } = await render(post);
 ---
 
 {
-	type === "article" ? (
-		<PostLayout post={post as CollectionEntry<"article">}>
-			<Content />
-		</PostLayout>
-	) : type === "checkin" ? (
-		<PostLayout post={post as CollectionEntry<"checkin">}>
-			<Content />
-		</PostLayout>
-	) : type === "note" ? (
-		<PostLayout post={post as CollectionEntry<"note">}>
-			<Content />
-		</PostLayout>
-	) : type === "bookmark" ? (
-		<PostLayout post={post as CollectionEntry<"bookmark">}>
-			<Content />
-		</PostLayout>
-	) : null
+  type === "article" ? (
+    <PostLayout post={post as CollectionEntry<"article">}>
+      <Content />
+    </PostLayout>
+  ) : type === "checkin" ? (
+    <PostLayout post={post as CollectionEntry<"checkin">}>
+      <Content />
+    </PostLayout>
+  ) : type === "note" ? (
+    <PostLayout post={post as CollectionEntry<"note">}>
+      <Content />
+    </PostLayout>
+  ) : type === "bookmark" ? (
+    <PostLayout post={post as CollectionEntry<"bookmark">}>
+      <Content />
+    </PostLayout>
+  ) : null
 }

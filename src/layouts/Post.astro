@@ -14,7 +14,7 @@ import FormattedDate from "@/components/FormattedDate.astro";
 import { siteConfig } from "@/site.config";
 
 interface Props {
-	post: CollectionEntryType;
+  post: CollectionEntryType;
 }
 
 const { post } = Astro.props;
@@ -27,11 +27,15 @@ const isBookmark = collection === "bookmark";
 
 let title = "";
 if (isNote) {
-	title = post.body ? (post.body.length > 20 ? `${post.body.slice(0, 20)}...` : post.body) : "";
+  title = post.body
+    ? post.body.length > 20
+      ? `${post.body.slice(0, 20)}...`
+      : post.body
+    : "";
 } else if (isCheckin) {
-	title = `At ${data.checkin[0]?.properties.name ?? "Unknown Location"}`;
+  title = `At ${data.checkin[0]?.properties.name ?? "Unknown Location"}`;
 } else {
-	title = data.title;
+  title = data.title;
 }
 
 const description = data.description;
@@ -53,187 +57,200 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
-	meta={{
-		articleDate,
-		description: description ?? "",
-		ogImage: socialImage,
-		title,
-	}}
+  meta={{
+    articleDate,
+    description: description ?? "",
+    ogImage: socialImage,
+    title,
+  }}
 >
-	<article class="h-entry content-box grow rounded-lg border break-words shadow-(--box-shadow)">
-		<div id="blog-hero" class="mb-12">
-			{
-				(coverImage && (
-					<div class="mb-6 aspect-video">
-						<Image
-							alt={coverImage.alt}
-							layout="constrained"
-							width={748}
-							height={420}
-							priority
-							src={coverImage.src}
-						/>
-					</div>
-				)) ||
-					(locationPicture && (
-						<div class="mb-6 aspect-video">
-							<Image
-								alt="Location of the checkin as a mapbox picture"
-								layout="constrained"
-								width={748}
-								height={420}
-								priority
-								src={locationPicture.light}
-								class="block dark:hidden"
-							/>
-							<Image
-								alt="Location of the checkin as a mapbox picture"
-								layout="constrained"
-								width={748}
-								height={420}
-								priority
-								src={locationPicture.dark}
-								class="hidden dark:block"
-							/>
-						</div>
-					))
-			}
-			{draft ? <span class="text-base text-red-500">(Draft)</span> : null}
-			{title && <h1 class="p-name title">{title}</h1>}
-			<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-				<p class="font-semibold">
-					<FormattedDate class="dt-published" date={date} /> /{" "}
-					{readingTime}
-				</p>
-				{
-					updated && (
-						<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
-							Updated:
-							<FormattedDate class="ms-1" date={updated} />
-						</span>
-					)
-				}
-			</div>
-		</div>
-		<div class="flex flex-col gap-10 lg:flex-row lg:items-start">
-			{!!headings.length && <TOC headings={headings} />}
-			<div
-				class="e-content prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-(--color-secondary-text) prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
-			>
-				<!-- If bookmark, show link to original article and also if bookmark-of link is from youtube, render video -->
-				{
-					isBookmark && (
-						<p class="mb-4">
-							<a class="custom-link" href={post.data["bookmark-of"]}>
-								{post.data.title}
-							</a>
-						</p>
-					)
-				}
-				{
-					isBookmark && post.data["bookmark-of"]?.startsWith("https://www.youtube.com/watch") ? (
-						<YouTube id={post.data["bookmark-of"]} />
-					) : null
-				}
-				<!-- If isCheckin and checkinPhotoUrl is not empty render it-->
-				{isCheckin && checkinPhotoUrl ? <img src={checkinPhotoUrl} alt="Checkin Photo" /> : null}
-				<slot />
-				{
-					!!tags?.length && (
-						<div class="mt-8">
-							<svg
-								aria-hidden="true"
-								class="inline-block h-6 w-6"
-								fill="none"
-								focusable="false"
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path d="M0 0h24v24H0z" fill="none" stroke="none" />
-								<path d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z" />
-								<path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
-								<path d="M6 9h-.01" />
-							</svg>
-							{tags.map((tag, i) => (
-								<>
-									{/* prettier-ignore */}
-									<span class="contents">
+  <article
+    class="h-entry content-box grow rounded-lg border break-words shadow-(--box-shadow)"
+  >
+    <div id="blog-hero" class="mb-12">
+      {
+        (coverImage && (
+          <div class="mb-6 aspect-video">
+            <Image
+              alt={coverImage.alt}
+              layout="constrained"
+              width={748}
+              height={420}
+              priority
+              src={coverImage.src}
+            />
+          </div>
+        )) ||
+          (locationPicture && (
+            <div class="mb-6 aspect-video">
+              <Image
+                alt="Location of the checkin as a mapbox picture"
+                layout="constrained"
+                width={748}
+                height={420}
+                priority
+                src={locationPicture.light}
+                class="block dark:hidden"
+              />
+              <Image
+                alt="Location of the checkin as a mapbox picture"
+                layout="constrained"
+                width={748}
+                height={420}
+                priority
+                src={locationPicture.dark}
+                class="hidden dark:block"
+              />
+            </div>
+          ))
+      }
+      {draft ? <span class="text-base text-red-500">(Draft)</span> : null}
+      {title && <h1 class="p-name title">{title}</h1>}
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <p class="font-semibold">
+          <FormattedDate class="dt-published" date={date} /> /{" "}
+          {readingTime}
+        </p>
+        {
+          updated && (
+            <span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
+              Updated:
+              <FormattedDate class="ms-1" date={updated} />
+            </span>
+          )
+        }
+      </div>
+    </div>
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-start">
+      {!!headings.length && <TOC headings={headings} />}
+      <div
+        class="e-content prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-(--color-secondary-text) prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
+      >
+        <!-- If bookmark, show link to original article and also if bookmark-of link is from youtube, render video -->
+        {
+          isBookmark && (
+            <p class="mb-4">
+              <a class="custom-link" href={post.data["bookmark-of"]}>
+                {post.data.title}
+              </a>
+            </p>
+          )
+        }
+        {
+          isBookmark &&
+          post.data["bookmark-of"]?.startsWith(
+            "https://www.youtube.com/watch"
+          ) ? (
+            <YouTube id={post.data["bookmark-of"]} />
+          ) : null
+        }
+        <!-- If isCheckin and checkinPhotoUrl is not empty render it-->
+        {
+          isCheckin && checkinPhotoUrl ? (
+            <img src={checkinPhotoUrl} alt="Checkin Photo" />
+          ) : null
+        }
+        <slot />
+        {
+          !!tags?.length && (
+            <div class="mt-8">
+              <svg
+                aria-hidden="true"
+                class="inline-block h-6 w-6"
+                fill="none"
+                focusable="false"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none" stroke="none" />
+                <path d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z" />
+                <path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
+                <path d="M6 9h-.01" />
+              </svg>
+              {tags.map((tag, i) => (
+                <>
+                  {/* prettier-ignore */}
+                  <span class="contents">
 										<a class="custom-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}><span class="sr-only">View more blogs with the tag&nbsp;</span><span class="p-category">{tag}</span>
 										</a>{i < tags.length - 1 && ", "}
 									</span>
-								</>
-							))}
-						</div>
-					)
-				}
-				<div class="hidden">
-					<!-- This is for the h-card microformat -->
-					<span class="p-author h-card">
-						<a href="/" class="p-name u-url">{siteConfig.author}</a>
-						<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
-					</span>
-					<a href={canonicalURL} rel="canonical" class="u-url u-uid"></a>
-					<span class="p-summary">{description}</span>
-				</div>
-				<WebMentions />
-			</div>
-		</div>
-	</article>
-	<div class="content-box mt-4 rounded-lg border shadow-(--box-shadow)">
-		<span
-			>Posted in <a class="custom-link" href={`/${collection}s`}>/{collection}s</a>
-			{
-				data.client_id && (
-					<>
-						via{" "}
-						<a class="custom-link" href={data.client_id}>
-							{data.client_id.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-						</a>
-					</>
-				)
-			}
-		</span>
-	</div>
-	<button
-		class="hover:border-link fixed end-4 bottom-8 z-90 flex h-10 w-10 translate-y-28 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all transition-discrete duration-300 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:end-8 sm:h-12 sm:w-12 dark:bg-zinc-700"
-		data-show="false"
-		id="to-top-btn"
-	>
-		<span class="sr-only">Back to top</span>
-		<svg
-			aria-hidden="true"
-			class="h-6 w-6"
-			fill="none"
-			focusable="false"
-			stroke="currentColor"
-			stroke-width="2"
-			viewBox="0 0 24 24"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path d="M4.5 15.75l7.5-7.5 7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
-		</svg>
-	</button>
+                </>
+              ))}
+            </div>
+          )
+        }
+        <div class="hidden">
+          <!-- This is for the h-card microformat -->
+          <span class="p-author h-card">
+            <a href="/" class="p-name u-url">{siteConfig.author}</a>
+            <Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+          </span>
+          <a href={canonicalURL} rel="canonical" class="u-url u-uid"></a>
+          <span class="p-summary">{description}</span>
+        </div>
+        <WebMentions />
+      </div>
+    </div>
+  </article>
+  <div class="content-box mt-4 rounded-lg border shadow-(--box-shadow)">
+    <span
+      >Posted in <a class="custom-link" href={`/${collection}`}>/{collection}</a
+      >
+      {
+        data.client_id && (
+          <>
+            via{" "}
+            <a class="custom-link" href={data.client_id}>
+              {data.client_id.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+            </a>
+          </>
+        )
+      }
+    </span>
+  </div>
+  <button
+    class="hover:border-link fixed end-4 bottom-8 z-90 flex h-10 w-10 translate-y-28 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all transition-discrete duration-300 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:end-8 sm:h-12 sm:w-12 dark:bg-zinc-700"
+    data-show="false"
+    id="to-top-btn"
+  >
+    <span class="sr-only">Back to top</span>
+    <svg
+      aria-hidden="true"
+      class="h-6 w-6"
+      fill="none"
+      focusable="false"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
 </BaseLayout>
 
 <script>
-	const scrollBtn = document.getElementById("to-top-btn") as HTMLButtonElement;
-	const targetHeader = document.getElementById("blog-hero") as HTMLDivElement;
+  const scrollBtn = document.getElementById("to-top-btn") as HTMLButtonElement;
+  const targetHeader = document.getElementById("blog-hero") as HTMLDivElement;
 
-	function callback(entries: IntersectionObserverEntry[]) {
-		entries.forEach((entry) => {
-			// only show the scroll to top button when the heading is out of view
-			scrollBtn.dataset.show = (!entry.isIntersecting).toString();
-		});
-	}
+  function callback(entries: IntersectionObserverEntry[]) {
+    entries.forEach((entry) => {
+      // only show the scroll to top button when the heading is out of view
+      scrollBtn.dataset.show = (!entry.isIntersecting).toString();
+    });
+  }
 
-	scrollBtn.addEventListener("click", () => {
-		document.documentElement.scrollTo({ behavior: "smooth", top: 0 });
-	});
+  scrollBtn.addEventListener("click", () => {
+    document.documentElement.scrollTo({ behavior: "smooth", top: 0 });
+  });
 
-	const observer = new IntersectionObserver(callback);
-	observer.observe(targetHeader);
+  const observer = new IntersectionObserver(callback);
+  observer.observe(targetHeader);
 </script>

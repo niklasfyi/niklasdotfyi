@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
 import myImage from "@/assets/logo.png";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	entry: CollectionEntryType;
+  entry: CollectionEntryType;
 };
 
 const { entry } = Astro.props;
@@ -25,17 +25,17 @@ const isBookmark = entry.collection === "bookmark";
 // Set title based on entry type
 let title = "";
 if (isArticle || isBookmark) {
-	title = entry.data.title;
+  title = entry.data.title;
 } else if (isCheckin) {
-	title = `at ${entry.data.checkin[0]?.properties.name ?? "Unknown Location"}`;
+  title = `at ${entry.data.checkin[0]?.properties.name ?? "Unknown Location"}`;
 }
 
 // Set a prefix for some entries
 let prefix = "";
 if (isBookmark) {
-	prefix = "Bookmarked ";
+  prefix = "Bookmarked ";
 } else if (isCheckin) {
-	prefix = "At ";
+  prefix = "At ";
 }
 
 // Set href for the title link
@@ -43,57 +43,62 @@ const href = isBookmark ? entry.data["bookmark-of"] : `/${path}/`;
 ---
 
 <article class="h-entry content-box rounded-lg border shadow-(--box-shadow)">
-	{
-		title && (
-			<header class="mb-3">
-				{entry.data.draft && <span class="text-red-500">(Draft) </span>}
-				<h3 class="text-lg font-semibold">
-					{prefix}
-					<a class="custom-link" data-astro-prefetch href={href}>
-						{title}
-					</a>
-				</h3>
-			</header>
-		)
-	}
-	<!-- Add openstreetmap tile for location data in checkins -->
-	<div class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0">
-		{
-			entry.data.description ? (
-				<p>{entry.data.description}</p>
-			) : isBookmark && entry.data["bookmark-of"].includes("youtube.com") ? (
-				<>
-					<YouTube id={entry.data["bookmark-of"]} />
-					<Content />
-				</>
-			) : (
-				<Content />
-			)
-		}
-	</div>
-	<footer class="text-right text-xs">
-		<span class="text-(--color-global-text)">
-			{
-				isArticle ? (
-					<Icon name="ph:newspaper" class="mr-1 inline h-4 w-4" />
-				) : isCheckin ? (
-					<Icon name="ph:map-pin" class="mr-1 inline h-4 w-4" />
-				) : isBookmark ? (
-					<Icon name="ph:bookmark" class="mr-1 inline h-4 w-4" />
-				) : (
-					<Icon name="ph:note" class="mr-1 inline h-4 w-4" />
-				)
-			}
-		</span> -
-		<a class="u-uid u-url custom-link text-(--color-secondary-text)" href={`/${path}/`}>
-			<FormattedDate date={entry.data.date} />
-		</a>
-		<div class="hidden">
-			<!-- This is for the h-card microformat -->
-			<span class="p-author h-card">
-				<a href="/" class="p-name u-url">{siteConfig.author}</a>
-				<Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
-			</span>
-		</div>
-	</footer>
+  {
+    title && (
+      <header class="mb-3">
+        {entry.data.draft && <span class="text-red-500">(Draft) </span>}
+        <h3 class="text-lg font-semibold">
+          {prefix}
+          <a class="custom-link" data-astro-prefetch href={href}>
+            {title}
+          </a>
+        </h3>
+      </header>
+    )
+  }
+  <!-- Add openstreetmap tile for location data in checkin -->
+  <div
+    class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0"
+  >
+    {
+      entry.data.description ? (
+        <p>{entry.data.description}</p>
+      ) : isBookmark && entry.data["bookmark-of"].includes("youtube.com") ? (
+        <>
+          <YouTube id={entry.data["bookmark-of"]} />
+          <Content />
+        </>
+      ) : (
+        <Content />
+      )
+    }
+  </div>
+  <footer class="text-right text-xs">
+    <span class="text-(--color-global-text)">
+      {
+        isArticle ? (
+          <Icon name="ph:newspaper" class="mr-1 inline h-4 w-4" />
+        ) : isCheckin ? (
+          <Icon name="ph:map-pin" class="mr-1 inline h-4 w-4" />
+        ) : isBookmark ? (
+          <Icon name="ph:bookmark" class="mr-1 inline h-4 w-4" />
+        ) : (
+          <Icon name="ph:note" class="mr-1 inline h-4 w-4" />
+        )
+      }
+    </span> -
+    <a
+      class="u-uid u-url custom-link text-(--color-secondary-text)"
+      href={`/${path}/`}
+    >
+      <FormattedDate date={entry.data.date} />
+    </a>
+    <div class="hidden">
+      <!-- This is for the h-card microformat -->
+      <span class="p-author h-card">
+        <a href="/" class="p-name u-url">{siteConfig.author}</a>
+        <Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+      </span>
+    </div>
+  </footer>
 </article>
