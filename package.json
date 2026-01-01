@@ -23,7 +23,7 @@
 		"@tailwindcss/vite": "4.1.14",
 		"astro": "5.14.6",
 		"astro-embed": "^0.9.1",
-		"astro-expressive-code": "^0.41.3",
+		"astro-expressive-code": "^0.41.5",
 		"astro-icon": "^1.1.5",
 		"astro-robots-txt": "^1.0.0",
 		"astro-webmanifest": "^1.0.0",
