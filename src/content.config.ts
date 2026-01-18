@@ -45,54 +45,45 @@ const note = defineCollection({
 const checkin = defineCollection({
 	loader: glob({ base: "./src/content/checkin", pattern: "**/*.md" }),
 	schema: ({ image }) =>
-		baseSchema.extend({
+		z.object({
+			type: z.string(),
+			published: z
+				.string()
+				.datetime({ offset: true })
+				.transform((val) => new Date(val)),
 			syndication: z.string().url().optional(),
-			photo: z
-				.array(
-					z.object({
-						value: z.string().url(),
-					}),
-				)
-				.optional(),
-			location_picture: z
+			photo: image().optional(),
+			checkin: z
 				.object({
-					dark: image(),
-					light: image(),
+					type: z.string(),
+					name: z.string(),
+					url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
+					tel: z.string().optional(),
+					latitude: z.number(),
+					longitude: z.number(),
+					"street-address": z.string().optional(),
+					locality: z.string().optional(),
+					region: z.string().optional(),
+					"country-name": z.string().optional(),
+					"postal-code": z.union([z.string(), z.number()]).optional(),
+				}),
+			location: z
+				.object({
+					type: z.string(),
+					latitude: z.number(),
+					longitude: z.number(),
+					"street-address": z.string().optional(),
+					locality: z.string().optional(),
+					region: z.string().optional(),
+					"country-name": z.string().optional(),
+					"postal-code": z.union([z.string(), z.number()]).optional(),
 				})
 				.optional(),
-			checkin: z.array(
-				z.object({
-					type: z.array(z.string()),
-					properties: z.object({
-						name: z.array(z.string()),
-						url: z.array(z.string().url()).optional(),
-						latitude: z.array(z.number()),
-						longitude: z.array(z.number()),
-						"street-address": z.array(z.string()).optional(),
-						locality: z.array(z.string()).optional(),
-						region: z.array(z.string()).optional(),
-						"country-name": z.array(z.string()).optional(),
-						"postal-code": z.array(z.string()).optional(),
-					}),
-					value: z.string().url(),
-				}),
-			),
-			location: z
-				.array(
-					z.object({
-						type: z.array(z.string()),
-						properties: z.object({
-							latitude: z.array(z.number()),
-							longitude: z.array(z.number()),
-							"street-address": z.array(z.string()).optional(),
-							locality: z.array(z.string()).optional(),
-							region: z.array(z.string()).optional(),
-							"country-name": z.array(z.string()).optional(),
-							"postal-code": z.array(z.string()).optional(),
-						}),
-					}),
-				)
-				.optional(),
+			updated: z
+				.string()
+				.optional()
+				.transform((str) => (str ? new Date(str) : undefined)),
+			client_id: z.string().optional(),
 		}),
 });
 

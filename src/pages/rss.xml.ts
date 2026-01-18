@@ -5,18 +5,18 @@ import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 import type { CollectionEntryType } from "@/types";
+import { getEntryDate, getEntryTags, isCheckinEntry, isBookmarkEntry } from "@/utils/entry";
 
 // function to return title
 function getTitle(entry: CollectionEntryType): string {
-	console.log(entry);
 	if ("title" in entry.data && entry.data.title) {
-		if ("bookmark-of" in entry.data && entry.data["bookmark-of"].length > 0) {
+		if (isBookmarkEntry(entry)) {
 			return `Bookmarked ${entry.data.title}`;
 		}
 		return entry.data.title;
 	}
-	if ("checkin" in entry.data && entry.data.checkin.length > 0) {
-		return `At ${entry.data.checkin?.[0]?.properties?.name?.[0]}`;
+	if (isCheckinEntry(entry)) {
+		return `At ${entry.data.checkin.name}`;
 	}
 	return `${entry.body?.slice(0, 30)}...` || "Untitled";
 }
@@ -36,14 +36,14 @@ export const GET = async () => {
 							allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
 						})
 					: undefined,
-				pubDate: entry.data.date,
+				pubDate: getEntryDate(entry),
 				link: `${entry.id}`,
 				content: entry.body
 					? sanitizeHtml(parser.render(entry.body), {
 							allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
 						})
 					: undefined,
-				categories: entry.data.tags,
+				categories: getEntryTags(entry),
 				author: `${siteConfig.authorEmail} (${siteConfig.author})`,
 			})),
 		),

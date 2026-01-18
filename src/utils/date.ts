@@ -1,5 +1,6 @@
 import { siteConfig } from "@/site.config";
 import type { CollectionEntryType } from "@/types";
+import { getEntryDate } from "@/utils/entry";
 
 export function getFormattedDate(
 	date: Date | undefined,
@@ -16,16 +17,12 @@ export function getFormattedDate(
 }
 
 export function getFormattedDateFromCollectionEntry(entry: CollectionEntryType): string {
-	return getFormattedDate(getDate(entry));
-}
-
-function getDate(entry: CollectionEntryType) {
-	return entry.data.date;
+	return getFormattedDate(getEntryDate(entry));
 }
 
 export function collectionDateSort(a: CollectionEntryType, b: CollectionEntryType) {
-	const dateA = getDate(a);
-	const dateB = getDate(b);
+	const dateA = getEntryDate(a);
+	const dateB = getEntryDate(b);
 
 	return dateB.getTime() - dateA.getTime();
 }

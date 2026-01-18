@@ -4,7 +4,10 @@ export function getEntryParams(entry: CollectionEntryType) {
 	// Grab the `pubDate` from the blog entry's frontmatter.
 	// This will be of type `Date`, since the `CollectionEntry` of type 'blog'
 	// defines the `pubDate` field as type 'Date'.
-	const pubDate = entry.data.date;
+	// if CollectionEntryType is checkin use published as date
+	const pubDate = entry.collection === "checkin"
+		? (entry.data.published as Date)
+		: (entry.data.date as Date);
 
 	// Parse out the year, month and day from the `pubDate`.
 	const pubYear = String(pubDate.getFullYear()).padStart(4, "0");

@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import { collectionNames, type CollectionEntryType } from "@/types";
+import { getEntryTags, entryHasTags } from "@/utils/entry";
 
 export async function getAllCollections(): Promise<{
 	[key: string]: CollectionEntryType[];
@@ -26,8 +27,9 @@ export function* getAllTags(collections: { [key: string]: CollectionEntryType[] 
 		const collection = collections[c];
 		if (collection) {
 			for (const entry of collection) {
-				if (entry.data.tags) {
-					yield* entry.data.tags;
+				const tags = getEntryTags(entry);
+				if (tags.length > 0) {
+					yield* tags;
 				}
 			}
 		}
@@ -52,7 +54,7 @@ export function getUntaggedEntries(collections: { [key: string]: CollectionEntry
 		const collection = collections[c];
 		if (collection) {
 			for (const entry of collection) {
-				if (!entry.data.tags || entry.data.tags.length === 0) {
+				if (!entryHasTags(entry)) {
 					untaggedEntries.push(entry);
 				}
 			}

@@ -3,6 +3,7 @@ import CaviarDreamsBold from "@/assets/CaviarDreams_Bold.ttf";
 import { getAllEntries } from "@/data/entry";
 import { siteConfig } from "@/site.config";
 import { getFormattedDate } from "@/utils/date";
+import { getEntryDate, getEntryOgImage, getEntryUpdated } from "@/utils/entry";
 import { Resvg } from "@resvg/resvg-js";
 import type { APIContext, InferGetStaticPropsType } from "astro";
 import satori, { type SatoriOptions } from "satori";
@@ -66,11 +67,11 @@ export async function GET(context: APIContext) {
 export async function getStaticPaths() {
 	const entries = await getAllEntries();
 	return entries
-		.filter(({ data }) => !data.ogImage)
+		.filter((entry) => !getEntryOgImage(entry))
 		.map((entry) => ({
 			params: { slug: entry.id },
 			props: {
-				pubDate: entry.data.updated ?? entry.data.date,
+				pubDate: getEntryUpdated(entry) ?? getEntryDate(entry),
 				title:
 					"title" in entry.data
 						? entry.data.title
