@@ -138,15 +138,22 @@ export async function getWebmentionsForUrl(url: string) {
 		oldUrl = `${urlObject.origin}${oldPath}`;
 	}
 
-	console.log(`Fetching webmentions for URL: ${url}`);
+	// console.log(`Fetching webmentions for URL: ${url}`);
 
 	const normalizedUrl = normalizeUrl(url);
 	const normalizedOldUrl = oldUrl ? normalizeUrl(oldUrl) : null;
 
 	return webMentions.children.filter((entry) => {
 		const normalizedTarget = normalizeUrl(entry["wm-target"]);
-		if (normalizedTarget === normalizedUrl) return true;
-		if (normalizedOldUrl && normalizedTarget === normalizedOldUrl) return true;
+		// Log if either matches
+		if (normalizedTarget === normalizedUrl) {
+			console.log(`Matched normalized URL: ${normalizedTarget}`);
+			return true;
+		}
+		if (normalizedOldUrl && normalizedTarget === normalizedOldUrl) {
+			console.log(`Matched normalized old URL: ${normalizedTarget}`);
+			return true;
+		}
 		return false;
 	});
 }
