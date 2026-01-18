@@ -95,4 +95,31 @@ const bookmark = defineCollection({
 	}),
 });
 
-export const collections = { article, note, checkin, bookmark };
+const watched = defineCollection({
+	loader: glob({ base: "./src/content/watched", pattern: "**/*.md" }),
+	schema: baseSchema
+		.omit({ date: true })
+		.extend({
+			date: z
+				.string()
+				.transform((val) => new Date(val)),
+			"watch-of": z.object({
+				type: z.array(z.string()),
+				properties: z.object({
+					name: z.array(z.string()),
+					photo: z.array(z.string().url()),
+					uid: z.array(z.string()),
+					url: z.array(z.string().url()),
+					published: z.array(z.string()),
+					content: z.array(z.string()),
+				}),
+			}),
+			summary: z.string(),
+			featured: z.string().url().optional(),
+			progress: z.string().optional(),
+			rating: z.string().optional(),
+			rewatch: z.boolean().optional(),
+		}),
+});
+
+export const collections = { article, note, checkin, bookmark, watched };

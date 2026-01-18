@@ -9,6 +9,7 @@ import {
   isCheckinEntry,
   isNoteEntry,
   isBookmarkEntry,
+  isWatchedEntry,
   getEntryDate,
   getEntryTags,
   getEntryDescription,
@@ -36,6 +37,7 @@ const isArticle = isArticleEntry(post);
 const isCheckin = isCheckinEntry(post);
 const isNote = isNoteEntry(post);
 const isBookmark = isBookmarkEntry(post);
+const isWatched = isWatchedEntry(post);
 
 let title = "";
 if (isNote) {
@@ -48,6 +50,8 @@ if (isNote) {
   title = `At ${post.data.checkin.name ?? "Unknown Location"}`;
 } else if (isArticle || isBookmark) {
   title = post.data.title;
+} else if (isWatched) {
+  title = post.data.summary;
 }
 
 const description = getEntryDescription(post);
@@ -58,7 +62,8 @@ const checkinPhoto = isCheckin ? post.data.photo : null;
 const date = getEntryDate(post);
 const updated = getEntryUpdated(post) ?? null;
 const ogImage = getEntryOgImage(post);
-const socialImage = ogImage ?? (entryHasTitle(post) ? `/og-image/${id}.png` : "/social-card.png");
+const socialImage =
+  ogImage ?? (entryHasTitle(post) ? `/og-image/${id}.png` : "/social-card.png");
 const articleDate = updated?.toISOString() ?? date.toISOString();
 
 const { headings, remarkPluginFrontmatter } = await render(post);

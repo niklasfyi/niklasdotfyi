@@ -10,6 +10,7 @@ export async function getStaticPaths() {
   const allNotes = await getCollection("note");
   const allCheckin = await getCollection("checkin");
   const allBookmarks = await getCollection("bookmark");
+  const allWatched = await getCollection("watched");
 
   // Combine all posts
   const allPosts = [
@@ -17,6 +18,7 @@ export async function getStaticPaths() {
     ...allNotes.map((post) => ({ post, type: "note" })),
     ...allCheckin.map((post) => ({ post, type: "checkin" })),
     ...allBookmarks.map((post) => ({ post, type: "bookmark" })),
+    ...allWatched.map((post) => ({ post, type: "watched" })),
   ];
 
   return allPosts.map(({ post, type }) => ({
@@ -44,6 +46,10 @@ const { Content } = await render(post);
     </PostLayout>
   ) : type === "bookmark" ? (
     <PostLayout post={post as CollectionEntry<"bookmark">}>
+      <Content />
+    </PostLayout>
+  ) : type === "watched" ? (
+    <PostLayout post={post as CollectionEntry<"watched">}>
       <Content />
     </PostLayout>
   ) : null

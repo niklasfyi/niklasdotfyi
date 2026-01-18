@@ -29,6 +29,12 @@ export function isBookmarkEntry(
 	return entry.collection === "bookmark";
 }
 
+export function isWatchedEntry(
+	entry: CollectionEntryType,
+): entry is CollectionEntry<"watched"> {
+	return entry.collection === "watched";
+}
+
 /**
  * Get the date from any collection entry.
  * Articles, notes, and bookmarks use `date`, while checkins use `published`.
