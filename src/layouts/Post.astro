@@ -14,6 +14,7 @@ import {
   getEntryDescription,
   getEntryOgImage,
   getEntryUpdated,
+  entryHasTitle,
 } from "@/utils/entry";
 
 import TOC from "@/components/blog/TOC.astro";
@@ -57,7 +58,7 @@ const checkinPhoto = isCheckin ? post.data.photo : null;
 const date = getEntryDate(post);
 const updated = getEntryUpdated(post) ?? null;
 const ogImage = getEntryOgImage(post);
-const socialImage = ogImage ?? `/og-image/${id}.png`;
+const socialImage = ogImage ?? (entryHasTitle(post) ? `/og-image/${id}.png` : "/social-card.png");
 const articleDate = updated?.toISOString() ?? date.toISOString();
 
 const { headings, remarkPluginFrontmatter } = await render(post);

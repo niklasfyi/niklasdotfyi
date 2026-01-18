@@ -87,3 +87,11 @@ export function getEntryUpdated(entry: CollectionEntryType): Date | undefined {
 	}
 	return entry.data.updated;
 }
+
+/**
+ * Check if an entry has a title property.
+ * Articles and bookmarks have titles, while notes and checkins do not.
+ */
+export function entryHasTitle(entry: CollectionEntryType): boolean {
+	return "title" in entry.data;
+}

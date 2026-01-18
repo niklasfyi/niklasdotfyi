@@ -67,15 +67,12 @@ export async function GET(context: APIContext) {
 export async function getStaticPaths() {
 	const entries = await getAllEntries();
 	return entries
-		.filter((entry) => !getEntryOgImage(entry))
+		.filter((entry) => !getEntryOgImage(entry) && "title" in entry.data)
 		.map((entry) => ({
 			params: { slug: entry.id },
 			props: {
 				pubDate: getEntryUpdated(entry) ?? getEntryDate(entry),
-				title:
-					"title" in entry.data
-						? entry.data.title
-						: "Dad - Husband - Photographer - Smart Home Tinkerer",
+				title: (entry.data as { title: string }).title,
 			},
 		}));
 }
