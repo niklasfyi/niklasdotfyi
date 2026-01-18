@@ -2,3 +2,4 @@
 /note/* /:splat 301
 /article/* /:splat 301
 /bookmark/* /:splat 301
+/watched/* /:splat 301
