@@ -58,12 +58,12 @@ function extractTagsFromFile(filePath: string): string[] {
 		const content = readFileSync(filePath, 'utf-8');
 		const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
 
-		if (!frontmatterMatch) return [];
+		if (!frontmatterMatch || !frontmatterMatch[1]) return [];
 
 		const frontmatter = frontmatterMatch[1];
 		const tagsMatch = frontmatter.match(/tags:\s*\[(.*?)\]/);
 
-		if (tagsMatch) {
+		if (tagsMatch && tagsMatch[1]) {
 			return tagsMatch[1]
 				.split(',')
 				.map((tag) => tag.trim().replace(/['"]/g, ''))
@@ -72,7 +72,7 @@ function extractTagsFromFile(filePath: string): string[] {
 
 		// Handle YAML array format
 		const tagsLines = frontmatter.match(/tags:\n((?:  - .+\n?)+)/);
-		if (tagsLines) {
+		if (tagsLines && tagsLines[1]) {
 			return tagsLines[1]
 				.split('\n')
 				.map((line) => line.trim().replace(/^- /, '').replace(/['"]/g, ''))
@@ -145,6 +145,7 @@ async function main() {
 				if (value.length > 60) {
 					return 'Title must be 60 characters or less';
 				}
+				return undefined;
 			},
 		});
 
@@ -166,6 +167,7 @@ async function main() {
 				if (!/^[a-z0-9-]+$/.test(value)) {
 					return 'Slug must contain only lowercase letters, numbers, and hyphens';
 				}
+                return undefined;
 			},
 		});
 
@@ -201,7 +203,7 @@ async function main() {
 		const customTags = await p.text({
 			message: 'Add additional tags (comma-separated):',
 			placeholder: 'web, javascript',
-			required: false,
+			// required: false,
 		});
 
 		if (p.isCancel(customTags)) {
@@ -268,7 +270,7 @@ tags: ${tagsYaml}
 		const customTags = await p.text({
 			message: 'Add additional tags (comma-separated):',
 			placeholder: 'thoughts, ideas',
-			required: false,
+			// required: false,
 		});
 
 		if (p.isCancel(customTags)) {
