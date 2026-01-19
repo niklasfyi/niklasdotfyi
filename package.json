@@ -12,7 +12,8 @@
 		"format": "pnpm run format:code && pnpm run format:imports",
 		"format:code": "biome format . --write && prettier -w \"**/*\" \"!**/*.{md,mdx}\" --ignore-unknown --cache",
 		"format:imports": "biome check --formatter-enabled=false --write",
-		"check": "astro check"
+		"check": "astro check",
+		"create": "tsx scripts/create-content.ts"
 	},
 	"dependencies": {
 		"@astrojs/markdown-remark": "^6.3.10",
@@ -48,6 +49,7 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
 		"@biomejs/biome": "^2.3.11",
+		"@clack/prompts": "^0.11.0",
 		"@pagefind/default-ui": "^1.4.0",
 		"@resvg/resvg-js": "^2.6.2",
 		"@tailwindcss/typography": "^0.5.19",
@@ -62,6 +64,7 @@
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"reading-time": "^1.5.0",
 		"tailwindcss": "4.1.18",
+		"tsx": "^4.21.0",
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {
