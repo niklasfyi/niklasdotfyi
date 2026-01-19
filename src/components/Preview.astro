@@ -58,7 +58,7 @@ const href = isBookmark ? entry.data["bookmark-of"] : `/${path}/`;
   }
   <!-- Add openstreetmap tile for location data in checkin -->
   <div
-    class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0"
+    class="prose prose-base mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0"
   >
     {
       entry.data.description ? (
@@ -88,7 +88,7 @@ const href = isBookmark ? entry.data["bookmark-of"] : `/${path}/`;
       }
     </span> -
     <a
-      class="u-uid u-url custom-link text-(--color-secondary-text)"
+      class="u-uid u-url custom-link font-mono text-(--color-secondary-text)"
       href={`/${path}/`}
     >
       <FormattedDate date={entry.data.date} />

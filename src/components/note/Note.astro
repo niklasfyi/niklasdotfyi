@@ -5,7 +5,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 import { getEntryParams } from "@/utils/params";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	note: CollectionEntry<"note">;
+  note: CollectionEntry<"note">;
 };
 
 const { note } = Astro.props;
@@ -15,12 +15,14 @@ const { path } = getEntryParams(note);
 ---
 
 <article class="content-box shadow-(--box-shadow)">
-	<div class="prose prose-sm mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0">
-		<Content />
-	</div>
-	<footer class="text-right">
-		<a class="custom-link text-(--color-secondary-text)" href={`/${path}/`}>
-			<FormattedDate date={note.data.date} />
-		</a>
-	</footer>
+  <div
+    class="prose prose-base mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0"
+  >
+    <Content />
+  </div>
+  <footer class="text-right">
+    <a class="custom-link text-(--color-secondary-text)" href={`/${path}/`}>
+      <FormattedDate date={note.data.date} />
+    </a>
+  </footer>
 </article>

@@ -6,6 +6,22 @@
 /* use a selector-based strategy for dark mode */
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+@font-face {
+  font-family: 'KodeMono';
+  src: url('/fonts/KodeMonoWght.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AtkinsonHyperlegible';
+  src: url('/fonts/AtkinsonHyperlegible-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* you could refactor below to use light-dark(), depending on your target audience */
 @theme {
 	--color-global-bg: #ffffff;
@@ -21,6 +37,8 @@
 	--color-box-bg: #f4f4f4;
 	--color-shadow: rgba(0, 0, 0, 0.08);
 	--box-shadow: 0 2px 5px var(--color-shadow);
+	--font-sans: 'AtkinsonHyperlegible', 'Montserrat', 'Corbel', 'URW Gothic', 'source-sans-pro', 'sans-serif';
+	--font-mono: 'KodeMono', 'Menlo', 'Consolas', monospace;
 }
 
 @layer base {
@@ -49,6 +67,10 @@
 			--color-shadow: rgba(0, 0, 0, 0.4);
 			--box-shadow: 0 2px 5px var(--color-shadow);
 		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--font-mono);
 	}
 
 	:target {
