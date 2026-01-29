@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2025-07-23T12:45:09.968Z",
+  "lastFetched": "2026-01-28T10:40:49.399Z",
   "children": [
     {
       "type": "entry",
@@ -3988,15 +3988,105 @@
       "wm-received": "2025-07-17T13:29:11Z",
       "wm-id": 1925040,
       "wm-source": "https://ownyourswarm.p3k.io/checkin/6877e9a96cabc06ad14f3c79/6fa0049b5924bf3cb0a664c5f00d3b87",
-      "wm-target": "https://niklas.fyi/checkin/2025/07/16/1752689065",
+      "wm-target": "https://niklas.fyi/checkins/2025/07/16/1752689065",
       "wm-protocol": "webmention",
       "content": {
         "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
       },
       "swarm-coins": 1,
-      "in-reply-to": "https://niklas.fyi/checkin/2025/07/16/1752689065",
+      "in-reply-to": "https://niklas.fyi/checkins/2025/07/16/1752689065",
       "wm-property": "in-reply-to",
       "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/691ef3a21e287a7b82238280/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-11-20T11:55:30+01:00",
+      "wm-received": "2025-11-23T08:09:52Z",
+      "wm-id": 1954966,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/691ef3a21e287a7b82238280/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://niklas.fyi/note/1763885386",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://niklas.fyi/note/1763885386",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Swarm",
+        "photo": "https://avatars.webmention.io/ss1.4sqi.net/809026e121e4bc0431b29136faf96f67f1bd68b756e68134ac3ed65048d56ca6.png",
+        "url": "https://swarmapp.com/"
+      },
+      "url": "https://ownyourswarm.p3k.io/checkin/691ef3a21e287a7b82238280/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "published": "2025-11-20T11:55:30+01:00",
+      "wm-received": "2025-11-23T08:18:37Z",
+      "wm-id": 1954967,
+      "wm-source": "https://ownyourswarm.p3k.io/checkin/691ef3a21e287a7b82238280/6fa0049b5924bf3cb0a664c5f00d3b87",
+      "wm-target": "https://niklas.fyi/checkin/1763885912",
+      "wm-protocol": "webmention",
+      "content": {
+        "text": "What's that old saying? \"If you didn't check in on Swarm, did it even happen?\" Well you were here, and now it's official."
+      },
+      "swarm-coins": 1,
+      "in-reply-to": "https://niklas.fyi/checkin/1763885912",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Jamie Tanna",
+        "photo": "https://avatars.webmention.io/www.jvt.me/582e6a8900c20ade6b097bfa1d87e8b808f61dd5a83e457e371d5b1ead35cb17.png",
+        "url": "https://www.jvt.me"
+      },
+      "url": "https://www.jvt.me/mf2/2026/01/0tsng/",
+      "published": "2026-01-19T22:41:00+00:00",
+      "wm-received": "2026-01-19T22:51:25Z",
+      "wm-id": 1968930,
+      "wm-source": "https://www.jvt.me/mf2/2026/01/0tsng/",
+      "wm-target": "https://niklas.fyi/2026/01/19/week-notes-26-3/",
+      "wm-protocol": "webmention",
+      "like-of": "https://niklas.fyi/2026/01/19/week-notes-26-3/",
+      "wm-property": "like-of",
+      "wm-private": false,
+      "rels": {
+        "canonical": "https://www.jvt.me/mf2/2026/01/0tsng/"
+      }
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Jamie Tanna",
+        "photo": "https://avatars.webmention.io/www.jvt.me/582e6a8900c20ade6b097bfa1d87e8b808f61dd5a83e457e371d5b1ead35cb17.png",
+        "url": "https://www.jvt.me"
+      },
+      "url": "https://www.jvt.me/mf2/2026/01/0tsng/",
+      "published": "2026-01-19T22:41:00+00:00",
+      "wm-received": "2026-01-19T22:51:25Z",
+      "wm-id": 1968931,
+      "wm-source": "https://www.jvt.me/mf2/2026/01/0tsng/",
+      "wm-target": "https://niklas.fyi/",
+      "wm-protocol": "webmention",
+      "like-of": "https://niklas.fyi/",
+      "wm-property": "like-of",
+      "wm-private": false,
+      "rels": {
+        "canonical": "https://www.jvt.me/mf2/2026/01/0tsng/"
+      }
     }
   ]
 }
