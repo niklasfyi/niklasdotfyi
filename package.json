@@ -57,7 +57,7 @@
 		"@types/markdown-it": "^14.1.2",
 		"@types/mdast": "^4.0.4",
 		"@types/sanitize-html": "^2.16.0",
-		"autoprefixer": "^10.4.23",
+		"autoprefixer": "^10.4.24",
 		"pagefind": "^1.4.0",
 		"prettier": "^3.8.0",
 		"prettier-plugin-astro": "0.14.1",
