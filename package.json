@@ -23,7 +23,7 @@
 		"@iconify-json/ph": "^1.2.2",
 		"@remy/webmention": "^1.5.0",
 		"@tailwindcss/vite": "4.1.18",
-		"astro": "5.16.11",
+		"astro": "5.17.1",
 		"astro-embed": "^0.12.0",
 		"astro-expressive-code": "^0.41.6",
 		"astro-icon": "^1.1.5",
