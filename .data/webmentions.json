@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2026-01-28T10:40:49.399Z",
+  "lastFetched": "2026-02-02T14:19:44.419Z",
   "children": [
     {
       "type": "entry",
@@ -4087,6 +4087,25 @@
       "rels": {
         "canonical": "https://www.jvt.me/mf2/2026/01/0tsng/"
       }
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Oliver :europe:",
+        "photo": "https://avatars.webmention.io/media.hachyderm.io/bc9c41da39c989bdca22d51d0c93cdec602f3bb737deb4b841f44f1333591c12.jpg",
+        "url": "https://metalized.net/@oliver"
+      },
+      "url": "https://hachyderm.io/@niklasfyi/115997691297256417#favorited-by-114887075720932071",
+      "published": null,
+      "wm-received": "2026-02-02T14:19:08Z",
+      "wm-id": 1972641,
+      "wm-source": "https://brid.gy/like/mastodon/@niklasfyi@hachyderm.io/115997691297256417/114887075720932071",
+      "wm-target": "https://niklas.fyi/2026/02/01/week-notes-26-5/",
+      "wm-protocol": "webmention",
+      "like-of": "https://niklas.fyi/2026/02/01/week-notes-26-5/",
+      "wm-property": "like-of",
+      "wm-private": false
     }
   ]
 }
