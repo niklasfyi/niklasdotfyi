@@ -1,4 +1,4 @@
-name: Periodic Astro Rebuild
+name: Fetch Webmentions
 on:
   schedule:
     # Runs every day at 3am UTC; adjust as needed
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  rebuild:
+  fetch-webmentions:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -32,9 +32,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Astro check
-        run: pnpm astro check
-
       - name: Build Astro project
         run: pnpm build
 
@@ -44,14 +41,8 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
           # Add all changes except those ignored by .gitignore
-          git add .
+          git add .data/webmentions.json
 
-          # Check if there are any changes to commit
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: periodic rebuild [skip ci]"
-            git push
-          fi
+          git diff --quiet && git diff --staged --quiet || (git commit -am "webmentions: periodic update"; git push;)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
