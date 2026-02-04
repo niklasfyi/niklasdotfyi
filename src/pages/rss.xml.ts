@@ -6,6 +6,8 @@ import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 import type { CollectionEntryType } from "@/types";
 import { getEntryDate, getEntryTags, isCheckinEntry, isBookmarkEntry } from "@/utils/entry";
+import { collectionDateSort } from "@/utils/date";
+
 
 // function to return title
 function getTitle(entry: CollectionEntryType): string {
@@ -23,13 +25,14 @@ function getTitle(entry: CollectionEntryType): string {
 
 export const GET = async () => {
 	const entries = await getAllEntries();
+	const sortedEntries = entries.sort(collectionDateSort);
 
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.description,
 		site: import.meta.env.SITE,
 		items: await Promise.all(
-			entries.map(async (entry) => ({
+			sortedEntries.map(async (entry) => ({
 				title: getTitle(entry),
 				description: entry.body
 					? sanitizeHtml(parser.render(entry.body), {

@@ -145,7 +145,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         {
           isBookmark &&
           post.data["bookmark-of"]?.startsWith(
-            "https://www.youtube.com/watch"
+            "https://www.youtube.com/watch",
           ) ? (
             <YouTube id={post.data["bookmark-of"]} />
           ) : null
@@ -155,8 +155,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           !!tags?.length && (
             <div class="mt-8">
               <svg
+                style="height: 24px; width: 24px;"
                 aria-hidden="true"
-                class="inline-block h-6 w-6"
+                class="inline-block"
                 fill="none"
                 focusable="false"
                 stroke="currentColor"
