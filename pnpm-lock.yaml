@@ -23,12 +23,12 @@ importers:
       '@astrojs/sitemap':
         specifier: 3.7.0
         version: 3.7.0
+      '@benjifs/wm':
+        specifier: ^1.6.1
+        version: 1.6.1
       '@iconify-json/ph':
         specifier: ^1.2.2
         version: 1.2.2
-      '@remy/webmention':
-        specifier: ^1.5.0
-        version: 1.5.0
       '@tailwindcss/vite':
         specifier: 4.1.18
         version: 4.1.18(vite@6.4.1(@types/node@24.2.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.7.1))
@@ -293,6 +293,10 @@ packages:
   '@babel/types@7.29.0':
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
+
+  '@benjifs/wm@1.6.1':
+    resolution: {integrity: sha512-YW8kmY4iJpbp7B5pilZWxD2IuHvsnp7dggULpWh92bVblRwa5RhQxUZfwzFGkyfIP8pTutkovIelX7ZBtfXDjA==}
+    hasBin: true
 
   '@biomejs/biome@2.3.14':
     resolution: {integrity: sha512-QMT6QviX0WqXJCaiqVMiBUCr5WRQ1iFSjvOLoTk6auKukJMvnMzWucXpwZB0e8F00/1/BsS9DzcKgWH+CLqVuA==}
@@ -1105,10 +1109,6 @@ packages:
     resolution: {integrity: sha512-JDvrGhc8kYBq7/SM4obJkpgwWo6pRjF/fo9CCaiJyVOkDf203Ciq2UF6TjzCFXKs7Q/zS2sS4deyBx0XzRvh9Q==}
     peerDependencies:
       parse5: 7.x || 8.x
-
-  '@remy/webmention@1.5.0':
-    resolution: {integrity: sha512-50HD/WfXlykMgQxX5Oz9Kzl8WqBbkdXP58mbd7VkBh4ZcKBixNoObyeCeomtTPW36kUMBe9icF4MofF4FC42mw==}
-    hasBin: true
 
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     resolution: {integrity: sha512-FrJibrAk6v29eabIPgcTUMPXiEz8ssrAk7TXxsiZzww9UTQ1Z5KAbFJs+Z0Ez+VZTYgnE5IQJqBcoSiMebtPHA==}
@@ -4404,6 +4404,23 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
+  '@benjifs/wm@1.6.1':
+    dependencies:
+      cheerio: 0.22.0
+      clui: 0.3.6
+      decodeuricomponent: 0.3.1
+      follow-redirects: 1.15.11
+      li: 1.3.0
+      microformat-node: 2.0.4
+      ms: 2.1.3
+      node-fetch: 2.7.0
+      optimist: 0.6.1
+      rss-parser: 3.13.0
+      uuid: 3.4.0
+    transitivePeerDependencies:
+      - debug
+      - encoding
+
   '@biomejs/biome@2.3.14':
     optionalDependencies:
       '@biomejs/cli-darwin-arm64': 2.3.14
@@ -4961,23 +4978,6 @@ snapshots:
   '@parse5/tools@0.7.0(parse5@8.0.0)':
     dependencies:
       parse5: 8.0.0
-
-  '@remy/webmention@1.5.0':
-    dependencies:
-      cheerio: 0.22.0
-      clui: 0.3.6
-      decodeuricomponent: 0.3.1
-      follow-redirects: 1.15.11
-      li: 1.3.0
-      microformat-node: 2.0.4
-      ms: 2.1.3
-      node-fetch: 2.7.0
-      optimist: 0.6.1
-      rss-parser: 3.13.0
-      uuid: 3.4.0
-    transitivePeerDependencies:
-      - debug
-      - encoding
 
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     optional: true
