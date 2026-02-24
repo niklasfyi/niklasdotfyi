@@ -14,14 +14,12 @@ const { Content } = await render(note);
 const { path } = getEntryParams(note);
 ---
 
-<article class="content-box shadow-(--box-shadow)">
-  <div
-    class="prose prose-base mt-4 line-clamp-6 max-w-none [&>p:last-of-type]:mb-0"
-  >
+<article class="content-box note-card">
+  <div class="prose note-content line-clamp-6">
     <Content />
   </div>
-  <footer class="text-right">
-    <a class="custom-link text-(--color-secondary-text)" href={`/${path}/`}>
+  <footer class="note-footer">
+    <a class="custom-link note-date mono" href={`/${path}/`}>
       <FormattedDate date={note.data.date} />
     </a>
   </footer>

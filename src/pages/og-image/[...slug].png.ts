@@ -30,20 +30,22 @@ const ogOptions: SatoriOptions = {
 };
 
 const markup = (title: string, pubDate: string) =>
-	html`<div tw="bg-[#1d1f21] text-[#c9cacc] w-full h-full flex flex-col justify-center items-center px-6">
+	html`<div
+		style="background-color:#1d1f21;color:#c9cacc;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px;text-align:center;"
+	>
 		<img
 			src=${siteConfig.url}/logo.png
 			width="500"
 			height="500"
-			tw="w-36 h-36 rounded-full"
+			style="width:144px;height:144px;border-radius:999px;"
 		/>
-		<div tw="text-8xl font-normal">
+		<div style="font-size:72px;font-weight:400;">
 			${siteConfig.author}
 		</div>
-		<div tw="text-4xl font-bold mt-2">
+		<div style="font-size:36px;font-weight:700;margin-top:8px;">
 			${title}
 		</div>
-		<div tw="text-xl pt-4">
+		<div style="font-size:20px;padding-top:16px;">
 			${pubDate} - ${siteConfig.url.replace("https://", "").replace("/", "")}
 		</div>
 	</div>`;

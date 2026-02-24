@@ -27,7 +27,7 @@ Astro Cactus is a simple opinionated starter built with [Astro](https://astro.bu
 ## Key Features
 
 - Astro v5 Fast 🚀
-- Tailwind v4
+- Custom CSS theme system
 - Accessible, semantic HTML markup
 - Responsive & SEO-friendly
 - Dark & Light mode
@@ -91,15 +91,15 @@ Replace pnpm with your choice of pnpm / yarn
 - Replace & update files within the `/public` folder:
   - icon.svg - used as the source to create favicons & manifest icons
   - social-card.png - used as the default og:image
-- Modify file `src/styles/global.css` with your own light and dark styles, and customise [Tailwind's theme settings](https://tailwindcss.com/docs/theme#customizing-your-theme).
+- Modify file `src/styles/global.css` with your own light and dark styles, tokens, and component classes.
 - Edit social links in `src/components/SocialList.astro` to add/replace your media profile. Icons can be found @ [icones.js.org](https://icones.js.org/), per [Astro Icon's instructions](https://www.astroicon.dev/guides/customization/#find-an-icon-set).
 - Create/edit posts & notes for your blog within `src/content/post/` & `src/content/note/` with .md/mdx file(s). See [below](#adding-posts-and-notes) for more details.
   - Read [this post](http://astro-cactus.chriswilliams.dev/posts/webmentions/) for adding webmentions to your site.
 - OG Image:
-  - If you would like to change the style of the generated image the Satori library creates, open up `src/pages/og-image/[slug].png.ts` to the markup function where you can edit the html/tailwind-classes as necessary. You can use this [playground](https://og-playground.vercel.app/) to aid your design.
+  - If you would like to change the style of the generated image the Satori library creates, open up `src/pages/og-image/[slug].png.ts` to the markup function where you can edit the inline styles as necessary. You can use this [playground](https://og-playground.vercel.app/) to aid your design.
   - You can also create your own og images and skip satori generating it for you by adding an ogImage property in the frontmatter with a link to the asset, an example can be found in `src/content/post/social-image.md`. More info on frontmatter can be found [here](#frontmatter)
 - Optional:
-  - Fonts: This theme sets the body element to the font family `font-mono`, in `src/layouts/Base.astro` on the `<body>`. You can change fonts by removing the variant `font-mono`, after which TailwindCSS will default to the `font-sans` [font family stack](https://tailwindcss.com/docs/font-family).
+  - Fonts: Update font stacks in `src/styles/global.css` under the `--font-*` variables.
 
 ## Updating
 

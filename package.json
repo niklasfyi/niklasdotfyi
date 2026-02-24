@@ -22,7 +22,6 @@
 		"@astrojs/sitemap": "3.7.0",
 		"@benjifs/wm": "^1.6.1",
 		"@iconify-json/ph": "^1.2.2",
-		"@tailwindcss/vite": "4.1.18",
 		"astro": "5.17.2",
 		"astro-embed": "^0.12.0",
 		"astro-expressive-code": "^0.41.6",
@@ -52,7 +51,6 @@
 		"@clack/prompts": "^1.0.1",
 		"@pagefind/default-ui": "^1.4.0",
 		"@resvg/resvg-js": "^2.6.2",
-		"@tailwindcss/typography": "^0.5.19",
 		"@types/hast": "^3.0.4",
 		"@types/markdown-it": "^14.1.2",
 		"@types/mdast": "^4.0.4",
@@ -61,9 +59,7 @@
 		"pagefind": "^1.4.0",
 		"prettier": "^3.8.1",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "^0.7.2",
 		"reading-time": "^1.5.0",
-		"tailwindcss": "4.1.18",
 		"tsx": "^4.21.0",
 		"typescript": "^5.9.3"
 	},
@@ -73,7 +69,6 @@
 		},
 		"onlyBuiltDependencies": [
 			"@biomejs/biome",
-			"@tailwindcss/oxide",
 			"esbuild",
 			"sharp"
 		]

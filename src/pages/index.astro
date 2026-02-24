@@ -29,11 +29,11 @@ const recentEntriesCombined = allEntriesCombined
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-  <section class="h-feed">
-    <section class="rounded-lg border p-4">
+  <section class="home-feed h-feed">
+    <section class="content-box reveal">
       <div class="h-card">
-        <Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
-        <p class="p-note">
+        <Image src={myImage} alt="Logo of myself" class="u-photo is-hidden" />
+        <p class="p-note home-intro">
           Hi, I'm <a
             class="p-name u-uid u-url"
             rel="me"
@@ -62,14 +62,14 @@ const recentEntriesCombined = allEntriesCombined
     </section>
     {
       recentEntriesCombined.length > 0 && (
-        <section class="mt-16">
-          <h2 class="title text-accent mb-6 text-xl">Recent</h2>
-          <div class="space-y-3" role="list">
+        <section class="home-recent reveal">
+          <h2 class="title">Recent</h2>
+          <div class="home-list" role="list">
             {recentEntriesCombined.map((entry, index) => (
               <>
                 <Preview entry={entry} />
                 {index < recentEntriesCombined.length - 1 && (
-                  <hr class="mx-auto h-0.5 w-10 border-0 bg-(--color-divider)" />
+                  <hr class="home-divider" />
                 )}
               </>
             ))}

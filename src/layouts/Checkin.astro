@@ -43,13 +43,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     title,
   }}
 >
-  <article
-    class="h-entry content-box grow rounded-lg border break-words shadow-(--box-shadow)"
-  >
-    <div id="blog-hero" class="mb-12">
+  <article class="h-entry content-box reveal post-card">
+    <div id="blog-hero" class="post-hero">
       {
         data.photo && (
-          <div class="mb-6 aspect-video">
+          <div class="post-media">
             <Image
               alt="Photo from the checkin"
               layout="constrained"
@@ -61,10 +59,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </div>
         )
       }
-      {draft ? <span class="text-base text-red-500">(Draft)</span> : null}
-      {title && <h1 class="p-name title">{title}</h1>}
-      <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <p class="font-semibold">
+      {draft ? <span class="draft-tag">(Draft)</span> : null}
+      {title && <h1 class="p-name title post-title">{title}</h1>}
+      <div class="post-meta">
+        <p>
           <FormattedDate class="dt-published" date={date} /> /{" "}
           {readingTime}
         </p>
@@ -91,26 +89,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
         {
           updated && (
-            <span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
+            <span class="post-updated">
               Updated:
-              <FormattedDate class="ms-1" date={updated} />
+              <FormattedDate class="post-updated-date" date={updated} />
             </span>
           )
         }
       </div>
     </div>
-    <div class="flex flex-col gap-10 lg:flex-row lg:items-start">
+    <div class="post-body">
       {!!headings.length && <TOC headings={headings} />}
-      <div
-        class="e-content prose prose-base prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-(--color-secondary-text) prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
-      >
+      <div class="e-content prose post-content">
         <slot />
         {
           !!tags?.length && (
-            <div class="mt-8">
+            <div class="post-tags">
               <svg
                 aria-hidden="true"
-                class="inline-block h-6 w-6"
+                class="post-tags-icon"
                 fill="none"
                 focusable="false"
                 stroke="currentColor"
@@ -128,20 +124,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               {tags.map((tag: string, i: number) => (
                 <>
                   {/* prettier-ignore */}
-                  <span class="contents">
-										<a class="custom-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}><span class="sr-only">View more blogs with the tag&nbsp;</span><span class="p-category">{tag}</span>
-										</a>{i < tags.length - 1 && ", "}
-									</span>
+                  <span class="tag-item">
+                  <a class="custom-link tag-link" data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}><span class="sr-only">View more blogs with the tag&nbsp;</span><span class="p-category">{tag}</span>
+                  </a>{i < tags.length - 1 && ", "}
+                </span>
                 </>
               ))}
             </div>
           )
         }
-        <div class="hidden">
+        <div class="is-hidden">
           <!-- This is for the h-card microformat -->
           <span class="p-author h-card">
             <a href="/" class="p-name u-url">{siteConfig.author}</a>
-            <Image src={myImage} alt="Logo of myself" class="u-photo hidden" />
+            <Image
+              src={myImage}
+              alt="Logo of myself"
+              class="u-photo is-hidden"
+            />
           </span>
           <a href={canonicalURL} rel="canonical" class="u-url u-uid"></a>
           <span class="p-summary">{description}</span>
@@ -150,7 +150,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
   </article>
-  <div class="content-box mt-4 rounded-lg border shadow-(--box-shadow)">
+  <div class="content-box post-footer">
     <span
       >Posted in <a class="custom-link" href={`/${collection}`}>/{collection}</a
       >
@@ -166,15 +166,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </span>
   </div>
-  <button
-    class="hover:border-link fixed end-4 bottom-8 z-90 flex h-10 w-10 translate-y-28 cursor-pointer items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all transition-discrete duration-300 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:end-8 sm:h-12 sm:w-12 dark:bg-zinc-700"
-    data-show="false"
-    id="to-top-btn"
-  >
+  <button class="to-top" data-show="false" id="to-top-btn">
     <span class="sr-only">Back to top</span>
     <svg
       aria-hidden="true"
-      class="h-6 w-6"
+      class="icon-24"
       fill="none"
       focusable="false"
       stroke="currentColor"

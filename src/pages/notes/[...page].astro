@@ -45,21 +45,21 @@ const paginationProps = {
 
 <PageLayout meta={meta}>
   <section>
-    <h1 class="title mb-6 flex items-center gap-3">
-      Notes <a class="text-accent" href="/note/rss.xml" target="_blank">
+    <h1 class="title notes-title">
+      Notes <a class="rss-link" href="/note/rss.xml" target="_blank">
         <span class="sr-only">RSS feed</span>
         <Icon
           aria-hidden="true"
-          class="h-6 w-6"
+          class="icon-24"
           focusable="false"
           name="ph:rss"
         />
       </a>
     </h1>
-    <ul class="mt-6 space-y-8 text-start">
+    <ul class="notes-list">
       {
         page.data.map((note) => (
-          <li class="">
+          <li>
             <Preview entry={note} />
           </li>
         ))

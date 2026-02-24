@@ -15,9 +15,5 @@
 		"source.organizeImports.biome": "explicit"
 	},
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"astro.content-intellisense": true,
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"tailwindCSS.experimental.configFile": "./src/styles/global.css"
+	"astro.content-intellisense": true
 }
