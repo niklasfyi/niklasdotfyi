@@ -23,8 +23,7 @@
 	--color-global-bg: #f7f3ee;
 	--color-global-text: #1f1c19;
 	--color-secondary-text: #5b5650;
-	--color-link: #c0492d;
-	--color-link-hover: #a73c26;
+	--color-link: hsl(7.85deg 67.3% 31.18%);
 	--color-accent: #2f6b5f;
 	--color-accent-2: #1e1b18;
 	--color-quote: #2f6b5f;
@@ -57,8 +56,7 @@ html[data-theme="dark"] {
 	--color-global-bg: #0f1110;
 	--color-global-text: #e7e2da;
 	--color-secondary-text: #b2aba1;
-	--color-link: #f0b26c;
-	--color-link-hover: #f3c084;
+	--color-link: hsl(7.85deg 67.3% 31.18%);
 	--color-accent: #9fd1c5;
 	--color-accent-2: #f5f0e8;
 	--color-quote: #a8d8cc;
@@ -426,6 +424,7 @@ html[data-theme="dark"].site-bg {
 .site-nav-link[aria-current="page"] {
 	color: var(--color-global-text);
 	text-decoration: underline;
+	text-decoration-color: var(--color-link);
 	text-decoration-thickness: 2px;
 	text-underline-offset: 4px;
 }
