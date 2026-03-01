@@ -22,7 +22,7 @@
 		"@astrojs/sitemap": "3.7.0",
 		"@benjifs/wm": "^1.6.1",
 		"@iconify-json/ph": "^1.2.2",
-		"astro": "5.17.2",
+		"astro": "5.18.0",
 		"astro-embed": "^0.12.0",
 		"astro-expressive-code": "^0.41.6",
 		"astro-icon": "^1.1.5",
