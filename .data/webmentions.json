@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2026-02-11T20:27:20.565Z",
+  "lastFetched": "2026-02-25T20:52:12.863Z",
   "children": [
     {
       "type": "entry",
@@ -4104,6 +4104,44 @@
       "wm-target": "https://niklas.fyi/2026/02/01/week-notes-26-5/",
       "wm-protocol": "webmention",
       "like-of": "https://niklas.fyi/2026/02/01/week-notes-26-5/",
+      "wm-property": "like-of",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Khleedril",
+        "photo": "https://avatars.webmention.io/media.hachyderm.io/cf8756f51af5d67c2cfada7099c85a4e8771b8bf983fe16c8dc44c73a5fe1b20.jpg",
+        "url": "https://cyberplace.social/@khleedril"
+      },
+      "url": "https://hachyderm.io/@niklasfyi/116080024469822122#favorited-by-110980811539259660",
+      "published": null,
+      "wm-received": "2026-02-16T17:35:24Z",
+      "wm-id": 1976359,
+      "wm-source": "https://brid.gy/like/mastodon/@niklasfyi@hachyderm.io/116080024469822122/110980811539259660",
+      "wm-target": "https://niklas.fyi/",
+      "wm-protocol": "webmention",
+      "like-of": "https://niklas.fyi/",
+      "wm-property": "like-of",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Pete Prodoehl ????",
+        "photo": "https://avatars.webmention.io/media.hachyderm.io/3d05039bab9e7242999e8cedc32098dbd3c361b59f2e1bfad112fd8cb0c347ef.jpg",
+        "url": "https://mastodon.social/@rasterweb"
+      },
+      "url": "https://hachyderm.io/@niklasfyi/116080024469822122#favorited-by-109258701401921534",
+      "published": null,
+      "wm-received": "2026-02-16T17:35:44Z",
+      "wm-id": 1976360,
+      "wm-source": "https://brid.gy/like/mastodon/@niklasfyi@hachyderm.io/116080024469822122/109258701401921534",
+      "wm-target": "https://niklas.fyi/",
+      "wm-protocol": "webmention",
+      "like-of": "https://niklas.fyi/",
       "wm-property": "like-of",
       "wm-private": false
     }
