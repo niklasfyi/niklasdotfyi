@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from 'astro/zod';
 import { glob } from "astro/loaders";
 
 function removeDupsAndLowerCase(array: string[]) {
@@ -7,7 +8,7 @@ function removeDupsAndLowerCase(array: string[]) {
 
 const baseSchema = z.object({
 	date: z
-		.string()
+		.iso
 		.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
 		.transform((val) => new Date(val)),
 	client_id: z.string().optional(),
@@ -48,16 +49,16 @@ const checkin = defineCollection({
 		z.object({
 			type: z.string(),
 			published: z
-				.string()
+				.iso
 				.datetime({ offset: true })
 				.transform((val) => new Date(val)),
-			syndication: z.string().url().optional(),
+			syndication: z.url().optional(),
 			photo: image().optional(),
 			checkin: z
 				.object({
 					type: z.string(),
 					name: z.string(),
-					url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
+					url: z.union([z.url(), z.array(z.url())]).optional(),
 					tel: z.string().optional(),
 					latitude: z.number(),
 					longitude: z.number(),
@@ -90,7 +91,7 @@ const checkin = defineCollection({
 const bookmark = defineCollection({
 	loader: glob({ base: "./src/content/bookmark", pattern: "**/*.md" }),
 	schema: baseSchema.extend({
-		"bookmark-of": z.string().url(),
+		"bookmark-of": z.url(),
 		title: z.string(),
 	}),
 });
@@ -107,15 +108,15 @@ const watched = defineCollection({
 				type: z.array(z.string()),
 				properties: z.object({
 					name: z.array(z.string()),
-					photo: z.array(z.string().url()),
+					photo: z.array(z.url()),
 					uid: z.array(z.string()),
-					url: z.array(z.string().url()),
+					url: z.array(z.url()),
 					published: z.array(z.string()),
 					content: z.array(z.string()),
 				}),
 			}),
 			summary: z.string(),
-			featured: z.string().url().optional(),
+			featured: z.url().optional(),
 			progress: z.string().optional(),
 			rating: z.string().optional(),
 			rewatch: z.boolean().optional(),
